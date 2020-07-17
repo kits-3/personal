@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD:Vending machine/27.PhamThanhTam/.project
-	<name>test_drink_or_notdrink</name>
-=======
-	<name>src</name>
->>>>>>> b75756f5794513af9a0a0d154baffa2d9c33691f:Vending machine/22.VoDuchoa/bin/.project
+	<name>vending_machine</name>
 	<comment></comment>
 	<projects>
 	</projects>
