@@ -4,19 +4,18 @@ import java.util.*;
 
 public class Money {
 	
+	public static int customerMoney;
+
 	public Money(){
 		
 	}
-	public int inputMoney(Scanner scanner){
-		int money=0;
-		System.out.println("=====USER======");
-		System.out.print("Please insert money (USD): ");
-		try{
-			money = Integer.parseInt(scanner.next());
-		}catch(NumberFormatException nfe){
-			System.out.println("Warning: Please enter number only!!!");
-		}
-		return money;
+	
+	
+	
+	
+	public int reCalculateChangeMoney(int givenProductPrice){
+		customerMoney -= givenProductPrice;
+		return customerMoney;
 	}
 	
 	public boolean checkInsertedMoneyWithMinCosProduct(int insertedMoney, Set<Product> productSet){

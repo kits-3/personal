@@ -1,6 +1,7 @@
 package Customer;
-import java.security.NoSuchProviderException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
@@ -25,24 +26,31 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		//import products into vending machine
+		
 		int noProductTypes = 0;
 		Product product = null;
-		ProductProcess pp = null; 
+		VendingMachine machine = null; 
 		int insertedMoney = 0;
 		boolean enoughMoney = false;
 		String cont = "";
+		int option = 0;
+		machine = new VendingMachine();
+		Admin admin = null;
+		Money money = new Money();
 		
+		//Admin import products into vending machine
 		noProductTypes = enterKindOfProductsQuantity(scanner);
 		for(int i=1; i <= noProductTypes; ++i){
-			pp = new ProductProcess();
-			product = pp.insertProductsIntoVendingMachine(scanner);
+			admin = new Admin();
+			product = admin.insertProductsIntoVendingMachine(scanner);
 			productSet.add(product);
 		}
 		
-		Money money = new Money();
+		//Customer
+		Customer customer = new Customer();
 		while(true){
-			insertedMoney = money.inputMoney(scanner);
+			insertedMoney = customer.inputMoney(scanner);
+			customer.setTotalMoney(insertedMoney);
 			enoughMoney = money.checkInsertedMoneyWithMinCosProduct(insertedMoney, productSet);
 			if(enoughMoney == true){
 				break;
@@ -58,9 +66,29 @@ public class Main {
 		if(cont.equals("N")){
 			money.returnMoney();
 		}else{
-			pp.selectProduct(scanner, productSet);
-		}
-		
-		
+			option = customer.selectProduct(scanner, productSet);
+			loop1:
+			while(true){
+				enoughMoney = machine.enoughMoneyWithSelectedProductPrice(option, productSet);
+				if (enoughMoney){
+					//get product
+					System.out.println("Please accept the product in the slot below");
+					
+					break loop1;
+				}else{
+					loop2:
+					while(true){
+						System.out.println("Warning: Not enough money.");
+						System.out.print("Do you want to continue (Y/N)? ");
+						cont = scanner.next().toUpperCase();
+						if(cont.equals("N")){
+							break loop1;
+						}
+						insertedMoney = customer.inputMoney(scanner);
+						continue loop1;
+					}
+				}
+			}
+		}	
 	}
 }
