@@ -59,6 +59,7 @@ public class SimpleCalculator {
 				
 			}else{
 				System.out.println("GOOD BYE.");
+				scanner.close();
 				break;
 			}
 		}
