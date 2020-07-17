@@ -92,7 +92,16 @@ public class machineVen {
 				}
 
 			}
-
+			System.out.println(" Money is left in the device: " + money);
+				System.out.println("add Money: ");
+				int moneyR = scanner.nextInt();
+				money = money + moneyR;
+				System.out.println(money);
+				if (money <minCProduct) {
+					System.out.println("lack of money");
+					System.out.println("add money");
+					int c = scanner.nextInt();
+					money +=c;
 		}
 
 	}
