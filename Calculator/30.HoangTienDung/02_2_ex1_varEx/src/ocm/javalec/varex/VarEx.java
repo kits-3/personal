@@ -13,8 +13,7 @@ public class VarEx {
 		int a = scan.nextInt();
 		System.out.println("Input operator: ");
 		String b = scan.next();
-		if(b== "+"||b== "-"||b== "*"||b== "/")
-		{
+		
 			System.out.println("Input number2: ");
 			int c = scan.nextInt();
 			scan.close();
@@ -36,10 +35,7 @@ public class VarEx {
 			}
 			
 		
-		}
-		else {
-			System.out.print("erro.....!");
-		}
+
 
 	}
 }
