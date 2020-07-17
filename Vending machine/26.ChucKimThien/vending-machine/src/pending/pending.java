@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class pending {
 	static int mincost= 10;
 	static int pay;
+	static boolean muatiep= true ;
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("input money: ($)");
@@ -12,7 +13,7 @@ public class pending {
 		System.out.println("You have: "+money+"$");
 		while(true)
 		{
-		while(money<mincost) 
+		while(money<mincost&&muatiep) 
 		{
 			System.out.println("You don't have enough money!");
 			System.out.println("Please recharge money!");
@@ -26,7 +27,7 @@ public class pending {
 			}
 			break;
 		}
-		while(money>=mincost)
+		while(money>=mincost && muatiep)
 		{
 			System.out.println("You have enough money!");
 			System.out.println("------------------------------------------------------------");
@@ -87,12 +88,13 @@ public class pending {
 				case "2":
 				
 					System.out.println("See you!!!");
+					muatiep = false;
 					break;
 				}
 				
+			//
 			
-			
-			if(money<pay)
+			if(money<pay&&muatiep)
 			{
 				System.out.println("------------------------------------------------------------");
 				System.out.println("you don't have enough money!");
@@ -114,11 +116,11 @@ public class pending {
 					break;
 				case "3":
 					System.out.println("See you!!!");
+					muatiep = false;
 					break;
 				default:
 					break;
 				}
-				
 				break;
 			}
 			
