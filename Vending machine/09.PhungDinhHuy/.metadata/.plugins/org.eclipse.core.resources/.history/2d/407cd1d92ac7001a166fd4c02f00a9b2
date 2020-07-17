@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
+
+public class MakeCalculator {
+	
+	public static void simpleCalculator() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Nhập số a:");
+		String a = sc.next();
+		System.out.println("Nhập số b:");
+		String b = sc.next();
+
+		System.out.println("Nhập phép toán");
+		String dau = sc.next();
+
+		int rs=0;
+
+
+
+		switch (dau) {
+		case "+":
+			rs = Integer.valueOf(a) + Integer.valueOf(b);
+			break;
+
+		case "-":
+			rs = Integer.valueOf(a) - Integer.valueOf(b);
+			break;
+
+		case "*":
+			rs = Integer.valueOf(a) * Integer.valueOf(b);
+			break;
+
+		case "/":
+			rs = Integer.valueOf(a) / Integer.valueOf(b);
+			break;
+		
+		default:
+			System.out.println("Bạn ko dc nhập chữ");
+			break;
+		}
+		System.out.println("Kết quả: "+rs);
+	}
+	
+	public static void standardCalculator() {
+		String[] arr_dau={"+","-","*","/"};
+		int[] arr_number = {0,1,2,3,4,5,6,7,8,9};
+		
+		/*
+		   -Kiểm tra dấu phép tính hoặc số
+			+Nếu là dấu thì có thể nhập số nhưng ko dc nhập tiếp dấu
+			+Nếu là số thì có thể nhập tiếp số hoặc dấu
+			
+		   -Kiểm tra nếu nhập dấu bằng thì thực hiện phép tính
+			 
+		 */
+		
+		Scanner sc=new Scanner(System.in);
+		String dataInput=sc.nextLine();
+		
+		for(int i=0;i<arr_number.length;i++) {
+			if(dataInput.equals(arr_dau[i])) {
+				dataInput=Integer.valueOf(dataInput);
+			}
+		}
+		
+		for(int i=0;i<arr_number.length;i++) {
+			if(dataInput.equals(arr_number[i])) {
+				
+			}
+		}
+		
+		
+		
+		
+	}
+	
+
+	public static void main(String[] args) {
+		simpleCalculator();
+		
+		
+	}
+
+}
