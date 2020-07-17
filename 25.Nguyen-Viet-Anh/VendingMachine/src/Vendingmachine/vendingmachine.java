@@ -19,6 +19,8 @@ public class Vendingmachine {
 			
 			if ( a >= Coca) {
 				System.out.println("--------------------------------------");
+				System.out.println("Your money: " + a);
+				System.out.println("--------------------------------------");
 				System.out.println("1.Coca: 10000");
 				System.out.println("2.7up: 15000");
 				System.out.println("3.Hamburger: 20000");
@@ -70,6 +72,7 @@ public class Vendingmachine {
 				sc.nextLine();
 				switch(choose) {
 				case 1:
+					System.out.println("--------------------------------------");
 					System.out.print("You add Amount: ");
 					int c = sc.nextInt();
 					a += c;
