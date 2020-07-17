@@ -5,15 +5,25 @@ import java.util.Scanner;
 
 public class vendingMachine {
 	static Scanner sc = new Scanner(System.in);
+	static String regex = "\\d+";
 	public static void main(String[] args) {
-		int money;
+		int money = 0;
 		int tienbandau;
 		String cf;
+		boolean isNumber = true;
 		List<String> arrDrink = new ArrayList<>();
 		do {
-			System.out.print("please input money: ");
-			money = sc.nextInt();
-		} while (money % 10 != 0);
+			System.out.print("Moi ban cho tien vao:  ");
+			if(sc.hasNextInt()) {
+				money =  sc.nextInt();
+				isNumber = true;
+			}else {
+				System.out.println("Do you understand?");
+				isNumber = false;
+				sc.next();
+			}
+			
+		} while (money % 10 != 0 || isNumber == false);
 		
 		do {
 			System.out.print("Moi ban lua loai nuoc muon mua: 1.coca(10VND) / 2.pessi(20VND) / 3.milk(30VND): ");
