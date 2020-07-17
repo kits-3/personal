@@ -11,18 +11,7 @@ public class Money {
 	}
 	
 	
-	public int inputMoney(Scanner scanner){
-		int money=0;
-		System.out.println("=====USER======");
-		System.out.print("Please insert money (USD): ");
-		try{
-			money = Integer.parseInt(scanner.next());
-		}catch(NumberFormatException nfe){
-			System.out.println("Warning: Please enter number only!!!");
-		}
-		customerMoney += money;
-		return money;
-	}
+	
 	
 	public int reCalculateChangeMoney(int givenProductPrice){
 		customerMoney -= givenProductPrice;

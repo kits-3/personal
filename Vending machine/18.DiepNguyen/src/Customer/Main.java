@@ -66,7 +66,7 @@ public class Main {
 		if(cont.equals("N")){
 			money.returnMoney();
 		}else{
-			option = machine.selectProduct(scanner, productSet);
+			option = customer.selectProduct(scanner, productSet);
 			loop1:
 			while(true){
 				enoughMoney = machine.enoughMoneyWithSelectedProductPrice(option, productSet);
@@ -84,7 +84,7 @@ public class Main {
 						if(cont.equals("N")){
 							break loop1;
 						}
-						insertedMoney = money.inputMoney(scanner);
+						insertedMoney = customer.inputMoney(scanner);
 						continue loop1;
 					}
 				}
