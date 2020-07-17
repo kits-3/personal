@@ -2,6 +2,22 @@ import java.util.Scanner;
 
 public class SimpleCalculator {
 
+	public static int add(int num1, int num2){
+		return num1 + num2;
+	}
+	
+	public static int subtract(int num1, int num2){
+		return num1 - num2;
+	}
+	
+	public static int multiple(int num1, int num2){
+		return num1 * num2;
+	}
+	
+	public static int divide(int num1, int num2){
+		return num1/num2;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] inputList = {0, 0};
@@ -21,16 +37,16 @@ public class SimpleCalculator {
 			
 			switch (operator) {
 			case "+":
-				sum = inputList[0] + inputList[1];
+				sum = add(inputList[0], inputList[1]);
 				break;
 			case "-":
-				sum = inputList[0] - inputList[1];
+				sum = subtract(inputList[0], inputList[1]);
 				break;
 			case "*":
-				sum =  inputList[0] * inputList[1];
+				sum = multiple(inputList[0], inputList[1]);
 				break;
 			case "/":
-				sum =  inputList[0] / inputList[1];
+				sum = divide(inputList[0], inputList[1]);
 				break;
 			default:
 				System.out.println("Out of scope");
