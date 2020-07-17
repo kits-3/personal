@@ -17,8 +17,7 @@ public class vending_machine {
 		System.out.print("Enter Money: ");
 		int a = input.nextInt();
 		
-		if(a >= minCost) {
-			
+		if(a >= minCost) {		
 			System.out.println("Your money is: "+ a + " VND");
 			System.out.println("--Chose product--");
 			System.out.println("1.Coca(10000 VND)   2.sprite(20000 VND)    3.Pepsi(15000 VND)    4.Redbull(30000 VND)    5.Water(5000 VND)");
@@ -34,7 +33,19 @@ public class vending_machine {
 					}else {
 						
 						System.out.println("your money price lower product price. Please get more money !");
-						
+						Scanner input5 = new Scanner(System.in);
+						int h = input5.nextInt();
+						switch (h) {
+						case 1:
+							System.out.println("give your excess cash");
+							break;
+						case 2:
+							System.out.println("Please get more money!");
+							break;
+
+						default:
+							break;
+						}
 					}
 					break;
 				case 2:
@@ -44,7 +55,21 @@ public class vending_machine {
 						System.out.println("your product Sprite");
 //						System.out.println("you want to more? 1.yes  2.no" );
 					}else {
-						System.out.println("your money price lower product price. Please get more money !");
+						System.out.println("your money price lower product price. Please get more money or !");
+						System.out.println("1.give your excess cash  2.Please get more money!");
+						Scanner input5 = new Scanner(System.in);
+						int g = input5.nextInt();
+						switch (g) {
+						case 1:
+							System.out.println("give your excess cash");
+							break;
+						case 2:
+							System.out.println("Please get more money!");
+							break;
+
+						default:
+							break;
+						}
 					}
 					break;
 				case 3:
@@ -55,6 +80,19 @@ public class vending_machine {
 //						System.out.println("you want to more? 1.yes  2.no" );
 					}else {
 						System.out.println("your money price lower product price. Please get more money !");
+						Scanner input5 = new Scanner(System.in);
+						int j = input5.nextInt();
+						switch (j) {
+						case 1:
+							System.out.println("give your excess cash");
+							break;
+						case 2:
+							System.out.println("Please get more money!");
+							break;
+
+						default:
+							break;
+						}
 					}
 					
 					break;
@@ -66,6 +104,19 @@ public class vending_machine {
 //						System.out.println("you want to more? 1.yes  2.no" );
 					}else {
 						System.out.println("your money price lower product price. Please get more money !");
+						Scanner input5 = new Scanner(System.in);
+						int k = input5.nextInt();
+						switch (k) {
+						case 1:
+							System.out.println("give your excess cash");
+							break;
+						case 2:
+							System.out.println("Please get more money!");
+							break;
+
+						default:
+							break;
+						}
 					}
 					
 					break;
@@ -77,6 +128,19 @@ public class vending_machine {
 //						System.out.println("you want to more? 1.yes  2.no" );
 					}else {
 						System.out.println("your money price lower product price. Please get more money !");
+						Scanner input5 = new Scanner(System.in);
+						int l = input5.nextInt();
+						switch (l) {
+						case 1:
+							System.out.println("give your excess cash");
+							break;
+						case 2:
+							System.out.println("Please get more money!");
+							break;
+
+						default:
+							break;
+						}
 					}
 					
 					break;
