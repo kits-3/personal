@@ -30,14 +30,9 @@ public class Main {
 			System.out.println("4. Cancel");
 			choose = Integer.parseInt(scanner.nextLine());
 			break;
-
 		}
-		if(choose == 0) {
-			System.out.println("Please Choose ");
-			System.out.println("1. Coca     15000");
-			System.out.println("2. Pepsi    20000");
-			System.out.println("3. C2       10000");
-			System.out.println("4. Cancel");
+		if (choose == 0) {
+			showMenu();
 			choose = Integer.parseInt(scanner.nextLine());
 		}
 
@@ -61,6 +56,8 @@ public class Main {
 					change = money;
 					break;
 				}
+				System.out.println("4. Cancel");
+				choose = Integer.parseInt(scanner.nextLine());
 				change = money;
 				break;
 			case 2:
@@ -81,6 +78,8 @@ public class Main {
 					change = money;
 					break;
 				}
+				System.out.println("4. Cancel");
+				choose = Integer.parseInt(scanner.nextLine());
 				change = money;
 				break;
 			case 3:
@@ -101,25 +100,32 @@ public class Main {
 					change = money;
 					break;
 				}
+				System.out.println("4. Cancel");
+				choose = Integer.parseInt(scanner.nextLine());
 				change = money;
 				break;
 			default:
 				System.out.println("Choose again");
 				break;
 			}
-			System.out.println("Your change is: " + change);
-			System.out.println("Want some more?");
-			System.out.println("1. Coca     15000");
-			System.out.println("2. Pepsi    20000");
-			System.out.println("3. C2       10000");
-			System.out.println("4. Cancel");
-			choose = Integer.parseInt(scanner.nextLine());
+			if (choose != 4) {
+				System.out.println("Your change is: " + change);
+				showMenu();
+				choose = Integer.parseInt(scanner.nextLine());
+			}
 		}
-
 		if (change > 0)
 			System.out.println("Take your change: " + change);
 		System.out.println("See you again!!!!!!!!!!!!");
 		scanner.close();
+		
+		
 	}
-
+	public static void showMenu() {
+		System.out.println("Please Choose ");
+		System.out.println("1. Coca     15000");
+		System.out.println("2. Pepsi    20000");
+		System.out.println("3. C2       10000");
+		System.out.println("4. Cancel");
+	}
 }
