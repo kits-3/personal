@@ -57,6 +57,7 @@ public class Vendingmachine {
 							System.out.println("--------------------------------------");
 							System.out.println("Amount is not enough !");
 					default:
+						System.out.println("--------------------------------------");
 						System.out.println("Not found ~");
 						break;
 				}
@@ -82,6 +83,7 @@ public class Vendingmachine {
 					System.out.println("Your amount: " + a);
 					break;
 				default:
+					System.out.println("--------------------------------------");
 					System.out.println("Not found ~");
 					break;
 				}
