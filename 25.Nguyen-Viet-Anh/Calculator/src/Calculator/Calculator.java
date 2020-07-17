@@ -2,7 +2,7 @@ package Caculator;
 
 import java.util.Scanner;
 
-public class Caculator {
+public class Calculator {
 	public static void main(String[] args) {
 		float num1, num2;
 		String pt;

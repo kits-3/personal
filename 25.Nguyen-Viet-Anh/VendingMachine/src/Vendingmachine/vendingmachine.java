@@ -2,7 +2,7 @@ package Vendingmachine;
 
 import java.util.Scanner;
 
-public class vendingmachine {
+public class Vendingmachine {
 	
 	
 	
