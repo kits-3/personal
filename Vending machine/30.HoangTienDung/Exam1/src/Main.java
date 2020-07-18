@@ -63,6 +63,7 @@ public class Main {
 					}
 				}
 			}while(checkMore);
+			System.out.println("Your exchange: "+Price);
 			System.out.println("Good bye !");
 			scan.close();
 	}
