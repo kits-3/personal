@@ -43,6 +43,7 @@ public class Main {
 					if(Price>=arrayPrice.get(b-1))
 					{						
 						Price = Price-arrayPrice.get(b-1);
+						System.out.println("Your had "+arrayName.get(b-1));
 						System.out.println("Your Price: "+Price);
 						System.out.println("Are you buy? (Y/N?)");
 						String c = scan.next();
