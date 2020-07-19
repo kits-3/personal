@@ -4,14 +4,6 @@ import java.util.Scanner;
 
 public class Main {
 
-//		public static boolean soSanh(String i,String j)
-//		{
-//			if(i==j)
-//			{
-//				return true;
-//			}
-//			else return false;
-//		}
 
 		public static void main(String[] args) {
 			int Price =0;
@@ -28,6 +20,12 @@ public class Main {
 			arrayPrice.add(15000);
 			arrayPrice.add(20000);
 			
+			System.out.println("product :");
+			for(int j=0;j<arrayName.size();j++)
+			{
+				System.out.println(j+1+"--"+arrayName.get(j)+"-"+arrayPrice.get(j));
+			}
+			
 			do 
 			{
 				while(Price<10000)
@@ -38,7 +36,11 @@ public class Main {
 				}
 				if(Price>=10000)
 				{
-					System.out.println("Input select product: \n1-"+arrayName.get(0)+"-"+arrayPrice.get(0)+"\n2-"+arrayName.get(1)+"-"+arrayPrice.get(1)+"\n3-"+arrayName.get(2)+"-"+arrayPrice.get(2));
+					for(int j=0;j<arrayName.size();j++)
+					{
+						System.out.println(j+1+"--"+arrayName.get(j)+"-"+arrayPrice.get(j));
+					}
+					System.out.print("Input product :");
 					int b = scan.nextInt();
 					if(Price>=arrayPrice.get(b-1))
 					{						
