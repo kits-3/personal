@@ -1,0 +1,202 @@
+package ex1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+
+public class vendingmachine {
+	
+	public static int add_money(int money) {
+		Scanner sc3 = new Scanner (System.in);
+		System.out.println("add money");
+		money = sc3.nextInt();
+		return money;
+	}
+	
+	
+	
+	
+	public static int vending_machine(int money ) {
+		final int price_coca = 20;
+		final int price_pepsi = 30;
+		final int price_milk = 40;
+		final int price_water = 10;
+		final int price_min =10;
+		
+		 money += add_money(money);
+		 int excess_money = money;
+		if(money >= price_min) {
+			System.out.println("choose the drink for you");
+//			System.out.println("press 1 to choose coca, press 2 to choose pepsi, press 3 to choose milk, press 4 to choose water ");
+//			List<String> list1 = new ArrayList();
+//			list1.add("price_coca");
+//			list1.add("price_pepsi");
+//			list1.add("price_milk");
+//			list1.add("price_water");
+//			list1.add("price_min");
+			List<Integer> list2 = new ArrayList();
+			list2.add(20);
+			list2.add(30);
+			list2.add(40);
+			list2.add(10);
+			List<String> list3 = new ArrayList();
+			list3.add("coca");
+			list3.add("pepsi");
+			list3.add("milk");
+			list3.add("water");
+			
+			Scanner sc = new Scanner (System.in);
+			System.out.println("choose your drink");
+			for (int i = 0; i < list3.size(); i++) {
+				System.out.print(list3.get(i) + " " + list2.get(i) + " ");
+			}
+			String type_drink = sc.next();
+		
+			for (int i = 0; i < list3.size(); i++) {
+				if (type_drink.equals(list3.get(i))){
+					excess_money -= list2.get(i);
+					if(excess_money >=0) {
+						System.out.println("want more");
+						Scanner sc2 = new Scanner (System.in);
+						String choose2 = sc2.next();
+						if (choose2.equals("yes")) {
+							return vending_machine(excess_money);
+							}else if(choose2.contentEquals("no")) {
+								System.out.println("here is your drink");
+								System.out.println("here is your excess_money " + excess_money);
+							}
+						}else {
+							System.out.println("return money ?");
+							Scanner sc1 = new Scanner(System.in);
+							String choose = sc1.nextLine();
+							if(choose.equals("yes")) {
+								System.out.println("your money "+money+" was return");
+							}else if(choose.contentEquals("no")) {
+								return vending_machine(money+add_money(money));
+							}
+						
+						}
+						}
+					}
+					
+//			switch(type_drink) {
+//			case 1:
+//				excess_money -= price_coca ; 
+//				if(excess_money >= 0) {
+//					System.out.println("want more");
+//					Scanner sc2 = new Scanner(System.in);
+//					String choose2 = sc2.nextLine();
+//					if(choose2.equals("yes")) {
+//						return vending_machine(excess_money);
+//					}else if(choose2.contentEquals("no")) {
+//						System.out.println("here is your drink");
+//						System.out.println("here is your excess_money " + excess_money);
+//					}
+//				}else {
+//					System.out.println("return money ?");
+//					Scanner sc1 = new Scanner(System.in);
+//					String choose = sc1.nextLine();
+//					if(choose.equals("yes")) {
+//						System.out.println("your money "+money+" was return");
+//					}else if(choose.contentEquals("no")) {
+//						return vending_machine(money+add_money(money));
+//					}
+//				
+//				}
+//				
+//				break;
+//			case 2:
+//				excess_money -= price_pepsi ; 
+//				if(excess_money >= 0) {
+//					System.out.println("want more");
+//					Scanner sc2 = new Scanner(System.in);
+//					String choose2 = sc2.nextLine();
+//					if(choose2.equals("yes")) {
+//						return vending_machine(excess_money);
+//					}else if(choose2.contentEquals("no")) {
+//						System.out.println("here is your drink");
+//						System.out.println("here is your excess_money " + excess_money);
+//					}
+//				}else {
+//					System.out.println("return money ?");
+//					Scanner sc1 = new Scanner(System.in);
+//					String choose = sc1.nextLine();
+//					if(choose.equals("yes")) {
+//						System.out.println("your money "+money+" was return");
+//					}else if(choose.contentEquals("no")) {
+//						return vending_machine(money+add_money(money));
+//					}
+//				
+//				}
+//			
+//				break;
+//			case 3:
+//				excess_money -= price_milk ; 
+//				if(excess_money >= 0) {
+//					System.out.println("want more");
+//					Scanner sc2 = new Scanner(System.in);
+//					String choose2 = sc2.nextLine();
+//					if(choose2.equals("yes")) {
+//						return vending_machine(excess_money);
+//					}else if(choose2.contentEquals("no")) {
+//						System.out.println("here is your drink");
+//						System.out.println("here is your excess_money " + excess_money);
+//					}
+//				}else {
+//					System.out.println("return money ?");
+//					Scanner sc1 = new Scanner(System.in);
+//					String choose = sc1.nextLine();
+//					if(choose.equals("yes")) {
+//						System.out.println("your money "+money+" was return");
+//					}else if(choose.contentEquals("no")) {
+//						return vending_machine(money+add_money(money));
+//					}
+//				
+//				}
+//			case 4:
+//				excess_money -= price_water ; 
+//				if(excess_money >= 0) {
+//					System.out.println("want more");
+//					Scanner sc2 = new Scanner(System.in);
+//					String choose2 = sc2.nextLine();
+//					if(choose2.equals("yes")) {
+//						return vending_machine(excess_money);
+//					}else if(choose2.contentEquals("no")) {
+//						System.out.println("here is your drink");
+//						System.out.println("here is your excess_money " + excess_money);
+//					}
+//				}else {
+//					System.out.println("return money ?");
+//					Scanner sc1 = new Scanner(System.in);
+//					String choose = sc1.nextLine();
+//					if(choose.equals("yes")) {
+//						System.out.println("your money "+money+" was return");
+//					}else if(choose.contentEquals("no")) {
+//						return vending_machine(money+add_money(money));
+//					}
+				
+				}
+//			\
+				
+//			System.out.println(excess_money);
+//		}
+//	}
+//		else {
+//		System.out.println("bye");}
+	
+		
+		
+		return 0;}
+	public static void main(String[] args) {
+	int money =0;
+
+	
+
+		vending_machine(money);
+	}
+
+	
+}
