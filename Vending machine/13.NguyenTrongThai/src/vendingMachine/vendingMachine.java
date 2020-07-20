@@ -12,7 +12,15 @@ public class vendingMachine {
 		boolean isNumber = true;
 		List<String> arrDrink = new ArrayList<>();
 		do {
+<<<<<<< HEAD
 			System.out.print("input money 10 or 20 or 30 ...:  ");
+=======
+<<<<<<< HEAD
+			System.out.print("input money 10 or 20 or 30 ...:  ");
+=======
+			System.out.print("Moi ban cho tien vao:  ");
+>>>>>>> 14.VoVanThong
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 			if(sc.hasNextInt()) {
 				money =  sc.nextInt();
 				isNumber = true;
@@ -35,10 +43,23 @@ public class vendingMachine {
 					System.out.println("excess cash: " + money + "VND");
 				}else if(money < 0) {
 					arrDrink.remove(arrDrink.size() - 1);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 					System.out.println("amount to pay: " + money + "VND" + " please add money");
 					System.out.println("get money back: " + tienbandau + "VND" );
 					for (int i = 0; i < arrDrink.size(); i++) {
 							System.out.println("You have bought: " + arrDrink.get(i));
+<<<<<<< HEAD
+=======
+=======
+					System.out.println("So tien con thieu la: " + money + "VND" + " vui long nap them tien de mua");
+					System.out.println("vui long nhan lai so tien: " + tienbandau + "VND" );
+					for (int i = 0; i < arrDrink.size(); i++) {
+							System.out.println("Ban da mua: " + arrDrink.get(i));
+>>>>>>> 14.VoVanThong
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 						}
 					return;
 				}
@@ -50,10 +71,23 @@ public class vendingMachine {
 					System.out.println("excess cash: " + money + "VND");
 				}else if(money < 0) {
 					arrDrink.remove(arrDrink.size() - 1);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 					System.out.println("amount to pay: " + money + "VND" + " please add money");
 					System.out.println("get money back: " + tienbandau + "VND" );
 					for (int i = 0; i < arrDrink.size(); i++) {
 							System.out.println("You have bought: " + arrDrink.get(i));
+<<<<<<< HEAD
+=======
+=======
+					System.out.println("So tien con thieu la: " + money + "VND" + " vui long nap them tien de mua");
+					System.out.println("vui long nhan lai so tien: " + tienbandau + "VND" );
+					for (int i = 0; i < arrDrink.size(); i++) {
+							System.out.println("Ban da mua: " + arrDrink.get(i));
+>>>>>>> 14.VoVanThong
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 						}
 					return;
 				}
@@ -65,10 +99,24 @@ public class vendingMachine {
 					System.out.println("excess cash: " + money + "VND");
 				}else if(money < 0) {
 					arrDrink.remove(arrDrink.size() - 1);
+<<<<<<< HEAD
 					System.out.println("amount to pay: " + money + "VND" + "  please add money");
 					System.out.println("get money back: " + tienbandau + "VND" );
 					for (int i = 0; i < arrDrink.size(); i++) {
 							System.out.println("You have bought: " + arrDrink.get(i));
+=======
+<<<<<<< HEAD
+					System.out.println("amount to pay: " + money + "VND" + "please add money");
+					System.out.println("get money back: " + tienbandau + "VND" );
+					for (int i = 0; i < arrDrink.size(); i++) {
+							System.out.println("You have bought: " + arrDrink.get(i));
+=======
+					System.out.println("So tien con thieu la: " + money + "VND" + " vui long nap them tien de mua");
+					System.out.println("vui long nhan lai so tien: " + tienbandau + "VND" );
+					for (int i = 0; i < arrDrink.size(); i++) {
+							System.out.println("Ban da mua: " + arrDrink.get(i));
+>>>>>>> 14.VoVanThong
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 						}
 					return;
 				}
@@ -80,10 +128,23 @@ public class vendingMachine {
 			cf = sc.next();
 		} while (cf.equalsIgnoreCase("Y"));
 		if(money > 0) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 			System.out.println("get money back: " + money + "VND");
 			 if(arrDrink.size() > 0) {
 				 for (int i = 0; i < arrDrink.size(); i++) {
 					System.out.println("You have bought: " + arrDrink.get(i));
+<<<<<<< HEAD
+=======
+=======
+			System.out.println("So tien con du la: " + money + "VND" +" vui long nhan lai tien");
+			 if(arrDrink.size() > 0) {
+				 for (int i = 0; i < arrDrink.size(); i++) {
+					System.out.println("Ban da mua: " + arrDrink.get(i));
+>>>>>>> 14.VoVanThong
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 				}
 				 return;
 			 }else {
@@ -92,11 +153,27 @@ public class vendingMachine {
 		}else {
 			 if(arrDrink.size() > 0) {
 				 for (int i = 0; i < arrDrink.size(); i++) {
+<<<<<<< HEAD
 					System.out.println("You have bought: " + arrDrink.get(i));
 				}
 				 return;
 			 }else {
 				 System.out.print("See you again!");
+=======
+<<<<<<< HEAD
+					System.out.println("You have bought: " + arrDrink.get(i));
+				}
+				 return;
+			 }else {
+				 System.out.print("See you again!");
+=======
+					System.out.println("Ban da mua: " + arrDrink.get(i));
+				}
+				 return;
+			 }else {
+				 System.out.print("Hen gap lai!");
+>>>>>>> 14.VoVanThong
+>>>>>>> 926087f35842474e5b7428bc92c3349120844868
 				 return;
 			 }
 		}
