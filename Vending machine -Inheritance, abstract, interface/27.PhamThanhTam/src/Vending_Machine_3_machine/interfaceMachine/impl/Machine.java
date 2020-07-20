@@ -18,10 +18,10 @@ public class Machine implements IMachine {
 	}
 
 	@Override
-	public void information(int productPrice, String product, int money) {
+	public int information(int productPrice, String product, int money) {
 		System.out.println("your select : " + product);
 		money -= productPrice;
-
+		return money;
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class Machine implements IMachine {
 						}
 						count1++;
 						orderProduct.put(product[0], count1);
-						machine.information(productPrice[0], product[0], money);
+						money = machine.information(productPrice[0], product[0], money);
 					} else if (machine.test_Product(selectProduct, product[1])) {
 						if (machine.test_Product_Price(productPrice[1], money)) {
 							checkMore = true;
@@ -63,15 +63,15 @@ public class Machine implements IMachine {
 						}
 						count2++;
 						orderProduct.put(product[1], count2);
-						machine.information(productPrice[1], product[1], money);
+						money = machine.information(productPrice[1], product[1], money);
 					} else if (machine.test_Product(selectProduct, product[2])) {
 						if (machine.test_Product_Price(productPrice[2], money)) {
 							checkMore = true;
 							break;
 						}
 						count3++;
-						orderProduct.put(product[2], count3++);
-						machine.information(productPrice[2], product[2], money);
+						orderProduct.put(product[2], count3);
+						money = machine.information(productPrice[2], product[2], money);
 					}
 
 					System.out.println("want more select product? y or n");

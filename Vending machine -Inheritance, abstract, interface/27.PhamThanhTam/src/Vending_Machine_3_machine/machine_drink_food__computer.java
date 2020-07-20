@@ -5,9 +5,9 @@ import java.util.HashMap;
 import Vending_Machine_3_machine.interfaceMachine.IMachine;
 import Vending_Machine_3_machine.interfaceMachine.impl.Machine;
 
-public class machine_drink_food__computer{
-	machine_drink_food__computer(String a,String b, String c, int d, int e, int f) {
-		int money = 0;
+public class machine_drink_food__computer {
+	machine_drink_food__computer(String a,String b, String c, int d, int e, int f,int money) {
+		
 		String[] product = {a,b,c};
 		int[] productPrice = {d, e, f};
 		HashMap<String, Integer> orderProduct = new HashMap<>();
