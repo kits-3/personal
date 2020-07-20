@@ -9,7 +9,7 @@ import ocm.javalec.varex.Interface.impl.Machine;
 public class VendingMachineSecond {
 	VendingMachineSecond(){
 		List<String> productName = new ArrayList<String>();
-		productName.add("Fizz");
+		productName.add("Pizza");
 		productName.add("Rice");
 		List<String> price = new ArrayList<String>();
 		price.add("10000");
