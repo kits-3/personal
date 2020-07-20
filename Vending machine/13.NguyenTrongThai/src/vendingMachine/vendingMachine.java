@@ -65,7 +65,7 @@ public class vendingMachine {
 					System.out.println("excess cash: " + money + "VND");
 				}else if(money < 0) {
 					arrDrink.remove(arrDrink.size() - 1);
-					System.out.println("amount to pay: " + money + "VND" + " vui long nap them tien de mua");
+					System.out.println("amount to pay: " + money + "VND" + " please add money");
 					System.out.println("get money back: " + tienbandau + "VND" );
 					for (int i = 0; i < arrDrink.size(); i++) {
 							System.out.println("You have bought: " + arrDrink.get(i));

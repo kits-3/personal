@@ -1,0 +1,10 @@
+package Vending_Machine;
+
+public class Product {
+
+	String name_Product;
+	double price;
+	
+	
+	
+}
