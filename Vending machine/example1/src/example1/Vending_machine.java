@@ -19,7 +19,7 @@ public class Vending_machine {
 		System.out.println("-------------------");
 		
 		do {
-			System.out.print("Insert yours money back: ");
+			System.out.print("Insert yours money: ");
 			input = scan.nextInt();
 			scan.nextLine();
 			if(input < 10000) {
