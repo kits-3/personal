@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class example {
+public class VendingMachine {
 	static int money = 0;
 	
 	static List<String> listName = new ArrayList<String>();
@@ -42,9 +42,7 @@ public class example {
 			if(money < listPrice.get(0) && money < listPrice.get(1) && money < listPrice.get(2) && money < listPrice.get(3)) {
 				System.out.println("Want more? please input y or n");
 				String checkString = scan.next();
-				if(checkString.equals("y")) {
-					
-				}else {
+				if(checkString.equals("n")) {
 					System.out.println("Good bye!");
 					checkMore = false;
 				}
