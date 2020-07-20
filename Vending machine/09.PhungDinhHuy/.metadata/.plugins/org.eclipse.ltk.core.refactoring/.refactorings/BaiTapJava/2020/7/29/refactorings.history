@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;While_Example&apos; to &apos;For_Example&apos;&#x0D;&#x0A;- Original project: &apos;BaiTapJava&apos;&#x0D;&#x0A;- Original element: &apos;While_Example&apos;&#x0D;&#x0A;- Renamed element: &apos;For_Example&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;While_Example&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{While_Example.java[While_Example" matchStrategy="1" name="For_Example" qualified="false" references="true" similarDeclarations="false" stamp="1594881238726" textual="false" version="1.0"/>
-</session>
