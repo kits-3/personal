@@ -16,9 +16,9 @@ public class Main {
 		vending figureVd = new FigureVendingMachine();
 		
 		System.out.println("Please choose type of vending machine, 1,2 or 3");
-		System.out.println("1.Drink");
-		System.out.println("2.Noodle");
-		System.out.println("3.Figure");
+		System.out.println("1.Drink Vending Machine");
+		System.out.println("2.Noodle Vending Machine");
+		System.out.println("3.Figure Vending Machine");
 		System.out.println("-----------------------------------------------");
 		Scanner sc = new Scanner(System.in);
 		vendingType = sc.nextInt();
@@ -36,7 +36,7 @@ public class Main {
 						if(productName.equals(product[i])){
 							money = money - productPrice[i];
 							System.out.println("Buying successfull !!");
-							System.out.println("You have " + money + " left");
+							System.out.println("You have " + money + "$ left");
 						}
 					}
 					checkMore = waterVd.checkMore();
@@ -44,7 +44,7 @@ public class Main {
 					if(waterVd.checkMore() == false){
 						checkMore = false;
 					}else{
-						System.out.println("Insert more money to buy");
+						System.out.println("Insert more money to buy(Min product price: 600$) ,You now have: "+money);
 						money += waterVd.inputMoney();
 					}
 				}
@@ -57,11 +57,11 @@ public class Main {
 					noodleVd.showMenu();
 					String productName = noodleVd.inputProductName();
 					System.out.println(productName);
-					for(int i = 3 ; i < product.length ; i++){
+					for(int i = 0 ; i < product.length ; i++){
 						if(productName.equals(product[i])){
 							money = money - productPrice[i];
 							System.out.println("Buying successfull !!");
-							System.out.println("You have " + money + " left");
+							System.out.println("You have " + money + "$ left");
 						}
 					}
 					checkMore = noodleVd.checkMore();
@@ -69,7 +69,7 @@ public class Main {
 					if(noodleVd.checkMore() == false){
 						checkMore = false;
 					}else{
-						System.out.println("Insert more money to buy");
+						System.out.println("Insert more money to buy(Min product price: 400$) ,You now have: "+money);
 						money += waterVd.inputMoney();
 					}
 				}
@@ -82,11 +82,11 @@ public class Main {
 					figureVd.showMenu();
 					String productName = figureVd.inputProductName();
 					System.out.println(productName);
-					for(int i = 3 ; i < product.length ; i++){
+					for(int i = 0 ; i < product.length ; i++){
 						if(productName.equals(product[i])){
 							money = money - productPrice[i];
 							System.out.println("Buying successfull !!");
-							System.out.println("You have " + money + " left");
+							System.out.println("You have " + money + "$ left");
 						}
 					}
 					checkMore = figureVd.checkMore();
@@ -94,7 +94,7 @@ public class Main {
 					if(figureVd.checkMore() == false){
 						checkMore = false;
 					}else{
-						System.out.println("Insert more money to buy");
+						System.out.println("Insert more money to buy(Min product price: 2000$) ,You now have: "+money);
 						money += waterVd.inputMoney();
 					}
 				}
