@@ -7,24 +7,28 @@ public class Vending_machine {
 	static int sc;
 	static String sl;
 	public static void main(String[] args) {
-		int coin;
+		
 		do {
 			System.out.print("Insert Money(USD):" );
 		  sc=money.nextInt();
 		}while ( sc%10 !=0);
-		
+		int coin=sc;
      do {
-    	 System.out.println("Please pick your choice: Coca:10$  Soju:20$ Heneiken:30$");
-    	 	sl=money.next();
+    	 String[] array = {"coca 10$","soju 20$","heneiken 30$"};
+    	
+    	 for (int i = 0; i < array.length; i++) {
+    		 System.out.println("Please pick your choice: " +array[i] );
+		}
+    	 
+    	  sl=money.next();
 			if(sl.equals("coca")) {
-				coin=sc;
-				sc=sc-10;
-				if(sc>=0) {
+				 coin = changecoin(coin,sc,sl,money);
+				if(coin>=0) {
 					if(coin==0) {
 					System.out.println("Coca of you in here.Thank you!" );
 					}
 					else {
-						System.out.println("Coca of you in here and your money:" +sc +"$");
+						System.out.println("Coca of you in here and your money:" +coin +"$");
 						System.out.println("Do you want to buy again?" + "Yes/No" );
 						sl=money.next();
 					}
@@ -34,14 +38,13 @@ public class Vending_machine {
 				}
 			}																												//Coca
 			else if(sl.equals("soju")) {
-				coin=sc;
-				sc=sc-20;
-				if(sc>=0) {
+				 coin = changecoin(coin,sc,sl,money);
+				if(coin>=0) {
 					if(coin==0) {
 					System.out.println("Soju of you in here.Thank you!" );
 					}
 					else {
-						System.out.println("Soju of you in here and your money:" +sc +"$");
+						System.out.println("Soju of you in here and your money:" +coin +"$");
 						System.out.println("Do you want to buy again?" + "Yes/No" );
 						sl=money.next();
 					}
@@ -49,16 +52,15 @@ public class Vending_machine {
 				else {
 					 System.out.println("Please input more money" );
 				}
-			}																														//Soju
+			}																																		//Soju
 			else if(sl.equals("heneiken")) {
-				coin=sc;
-				sc=sc-30;
-				if(sc>=0) {
+				 coin = changecoin(coin,sc,sl,money);
+				if(coin>=0) {
 					if(coin==0) {
 					System.out.println("Heneiken of you in here.Thank you!" );
 					}
 					else {
-						System.out.println("Heneiken of you in here and your money:" +sc +"$");
+						System.out.println("Heneiken of you in here and your money:" +coin +"$");
 						System.out.println("Do you want to buy again?" + "Yes/No" );
 						sl=money.next();
 					}
@@ -66,11 +68,25 @@ public class Vending_machine {
 				else {
 					 System.out.println("Please input more money" );
 				}
-			}										
+			}																						
      }while(sl.equals("yes"));
      
-//		}while()
-//	select soju first
-		
      }
+	public static int changecoin(int coin, int sc,String sl , Scanner scanner) {
+		 do {
+		if(sl.equals("coca")){
+			sc=coin;
+			coin=sc-10;
+		}
+		else if(sl.equals("soju")){
+			sc=coin;
+			coin=sc-20;
+		}
+		else if(sl.equals("heneiken")){
+			sc=coin;
+			coin=sc-30;
+		}
+		}while(sl.equals("yes"));
+			return coin ;
 	}
+}
