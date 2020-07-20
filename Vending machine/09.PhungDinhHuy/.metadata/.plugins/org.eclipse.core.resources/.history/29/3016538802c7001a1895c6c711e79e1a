@@ -1,0 +1,28 @@
+
+public class printStar {
+
+	public static void printStar1(int n) {
+		
+		for(int i=0;i<n;i++) {
+			
+			for(int j=n;j>i;j--) {
+				
+				
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		printStar1(n);
+	}
+	
+	
+	
+	
+	
+}
