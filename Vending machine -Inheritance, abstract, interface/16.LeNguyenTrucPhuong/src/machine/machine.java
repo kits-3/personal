@@ -99,23 +99,25 @@ public class machine {
 				}		}		}
 		
 	}
+	public static void name() {
+		/*
+		 * product.add("coca"); product.add("milk"); product.add("coki");
+		 * product.add("juice");
+		 * 
+		 * productPrice.add(600); productPrice.add(400); productPrice.add(900);
+		 * productPrice.add(100);
+		 */
+	}
+	
 
 
 	public static void main(String[] args) {
-		product.add("coca");
-		product.add("milk");
-		product.add("coki");
-		product.add("juice");
-			
-		productPrice.add(600);
-		productPrice.add(400);
-		productPrice.add(900);
-		productPrice.add(100);
-	
-			money=inputMoney(money);	
-			int min=0;
-			min=minMoney(min);
-			checkMoney();
-	}
+		/*
+		 * name();
+		 * 
+		 * money=inputMoney(money); chooseProduct(); int min=0; min=minMoney(min);
+		 * checkMoney();
+		 */
+		
 
-}
+}}
