@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class While_Example {
+
+	public static void for_ex1(){
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int a=sc.next();
+		System.out.println("input = "+a);
+		
+		if(a.eq)
+		
+		for(int i=0;i<10;i++) {
+			System.out.println(i+"x3 = "+i*3);
+			
+		}
+		
+	
+	}
+	
+	
+	public static void main(String[] args) {
+		for_ex1();
+	}
+	
+	
+}
