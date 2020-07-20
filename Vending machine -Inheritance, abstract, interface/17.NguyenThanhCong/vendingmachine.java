@@ -5,12 +5,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class vendingmachine {
+	static List<String> list3 = new ArrayList();
+	static List<Integer> list2 = new ArrayList();
 	public static int add_money(int money) {
 		Scanner sc3 = new Scanner (System.in);
 		System.out.println("add money");
 		money = sc3.nextInt();
 		return money;
 	}
+	
 	public static int vending_machine(int money ) {
 		
 		final int price_min =10;
@@ -19,16 +22,8 @@ public class vendingmachine {
 		 int excess_money = money;
 		if(money >= price_min) {
 
-			List<Integer> list2 = new ArrayList();
-			list2.add(20);
-			list2.add(30);
-			list2.add(40);
-			list2.add(10);
-			List<String> list3 = new ArrayList();
-			list3.add("product1");
-			list3.add("product2");
-			list3.add("product3");
-			list3.add("product4");
+			
+		
 			
 			Scanner sc = new Scanner (System.in);
 			System.out.println("choose your drink");
@@ -83,8 +78,17 @@ public class vendingmachine {
 		}
 	
 	public static void main(String[] args) {
-//		int money = 0;
-//		vending_machine(money);
+		list2.add(20);
+		list2.add(30);
+		list2.add(40);
+		list2.add(10);
+		
+		list3.add("product1");
+		list3.add("product2");
+		list3.add("product3");
+		list3.add("product4");
+		int money = 0;
+		vending_machine(money);
 		
 	}
 }
