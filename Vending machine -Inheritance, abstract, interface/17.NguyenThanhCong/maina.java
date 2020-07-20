@@ -18,7 +18,7 @@ public class maina {
 			food.list2.add(40);
 			food.list2.add(10);
 			
-			food.list3.add("food11");
+			food.list3.add("food1");
 			food.list3.add("food2");
 			food.list3.add("food3");
 			food.list3.add("food4");
@@ -28,20 +28,20 @@ public class maina {
 			food.vending_machine(money);
 		}
 		if(choose.equals("drink")){
-			vending_machine2 food = new vending_machine2();
-			food.list2.add(20);
-			food.list2.add(30);
-			food.list2.add(40);
-			food.list2.add(10);
+			vending_machine2 drink = new vending_machine2();
+			drink.list2.add(20);
+			drink.list2.add(30);
+			drink.list2.add(40);
+			drink.list2.add(10);
 			
-			food.list3.add("drink1");
-			food.list3.add("drink2");
-			food.list3.add("drink3");
-			food.list3.add("drink4");
+			drink.list3.add("drink1");
+			drink.list3.add("drink2");
+			drink.list3.add("drink3");
+			drink.list3.add("drink4");
 			int money = 0;
-			food.vending_machine(money);
+			drink.vending_machine(money);
 			
-			food.vending_machine(money);
+			drink.vending_machine(money);
 		}
 		
 		
