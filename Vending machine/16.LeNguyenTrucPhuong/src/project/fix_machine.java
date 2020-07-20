@@ -1,4 +1,4 @@
-package basic;
+package project;
 
  import java.util.List;
 import java.util.Scanner;
@@ -63,7 +63,7 @@ public class fix_machine {
 	public static void chooseContinue( ) 
 	{
 		System.out.println(" you choose ");
-		System.out.println("1 is want more");
+		System.out.println("1 is waint more");
 		System.out.println("2 is end");
 		 Scanner sc2 = new Scanner(System.in);
 		  int c =sc2.nextInt();
