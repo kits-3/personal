@@ -46,20 +46,23 @@ public class machine {
 			 
 				money+= inputMoney(money);
 				System.out.println(" your money  :" +money);
-				checkMoney();
+				//checkMoney();
 				
 				return money;
 		 }	
 }
 	public static void checkMoney() {
-		int min=0;
-		min=minMoney(min);
-		if (money<min) {
-			money= addreturnMoney(money);
-			System.out.println(money);
-			
-		}
-		else chooseProduct();
+		int min = 0;
+		min = minMoney(min);
+		if (money < min) {
+			int m=0;
+			m = addreturnMoney(m);
+			if(m!=0) {
+				money=m;
+				checkMoney();
+				}
+		} else
+			chooseProduct();
 	}
 	
 	public static void chooseContinue( ) 
@@ -98,7 +101,25 @@ public class machine {
 					chooseContinue() ;
 				}
 				else {
-					money= addreturnMoney(money);
+					int m=0;
+					m=addreturnMoney(m);
+					if(m!=0) {
+						money=m;
+						if (money >= productPrice.get(i)) {
+							money -= productPrice.get(i);
+							System.out.print("your select :" + product.get(i));
+							productadd.add(product.get(i));
+							priceadd.add(productPrice.get(i));
+
+							System.out.println(" ; your money " + money);
+							int b = 0;
+							chooseContinue();
+						}
+						
+						
+						
+						
+					}
 					
 				}		}		}
 		

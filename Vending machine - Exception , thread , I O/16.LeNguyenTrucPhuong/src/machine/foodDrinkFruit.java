@@ -60,12 +60,16 @@ public interface foodDrinkFruit {
 	 }}
 	 public class stop extends machine{
 		 stop(){
+			 System.out.println(productadd);
+				System.out.println(priceadd);
+				
 				int sum = 0;
 				for (int i = 0; i < priceadd.size(); i++) {
 
 					sum += priceadd.get(i);
 
 				}
+				System.out.println(sum);
 			  String pasteDir ="C:/Users/phaml/Desktop/test2.txt";
 			  
 			  try {
@@ -87,7 +91,7 @@ public interface foodDrinkFruit {
 						fo.write(b2);
 						
 					}
-					String str = "\n =========================Receipt=========================" +" \n your excess money\t: " +money +"\n Thanks and goodbye!! ";
+					String str = "\n =====================================================" +" \n your excess money\t: " +money +"\n Thanks and goodbye!! ";
 					  byte[] b2 = str.getBytes();
 					  fo.write(b2);
 					  fo.close();
