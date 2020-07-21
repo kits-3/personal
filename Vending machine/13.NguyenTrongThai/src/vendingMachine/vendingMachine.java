@@ -1,8 +1,6 @@
 package vendingMachine;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
+<<<<<<< HEAD
 public class vendingMachine {
 	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
@@ -176,8 +174,17 @@ public class vendingMachine {
 >>>>>>> 926087f35842474e5b7428bc92c3349120844868
 				 return;
 			 }
+=======
+
+public class VendingMachine extends Machine implements IFunction{
+	@Override
+	public void showProduct() {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < vending.length; i++) {
+			System.out.println("product: " + vending[i] + "(" + 10 * ++i + "VND" +  ")");
+			i--;
+>>>>>>> 13.NguyenTrongThai
 		}
 	}
-	 
-
+	
 }
