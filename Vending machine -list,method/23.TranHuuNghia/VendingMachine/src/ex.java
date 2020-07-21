@@ -1,98 +1,67 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.text.AbstractDocument.LeafElement;
 
 public class ex {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		double product = 0;
-		double MinCos = 4;
-		int input = 0;
-		
-		
-		System.out.print("input money: ");
-		double money = sc.nextDouble();
-		int menu = 1;
-		do
-		{
-				while (menu != 0)
-				{
-					System.out.println("-----------Menu----------------");
-					System.out.println("1.Coca 6$");
-					System.out.println("2.Sprite 9$ ");
-					System.out.println("3.Fanta 8$");
-					System.out.println("4.Pepsi 4$");
-					System.out.println("0.Finish ");
-					System.out.println("Plese choose: (0,1,2,3,4)");
-					menu = sc.nextInt();
-						
-						switch (menu){
-							case 1:
-								product += 6;
-								break;
-							case 2:
-								product += 9;
-								break;
-							case 3:
-								product += 8;
-								break;
-							case 4:
-								product += 4;
-								break;
-							case 0:
-								System.out.println("complete");
-								break;
-							default:
-								System.out.println("Input wrong menu");
-								break;
-						}
-		
-						if (money >= MinCos)
-						{
-							if (money >= product)
-							{
-								if (money == product)
-								{
-									System.out.println("Get Product of Menu: " + menu);
-								}
-								else
-								{
-									money = money - product;
-									System.out.println("Get Product of Menu" + menu + " and money: " + money + "$");
-								}
-							}
-						}
-						else	
-						{
-							
-							product = 0;
-							
-							double change;
-							System.out.println("You haven't enough money.");
-							System.out.println("Do you want to add a little money  ?");
-							System.out.println("1. Yes, 2. No");
-							input = sc.nextInt();
-							switch (input) {
-								
-							case 1:
-								System.out.print("Input change: ");
-								change = sc.nextDouble();
-								money += change;
-								System.out.println("Your money: " + money + "$");
-								break;
-							case 2:
-								System.out.println("Your money: " + money + "$  bye bye");
-								break;
-							
-							default:
-								System.out.println("Input Wron");
-								break;
-							
-							}
-						}
-		
-				}
-		}while (input != 0);
-
+	static Scanner sc = new Scanner(System.in);
+	static List<String> product = new ArrayList();
+	static List<Double> price = new ArrayList();
+	
+	public static double inputmoney(){
+		double money;
+		System.out.println("Input Money");
+		money = sc.nextDouble();
+		System.out.println("Your Money: " + money);
+		return money;
 	}
+	public static double minCostProduct (){
+		double minCost = price.get(0);
+		for (int i = 0; i < price.size(); i++)
+		{
+			if (minCost >= price.get(i))
+				minCost = price.get(i);
+		}
+		return minCost;
+	}
+	public static boolean checkMoney(double money, double minCost){
+		boolean check = false;
+		if (money > minCost || money == minCost)
+			check = true;
+		return check;
+	}
+//-------------main----------------
+	
+	
+	public static void main(String[] args) {
+		double money = 0.0;
+		double minCost = 0.0;
+		product.add("coca");
+		product.add("milk");
+		product.add("coki");
+		product.add("juice");
+			
+		price.add(600.0);
+		price.add(400.0);
+		price.add(900.0);
+		price.add(100.0);
+		
+		money = inputmoney();
+		minCost = minCostProduct();
+		if (checkMoney(money, minCost))
+		{
+			
+		}
+		else
+		{
+			System.out.println("Your money: " + money);
+		}
+		
+	}
+	
+	
+//---------main----------------------------
 }
 
