@@ -1,0 +1,5 @@
+Your had 10000Input product :1Your Price: 40000
+Your had 15000Input product :3Your Price: 25000
+Your had 10000Input product :2Your Price: 15000
+Thank you!
+Good bye !
