@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Invoice {
-	static String productName;
-	static int productPrice;
 	
 	public boolean exportInvoice(List<Product> data) {
 		String fileInvoice = "invoice.txt";
