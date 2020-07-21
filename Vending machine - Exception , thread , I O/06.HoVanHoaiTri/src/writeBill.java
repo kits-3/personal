@@ -13,7 +13,7 @@ public class writeBill {
 	}
 	
 	public void convert() {
-		String url="C:/Users/PC06/Desktop/JAVA EE/06.HoVanHoaiTri/Bill/bill.txt";
+		String url="Bill/bill.txt";
 		String getString = getStringConvert();
 		try {
 			FileOutputStream out = new FileOutputStream(url);
