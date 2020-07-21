@@ -16,8 +16,6 @@ public class Main {
 		List<Product> boughtProduct = new ArrayList<Product>();
 		int chooseProduct = 0;
 		int chooseMachine = 0;
-		ThreadCountDown tcd = new ThreadCountDown();
-		Thread thread = new Thread(tcd);
 		while (chooseMachine <= 0 || chooseMachine >3) {
 
 			try {
@@ -33,6 +31,8 @@ public class Main {
 		}
 
 		while (checkMore) {
+			ThreadCountDown tcd = new ThreadCountDown();
+			Thread thread = new Thread(tcd);
 			System.out.println("please input money");
 			try {
 				money += Integer.parseInt(scan.nextLine());
