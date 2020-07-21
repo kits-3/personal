@@ -38,12 +38,11 @@ public class VendingMachine {
 			System.out.println("please input money");
 			money += scan.nextInt();
 			System.out.println("check your money : " + money);
-//			if (money < minCost) {
-//
-//			}
-			if (checkMincost(money, minCost)) {
+			if (money < minCost) {
 
-			}else {
+			}
+
+			else {
 				while (checkAddMoreMoney) {
 					for (int i = 0; i < list.size(); i++) {
 //						System.out.println("please select item "+(i+1)+" "+ list.get(i) + "(" + priceItemA + ")");
@@ -123,11 +122,10 @@ public class VendingMachine {
 //	return input;
 //}
 	
-	public static boolean checkMincost(int a , int b) {
+	public void checkMincost(int a , int b) {
 		if(a < b ) {
-			
+			return;
 		}
-		return true;
 	}
 	
 

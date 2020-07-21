@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD:vending master/src/.project
-	<name>src</name>
-=======
-	<name>Demo</name>
->>>>>>> b23f3e78affd3fd0db766a67dd316b55e231bb8d:Vending machine -list,method/05.Tran Le Thanh Thinh/.project
+	<name>JavaBase</name>
 	<comment></comment>
 	<projects>
 	</projects>
