@@ -1,10 +1,10 @@
 
-import java.util.List;
 import java.util.Scanner;
 
 public class machine {
 	
 	public void machineProduct(subintefacemachine a) {
+		try {
 		int Price =0;
 		String note = "";
 		Scanner scan = new Scanner(System.in);
@@ -58,5 +58,8 @@ public class machine {
 		note = note + "Thank you!\nGood bye !";
 		a.output(note);
 		scan.close();
+		} catch(Exception e) {
+			e.getCause();
+		}
 	}
 }
