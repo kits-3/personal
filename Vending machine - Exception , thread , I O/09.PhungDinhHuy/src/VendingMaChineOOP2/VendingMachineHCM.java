@@ -139,7 +139,7 @@ public class VendingMachineHCM extends VendingMachine {
 
 							soTien = moneyCurrent;
 
-							threadDelay("..You can get product");
+							super.threadDelay("You can get product ...");
 							isEnough = checkMoneyMinCostProduct(soTien);
 
 							// continue?

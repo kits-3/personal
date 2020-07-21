@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class VendingMachineHN extends VendingMachine {
+public class VendingMachineDN extends VendingMachine {
 
-	final static double MIN_COST = 15000;
+	final static double MIN_COST = 2000;
 
 	private List<Product> listProduct;
 	private List<Product> listProductChoose;
 
-	public VendingMachineHN(int id, String nameMachine) {
+	public VendingMachineDN(int id, String nameMachine) {
 //		super();
 		super.id = id;
 		super.nameMachine = nameMachine;
@@ -19,16 +19,18 @@ public class VendingMachineHN extends VendingMachine {
 		listProductChoose = new ArrayList<Product>();
 
 		listProduct = new ArrayList<Product>();
-		Product product31 = new Product("Meal", 2500);
-		Product product32 = new Product("Chicken", 3500);
-		Product product33 = new Product("Orange juice", 4500);
-		Product product34 = new Product("Hamburge", 5500);
-		Product product35 = new Product("Sochu", 6000);
-		listProduct.add(product31);
-		listProduct.add(product32);
-		listProduct.add(product33);
-		listProduct.add(product34);
-		listProduct.add(product35);
+		Product product11 = new Product("Hamburger", 2000);
+		Product product12 = new Product("Chicken", 3000);
+		Product product13 = new Product("Beef", 4000);
+		Product product14 = new Product("Meal", 5000);
+		Product product15 = new Product("Sandwich", 5500);
+		Product product16 = new Product("Mochi", 7000);
+		listProduct.add(product11);
+		listProduct.add(product12);
+		listProduct.add(product13);
+		listProduct.add(product14);
+		listProduct.add(product15);
+		listProduct.add(product16);
 
 	}
 
@@ -78,7 +80,7 @@ public class VendingMachineHN extends VendingMachine {
 	}
 
 	@Override
-	public void run() throws InvalidException {
+	public void run() throws InvalidException, InvalidConfirmException {
 //		super.run();
 		Scanner sc = new Scanner(System.in);
 
@@ -120,12 +122,21 @@ public class VendingMachineHN extends VendingMachine {
 							// add product to cart
 							addProductInCart(moneyCurrent, product);
 
+							
 							soTien = moneyCurrent;
+							
+							super.threadDelay("You can get product...");
 							isEnough = checkMoneyMinCostProduct(soTien);
 
 							// continue?
 							System.out.println("Do you want to continue? Plz input Yes/No");
 							String getMessage = sc.nextLine();
+
+							// Exception confirm question
+//							try {
+//								if (!(getMessage.equalsIgnoreCase("Yes") || getMessage.equalsIgnoreCase("No"))) {
+//									throw new InvalidConfirmException("Invalid confirm question. Plz choose again!");
+//								} else {
 
 							if (!isWantContinue(getMessage)) {
 								System.out.println("Payback Monney : " + moneyCurrent);
@@ -137,6 +148,10 @@ public class VendingMachineHN extends VendingMachine {
 								//
 								continue;
 							}
+//								}
+//							} catch (Exception ex) {
+//								System.out.println("Exception is: " + ex);
+//							}
 
 						} else {
 
@@ -160,7 +175,7 @@ public class VendingMachineHN extends VendingMachine {
 					}
 
 				} catch (Exception ex) {
-					System.out.println("Exception is : " + ex);
+					System.out.println("Exception is: " + ex);
 				}
 			}
 
