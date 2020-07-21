@@ -8,4 +8,5 @@ public interface interfacemachine {
 	public void getFood();
 	public int minDrink();
 	public int minFood();
+	public void output(String bytes);
 }

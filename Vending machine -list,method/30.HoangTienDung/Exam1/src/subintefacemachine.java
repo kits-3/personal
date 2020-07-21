@@ -1,15 +1,18 @@
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class subintefacemachine implements interfacemachine{
 	List<Drink> listDrink = new ArrayList<Drink>();
 	List<Foot> listFood = new ArrayList<Foot>();
+	public FileWriter writer;
 	@Override
 	public List<Drink> addDrink() {
 		// TODO Auto-generated method stub
 		listDrink.add(new Drink("Pepsi",10000));
 		listDrink.add(new Drink("Coca",10000));
-		listDrink.add(new Drink("Milk",10000));
+		listDrink.add(new Drink("Milk",15000));
 		return listDrink;
 	}
 	@Override
@@ -55,6 +58,18 @@ public class subintefacemachine implements interfacemachine{
 			}
 		}
 		return min;
+	}
+	@Override
+	public void output(String bytes) {
+		// TODO Auto-generated method stub
+		try {
+			String fileDir = "C:/Users/PC30/Desktop/vendingmachinenote.txt";
+			writer = new FileWriter(fileDir);
+			writer.write(bytes+"\n");
+			writer.close();
+		}catch(Exception e) {
+			
+		}
 	}
 
 }
