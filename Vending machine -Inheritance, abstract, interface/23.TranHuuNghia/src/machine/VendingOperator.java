@@ -21,9 +21,8 @@ public abstract class VendingOperator{
 	public abstract void showMenu();
 	public abstract int inputmoney();
 	public abstract String chooseProduct();
-	public abstract int checkMoney();
-	public abstract String checkProduct();
 	public abstract int addMoney(int money);
+	public abstract void Receipt ();
 
 
 }

@@ -19,13 +19,16 @@ public class main {
 
 		Scanner sc = new Scanner(System.in);
 		VendingOperator vd = new drink();
+		VendingOperator f = new food();
 		
 		int money = 0;
 		int minCost = 0;
 		String product;
 		boolean checkMore = true;
-		String[] drink = {"Coca", "Sprite", "Fanta", "Pepsi"};
+		String[] drink = {"Coca","Sprite","Fanta","Pepsi"};
+		String[] food = {"Rice","Bread","Fish","Hamburger"};
 		int[] priceDrink = {100, 200, 300, 400};
+		int[] priceFood = {100, 200, 300, 400};
 		// -----------Machine Drink--------------------
 		if (vd.SelectMachine() == 1) 
 		{
@@ -49,23 +52,22 @@ public class main {
 				{
 					while (checkMore)
 					{
+						vd.showMenu();
 						product = vd.chooseProduct();
 						for (int i = 0; i < drink.length; i++)
 						{
 							if (product.equals(drink[i])){
-								if (money > priceDrink[i]){
-									checkMore = true;
-									break;
+								if (money >= priceDrink[i]){	
+									System.out.println("your select :" + drink[i]);
+									money -= priceDrink[i];
 								}
-								System.out.println("your select :" + drink[i]);
-								money -= priceDrink[i];
+								break;
 							}
-							else {System.out.println("Not in menu");}
 						}
 						System.out.println("want more select product? y or n");
 						String checkMoreString = sc.next();
 						if(checkMoreString.equals("y")) {
-
+							checkMore = true;
 						}else {
 							System.out.println("your change : "+money+ " good bye");
 							checkMore = false; 
@@ -78,7 +80,49 @@ public class main {
 		//-----------Machine Food-------------------
 		else
 		{
+			while (checkMore)
+			{
 			
+				f.showMenu();
+				money = f.inputmoney();
+				minCost = f.minCost();
+				
+				if (money < minCost)
+				{
+					int check;
+					check = f.addMoney(money);
+					if (money == check)
+						checkMore = false;
+					else
+						checkMore = true;
+				}
+				else
+				{
+					while (checkMore)
+					{
+						f.showMenu();
+						product = f.chooseProduct();
+						for (int i = 0; i < food.length; i++)
+						{
+							if (product.equals(food[i])){
+								if (money >= priceFood[i]){	
+									System.out.println("your select :" + food[i]);
+									money -= priceFood[i];
+								}
+								break;
+							}
+						}
+						System.out.println("want more select product? y or n");
+						String checkMoreString = sc.next();
+						if(checkMoreString.equals("y")) {
+							checkMore = true;
+						}else {
+							System.out.println("your change : "+money+ " good bye");
+							checkMore = false; 
+						}
+					}
+				}
+			}
 		}
 		
 

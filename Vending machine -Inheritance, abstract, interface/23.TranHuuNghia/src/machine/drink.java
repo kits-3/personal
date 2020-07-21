@@ -55,18 +55,11 @@ public class drink extends VendingOperator {
 			return money;
 		}
 	}
-
 	@Override
-	public int checkMoney() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void Receipt() {
+		
+		
 	}
-	@Override
-	public String checkProduct() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	
 }
