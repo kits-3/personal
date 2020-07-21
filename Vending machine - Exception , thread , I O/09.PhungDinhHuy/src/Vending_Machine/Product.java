@@ -1,4 +1,4 @@
-package Vending_Machine;
+package VendingMaChineOOP2;
 
 public class Product {
 

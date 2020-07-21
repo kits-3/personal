@@ -1,41 +1,55 @@
-package Vending_Machine;
+package VendingMaChineOOP2;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
 import java.util.Scanner;
 
-public class VendingMachine {
+public abstract class VendingMachine {
 
 	final static double MIN_COST = 5000;
 
-	ArrayList<Product> listProduct;
+	protected List<Product> listProduct;
+	List<Product> listProductChoose;
+
+	protected int id;
+	protected String nameMachine;
 
 	public VendingMachine() {
-		listProduct = new ArrayList<Product>();
+	}
 
-		Product product1 = new Product("Coca", 5000);
-		Product product2 = new Product("Pepsi", 6000);
-		Product product3 = new Product("Orange juice", 7000);
-		Product product4 = new Product("7Up", 8000);
-		Product product5 = new Product("Sochu", 9000);
+	public VendingMachine(List<Product> listProduct, int id, String nameMachine) {
+		this.listProduct = listProduct;
+		this.id = id;
+		this.nameMachine = nameMachine;
 
-		listProduct.add(product1);
-		listProduct.add(product2);
-		listProduct.add(product3);
-		listProduct.add(product4);
-		listProduct.add(product5);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String nameMachine() {
+		return nameMachine;
+	}
+
+	public String getNameMachine() {
+		return nameMachine;
+	}
+
+	public void setNameMachine(String nameMachine) {
+		this.nameMachine = nameMachine;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	// check Money Min Cost Product
 	public boolean checkMoneyMinCostProduct(double soTien) {
-
-//		if (soTien < MIN_COST){
-//			return false;
-//		}
-//		return true;
-
-//		if (soTien < MIN_COST){
-//			return false;
-//		}
 		return (soTien > MIN_COST);
 	}
 
@@ -49,119 +63,88 @@ public class VendingMachine {
 	}
 
 	// Choose product
-	public int chooseProduct() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Choose product (plz input from 1->5): ");
-		int indexProduct = sc.nextInt() - 1;
-
-		return indexProduct;
-	}
+	public abstract int chooseProduct();
 
 	// get element from array list
-	public Product getProductList(int index_Product) {
-		return listProduct.get(index_Product);
+	public abstract Product getProductList(int index_Product);
+
+	public abstract boolean isWantContinue(String str);
+
+	public abstract void addProductInCart(double moneyCurrent, Product product);
+
+	public void displayCurrentProductInCart(List<Product> listProductChoose) {
+		System.out.println("=====================    Current product in Cart    =======================");
+		double totalPrice = 0;
+		for (Product product : listProductChoose) {
+			totalPrice += product.getPrice();
+			System.out.printf("Product name: %s , Price: %f\n", product.getName(), product.getPrice());
+		}
+		System.out.println("==> Total price is : " + totalPrice);
+		System.out.println("=====================    Current product in Cart    =======================");
 	}
 
-	//
-	public boolean isWantContinue(String str) {
+	// I/O
+	public void receipt(List<Product> listProductChoose) {
 
-		return (str.equalsIgnoreCase("Yes")) ? true : false;
+		// get a string from product
+		StringBuffer buffer = new StringBuffer();
+
+		for (int i = 0; i < listProductChoose.size(); i++) {
+			buffer.append(listProductChoose.get(i).getName() + listProductChoose.get(i).getPrice()).append("\n");
+		}
+
+		String str = buffer.toString();
+
+		writeReceipt(str);
+
+	}
+
+	// Write file java using OutPut stream
+	private void writeReceipt(String data) { 
+		File newfile = new File("C:/Users/PC09/Desktop/exam/text2.txt");
+		OutputStream os = null;
+		try {
+			os = new FileOutputStream(newfile);
+			os.write(data.getBytes(), 0, data.length());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				os.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+	
+	public void printReceipt(List<Product> listProductChoose) {
+		Scanner sc = new Scanner(System.in);
+		// Print receipt
+		System.out.println("Do you want to print receipt? Y/N");
+		String choice = sc.nextLine();
+		boolean isPrintReceipt = false;
+		if (choice.equalsIgnoreCase("Y")) {
+			isPrintReceipt = true;
+		} else {
+			isPrintReceipt = false;
+			return;
+		}
+
+		if (isPrintReceipt) {
+			receipt(listProductChoose);
+		}
+	}
+	
+	// Call Thread
+	public void threadDelay(String s) {
+		Thread_Example thread_Example=new Thread_Example(s);
+		Thread thread=new Thread(thread_Example);
+		thread.start();
+		
 	}
 
 	// Run machine ...
-	public void run() {
-
-		Scanner sc = new Scanner(System.in);
-
-		double moneyCurrent = 0;
-		boolean isExist;
-
-		System.out.println("List product");
-		for (Product pro : listProduct) {
-			System.out.printf("Name: %s, Price: %s\n", pro.getName(), pro.getPrice());
-		}
-		System.out.println("Starting ...");
-
-		do {
-
-			isExist = false;
-			double soTien = insertMoney() + moneyCurrent;
-			boolean isEnough = checkMoneyMinCostProduct(soTien);
-
-			// Check is enough monney
-			while (isEnough) {
-
-				boolean isOn = true;
-				// Choose product if money is enough
-				int indexProduct = chooseProduct();
-				Product product = getProductList(indexProduct);
-				double price_Product = product.getPrice();
-
-				if (soTien >= price_Product) {
-
-					// calculate moneyCurrent
-					moneyCurrent = soTien - price_Product;
-
-					soTien = moneyCurrent;
-					isEnough = checkMoneyMinCostProduct(soTien);
-
-					// continue?
-					System.out.println("Do you want to continue? Plz input Yes/No");
-					String getMessage = sc.nextLine();
-
-					if (!isWantContinue(getMessage)) {
-						System.out.println("Payback Monney : " + moneyCurrent);
-						return;
-					} else {
-						System.out.println("Current Monney : " + moneyCurrent + "\n");
-						//
-						continue;
-					}
-
-				} else {
-
-					// If money < price_Product => moneyCurrent = money
-					moneyCurrent = soTien;
-					System.out.println("Product price is higher than money add");
-					// return?
-					System.out.println("Do you want to return money? Plz input Yes/No");
-					String getMessage = sc.nextLine();
-
-					if (isWantContinue(getMessage)) {
-						System.out.println("Payback Monney : " + moneyCurrent);
-						return;
-					} else {
-						System.out.println("Current Monney : " + moneyCurrent + "\n");
-						//
-						continue;
-
-					}
-				}
-
-			}
-
-			System.out.println("Not enough minimum money! Do you like to insert more money? Yes/No");
-			String str2 = sc.nextLine();
-			if (isWantContinue(str2)) {
-				// Insert more money ...
-				continue;
-
-			} else {
-
-				// payback
-				System.out.printf("Mininum monney should be %.2f . \nMoney payback: %.2f", MIN_COST, soTien);
-				isExist = true;
-			}
-
-		} while (!isExist);
-
-	}
-
-	public static void main(String[] args) {
-
-		VendingMachine vendingMachine = new VendingMachine();
-		vendingMachine.run();
-
-	}
+	public abstract void run() throws InvalidException, InvalidConfirmException;
 
 }
