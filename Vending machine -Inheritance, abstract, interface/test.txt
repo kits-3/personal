@@ -1,0 +1,6 @@
+
+Name:coca Price:1000
+
+Name:pepsi Price:2000
+
+Name:soda Price:3000
