@@ -2,7 +2,7 @@ package ocm.javalec.varex;
 
 import java.util.Scanner;
 
-public class VarEx {
+public class Main {
 	public static void main(String[] args) {
 		String[][] listProducts = {{"ORANGE JUICE", "15000"}, {"LEMON JUICE", "10000"}, {"COFFEE", "12500"}, {"Milk", "17500"}, {"Coke", "11000"}};
 		
