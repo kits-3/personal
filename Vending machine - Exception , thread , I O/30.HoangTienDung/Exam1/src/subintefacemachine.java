@@ -63,7 +63,7 @@ public class subintefacemachine implements interfacemachine{
 	public void output(String bytes) {
 		// TODO Auto-generated method stub
 		try {
-			String fileDir = "C:/Users/PC30/Desktop/team_5/personal/Vending machine -Inheritance, abstract, interface/30.HoangTienDung/Exam1/vendingmachinenote.txt";
+			String fileDir = "C:/Users/PC30/Desktop/team_5/personal/Vending machine - Exception , thread , I O/30.HoangTienDung/Exam1/vendingmachinenote.txt";
 			writer = new FileWriter(fileDir);
 			writer.write(bytes+"\n");
 			writer.close();
