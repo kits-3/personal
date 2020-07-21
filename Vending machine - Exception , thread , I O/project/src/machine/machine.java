@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class machine {
 	static List<String> product = new ArrayList();
 	static List<Integer> productPrice = new ArrayList();
+	static List<String> productadd = new ArrayList();
+	static List<Integer> priceadd = new ArrayList();
 	static int money;
 	
 	public static int inputMoney(int money) {
@@ -63,7 +65,7 @@ public class machine {
 	public static void chooseContinue( ) 
 	{
 		System.out.println(" you choose ");
-		System.out.println("1 is waint more");
+		System.out.println("1 is want more");
 		System.out.println("2 is end");
 		 Scanner sc2 = new Scanner(System.in);
 		  int c =sc2.nextInt();
@@ -89,6 +91,8 @@ public class machine {
 				if (money >=productPrice.get(i)) {
 					money-=productPrice.get(i);
 					System.out.print("your select :" +product.get(i));
+					productadd.add(product.get(i));
+					priceadd.add(productPrice.get(i));
 					System.out.println(" ; your money " +money);
 					int b=0;
 					chooseContinue() ;
