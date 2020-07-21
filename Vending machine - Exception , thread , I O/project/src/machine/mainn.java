@@ -10,16 +10,20 @@ public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 	Integer c=sc.nextInt();
 	machine m = new machine();
+	
 	if (c==1) {
 		drink f=new drink();
 		f.name();
 		
 		start start1= new start();
+		stop stop1 = new stop();
+		
 	}
 	else if (c==2) {
 		food f1 =new food();
 		f1.name();
 		start start1= new start();
+		stop stop1 = new stop();
 	
 	}
 	else {
@@ -27,6 +31,7 @@ public static void main(String[] args) {
 		f.name();
 			
 		start start1= new start();
+		stop stop1 = new stop();
 		
 	}
 	
