@@ -28,6 +28,12 @@ public abstract class Machines extends Thread {
 			System.out.print("Extra money: ");
 			money = scanner.nextFloat();
 		}
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Enjoy your drink");
 		curentMoney = curentMoney - priceProduct[numberProduct - 1];
 		int k = 0;
@@ -87,6 +93,12 @@ public abstract class Machines extends Thread {
 		while (money < priceProduct[numberProduct - 1]) {
 			System.out.print("Extra money: ");
 			money = scanner.nextFloat();
+		}
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		System.out.println("Enjoy your drink");
 		moneyReturn = money - priceProduct[numberProduct - 1];
