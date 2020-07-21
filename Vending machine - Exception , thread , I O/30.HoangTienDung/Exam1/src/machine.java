@@ -23,6 +23,7 @@ public class machine {
 				System.out.println("Your Price: "+Price);
 				System.out.println("Input money: ");
 				Price = scan.nextInt()+Price;
+				note = note + "Your Price: "+Price;
 			}
 			if(Price>=a.minDrink())
 			{					
