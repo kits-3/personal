@@ -100,7 +100,7 @@ public abstract class VendingMachine {
 	}
 
 	// Write file java using OutPut stream
-	private void writeReceipt(String data) {
+	private void writeReceipt(String data) { 
 		File newfile = new File("C:/Users/PC09/Desktop/exam/text2.txt");
 		OutputStream os = null;
 		try {
