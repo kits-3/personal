@@ -1,23 +1,26 @@
+
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class subintefacemachine implements interfacemachine{
 	List<Drink> listDrink = new ArrayList<Drink>();
-	List<Foot> listFood = new ArrayList<Foot>();
+	List<Food> listFood = new ArrayList<Food>();
+	public FileWriter writer;
 	@Override
 	public List<Drink> addDrink() {
 		// TODO Auto-generated method stub
 		listDrink.add(new Drink("Pepsi",10000));
 		listDrink.add(new Drink("Coca",10000));
-		listDrink.add(new Drink("Milk",10000));
+		listDrink.add(new Drink("Milk",15000));
 		return listDrink;
 	}
 	@Override
-	public List<Foot> addFood() {
+	public List<Food> addFood() {
 		// TODO Auto-generated method stub
-		listFood.add(new Foot("Pizza",30000));
-		listFood.add(new Foot("Hot Dog",20000));
-		listFood.add(new Foot("Hamboger",15000));
+		listFood.add(new Food("Pizza",30000));
+		listFood.add(new Food("Hot Dog",20000));
+		listFood.add(new Food("Hamboger",15000));
 		return listFood;
 	}
 	@Override
@@ -55,6 +58,18 @@ public class subintefacemachine implements interfacemachine{
 			}
 		}
 		return min;
+	}
+	@Override
+	public void output(String bytes) {
+		// TODO Auto-generated method stub
+		try {
+			String fileDir = "C:/Users/PC30/Desktop/team_5/personal/Vending machine -Inheritance, abstract, interface/30.HoangTienDung/Exam1/vendingmachinenote.txt";
+			writer = new FileWriter(fileDir);
+			writer.write(bytes+"\n");
+			writer.close();
+		}catch(Exception e) {
+			
+		}
 	}
 
 }
