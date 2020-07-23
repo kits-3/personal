@@ -1,0 +1,7 @@
+package JDBC;
+
+public class Connection {
+	String driverClassName = "org.mariadb.jdbc.Driver";
+	String connectionUrl = "jdbc:mariadb://localhost:3306/test";
+
+}

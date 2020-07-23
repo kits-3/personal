@@ -1,0 +1,16 @@
+package OOP;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class IO {
+	public static void main(String[] args) throws IOException {
+		FileWriter writer = new FileWriter("D:\\test-createfile.txt");
+		BufferedWriter buffer = new BufferedWriter(writer);
+		buffer.write("Welcome to java.");
+		buffer.close();
+		System.out.println("Success...");
+
+	}
+}

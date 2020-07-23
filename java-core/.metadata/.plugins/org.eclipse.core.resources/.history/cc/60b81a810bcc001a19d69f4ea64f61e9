@@ -1,0 +1,18 @@
+
+public class Dto {
+	private String userName;
+	private String passWord;
+	private int roleId;
+	public Dto(String userName, String passWord, int roleId) {
+		super();
+		this.userName = userName;
+		this.passWord = passWord;
+		this.roleId = roleId;
+	}
+	public Dto() {
+		
+	}
+	
+	
+
+}

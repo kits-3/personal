@@ -1,0 +1,9 @@
+package OOP;
+
+import java.util.List;
+
+public class Recipt {
+	public static void addReceipt (List<Products> list) {
+		
+	}
+}

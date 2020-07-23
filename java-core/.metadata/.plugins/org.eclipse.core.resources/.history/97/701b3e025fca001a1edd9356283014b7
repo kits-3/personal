@@ -1,0 +1,22 @@
+package OOP;
+
+public class RawMilkVendingMachine extends Machine {
+
+	public RawMilkVendingMachine(Integer id, String name) {
+		super(id, name);
+
+	}
+	
+
+	
+	public RawMilkVendingMachine() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public void selectMachine () {
+		System.out.println("Select machine in child class Raw milk");
+	}
+
+}

@@ -1,0 +1,46 @@
+package JDBC;
+
+import Dao.UserDao;
+import Dao.roleDao;
+import model.roleDto;
+import model.userDto;
+
+public class Main {
+	public static void main(String[] args) {
+//		userDto dto = new userDto();
+//		roleDto role = new roleDto();
+////		role.setId();
+////		role.setName("admin");
+////		dto.setUserName("Thanh Thinh");
+////		dto.setPassWord("123456");
+////		dto.setRoleId(1);
+//
+//		roleDao roleDao = new roleDao();
+////		roleDao.add(role);
+////		roleDao.findAll();
+//		int id ;
+//		UserDao dao = new UserDao();
+////		dao.findAll();
+//		for (int i = 0; i < dao.findAll().size(); i++) {
+//			System.out.println(dao.findAll().get(i).getRoleId());
+//			id = dao.findAll().get(i).getRoleId();
+//			roleDao.findOne(id);
+//		}
+////		dao.add(dto);
+////		dao.delete("Thanh Thinh");
+		
+		showHome();
+
+	}
+	public static void showHome () {
+		System.out.println("Dictionary System Demo Version 0.001");
+		System.out.println ( " ----------------------------------");
+		System.out.println("1. Login");
+		System.out.println("2. Rigister");
+		System.out.println("3. Forgot password");
+		System.out.println ( " ----------------------------------");
+		   System.out.print("Please choose: ");
+		
+	}
+
+}

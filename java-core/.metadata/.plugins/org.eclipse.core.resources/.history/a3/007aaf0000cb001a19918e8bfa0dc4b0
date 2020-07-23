@@ -1,0 +1,26 @@
+package OOP;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+public class IO {
+	public static void main(String[] args) {
+		try {
+			String fileDir = "D:/java-core/test1.txt";
+			String pasteDir = "D:/java-core/test2.txt";
+			
+			FileInputStream fi = new FileInputStream(fileDir);
+			FileOutputStream fo = new FileOutputStream(pasteDir);
+			
+			int readByNum;
+			byte [] bytes = new byte[300];
+			
+			while (readByNum = fi.read(bytes) != -1) {
+				fo.write(byte,0,readByNum);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

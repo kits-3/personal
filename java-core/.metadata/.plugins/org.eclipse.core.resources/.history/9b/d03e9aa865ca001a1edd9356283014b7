@@ -1,0 +1,22 @@
+package OOP;
+
+public class CandyVendingMachine extends Machine {
+
+	public CandyVendingMachine() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CandyVendingMachine(Integer id, String name) {
+		this.setId(1);
+		this.setName("CandyVendingMachine");
+	}
+
+	@Override
+	public void selectMachine() {
+		
+		System.out.println("You selectting Candy Vending Machine");
+	}
+	
+
+}
