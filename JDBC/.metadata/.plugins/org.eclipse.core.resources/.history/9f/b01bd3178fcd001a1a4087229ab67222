@@ -1,0 +1,5 @@
+package parkingSystem.entity;
+
+public class park {
+
+}
