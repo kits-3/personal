@@ -1,13 +1,15 @@
-package edu.examination.controller;
+package edu.examination.view;
 
 import java.util.Scanner;
 
-import edu.examination.dao.impl.InstituationDaoImpl;
+import edu.examination.config.ConsoleColors;
 
 public class MainClass {
 	private static Scanner scanner = new Scanner(System.in);
 	
 	public static void displayHomePage(){
+		System.out.println(ConsoleColors.RED + "RED COLORED" +
+				ConsoleColors.RESET + " NORMAL");
 		System.out.println("WELCOME ONLINE EXAMINATION MANAGEMENT SYSTEM");
 		System.out.println("1. Admin");
 		System.out.println("2. Instituation");
@@ -16,18 +18,22 @@ public class MainClass {
 		outerloop:
 		while(true){
 			System.out.print("Select role (enter 1 or 2 or 3): ");
-			String option = scanner.nextLine();
-			switch (option) {
+			String role = scanner.nextLine();
+			switch (role) {
 			case "1":
-				System.out.println("admin start");
+				System.out.println("==============ADMIN START==============");
+				LoginPage adminLogin = new LoginPage(role);
+				adminLogin.displayAdminLoginPage();
 				break outerloop;
 			case "2":
 				System.out.println("==============INSTITUATION START==============");
-				LoginPage login = new LoginPage();
-				login.displayLoginPage();
+				LoginPage instiLogin = new LoginPage(role);
+				instiLogin.displayLoginPage();
 				break outerloop;
 			case "3":
-				System.out.println("user start");
+				System.out.println("==============USER START==============");
+				LoginPage userLogin = new LoginPage(role);
+				userLogin.displayLoginPage();
 				break outerloop;
 			default:
 				System.out.println("WARNING: INCORRECT OPTION. PLEASE ENTER AGAIN!");

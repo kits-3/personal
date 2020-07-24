@@ -1,4 +1,4 @@
-package edu.examination.controller;
+package edu.examination.config;
 
 public class ConsoleColors {
 	 // Reset

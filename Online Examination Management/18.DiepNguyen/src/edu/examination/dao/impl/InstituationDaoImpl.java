@@ -28,7 +28,8 @@ public class InstituationDaoImpl implements InstituationDao{
 	}
 	
 	@Override
-	public void addInstituation(InstituationEntity insti) {
+	public int addInstituation(InstituationEntity insti) {
+		int addedRows=0;
 		try{
 			String queryString = "Insert into instituation(insti_email_address, insti_password) "
 								+ "values(?,?)";
@@ -36,7 +37,7 @@ public class InstituationDaoImpl implements InstituationDao{
 			ptmt = connection.prepareStatement(queryString);
 			ptmt.setString(1, insti.getInstiEmailAddress());
 			ptmt.setString(2, insti.getInstiPassword());
-			ptmt.executeUpdate();
+			addedRows = ptmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
@@ -53,6 +54,7 @@ public class InstituationDaoImpl implements InstituationDao{
 				e.printStackTrace();
 			}
 		}
+		return addedRows;
 	}
 
 	@Override
