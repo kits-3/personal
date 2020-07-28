@@ -107,3 +107,32 @@ public class Order {
 		this.status_check = status_check;
 	}
 }
+
+
+//main
+
+boolean checkOrder = true;
+			do {
+			System.out.println("input order!");
+			order = new Order();
+			System.out.println("input id product:");
+			int id_pro = scan.nextInt();
+			System.out.println("input quantity:");
+			int Qty = scan.nextInt();
+			double mountOrder = (ls.get(id_pro-1).getPrice_out())*Qty;
+			order.setUsers_id(user.getId());
+			order.setPro_id(id_pro);
+			order.setQuantity(Qty);
+			order.setMount(mountOrder);
+			order.setInfo_id(userInfo.getId());
+			order.setStatus_check("none-check");
+			dao.addOrder(order);
+			
+			System.out.println("add order ? (y/n?)");
+			String addOr = scan.next();
+			if(addOr.equalsIgnoreCase("n")) checkOrder = false;
+			else {
+				System.out.println("input again");
+			}
+			}while(checkOrder);
+			break;
