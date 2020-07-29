@@ -1,0 +1,28 @@
+package project.management.repository.impl;
+
+import java.util.List;
+
+import project.management.entity.OrderItemEntity;
+import project.management.entity.ProductEntity;
+import project.management.mapper.OrderItemMapper;
+import project.management.mapper.ProductMapper;
+import project.management.repository.IOrderItemRepository;
+
+public class OrderItemRepository extends AbstrachRepository<OrderItemEntity> implements IOrderItemRepository {
+
+	@Override
+	public int add(int storeMachine, OrderItemEntity orderItemEntity) {
+		StringBuilder sql = new StringBuilder("INSERT INTO orderitem ");
+		sql.append(" ( moneytotal, storemachineid)");
+		sql.append(" VALUES(?, ?)");
+		return insert(sql.toString(), orderItemEntity.getMoneytotal(),storeMachine);
+	}
+
+	@Override
+	public OrderItemEntity findOne(int newId) {
+		String sql = "SELECT * FROM  orderitem where id = ?";
+		List<OrderItemEntity>  orderItemEntity = query(sql, new OrderItemMapper(), newId);
+		return orderItemEntity.isEmpty() ? null : orderItemEntity.get(0);
+	}
+	
+}

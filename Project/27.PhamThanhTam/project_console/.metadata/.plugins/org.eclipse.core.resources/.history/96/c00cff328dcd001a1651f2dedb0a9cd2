@@ -1,0 +1,44 @@
+package project.management;
+
+import java.util.List;
+import java.util.Scanner;
+
+import project.management.entity.ProductEntity;
+import project.management.repository.ProductRepository;
+import project.management.repository.impl.ProductRepositoryImpl;
+import project.management.service.ILoginService;
+import project.management.service.impl.LoginService;
+
+public class ControlAndManagement {
+	public ControlAndManagement() {
+		ProductRepository productRepository = new ProductRepositoryImpl();
+		ILoginService loginService = new LoginService();
+		List<ProductEntity>productEntities=productRepository.findAll();
+		for (int i = 0; i < productEntities.size(); i++) {
+			System.out.println(productEntities.get(i).getName());
+		}
+		System.out.println("choose: 1.customer  2.staff");
+		System.out.println("enter: 1 or 2");
+		
+		Scanner scan = new Scanner(System.in);
+		String key = scan.next();
+		switch (key) {
+		case "1":{
+			System.out.println("1");
+			break;
+		}
+		case "2":{
+			System.out.println("input username");
+			String username = scan.next();
+			System.out.println("input username");
+			String password = scan.next();
+			String role = loginService.login(username, password);
+			System.out.println(role);
+			break;
+		}
+		default:
+			System.out.println("you choose false please choose again");
+			new ControlAndManagement();
+		}
+	}
+}

@@ -1,0 +1,56 @@
+package project.management.repository.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import project.management.config.ConnectionFatory;
+import project.management.entity.ProductEntity;
+import project.management.repository.IProductRepository;
+
+public class ProductRepository extends AbstrachRepository<ProductEntity> implements IProductRepository {
+	Connection connection = null;
+	PreparedStatement ptmt = null;
+	ResultSet rs = null;
+
+	public ProductRepository() {
+
+	}
+
+	private Connection getConnection() throws SQLException {
+		Connection conn;
+		conn = ConnectionFatory.getInstance().getConnection();
+		return conn;
+	}
+
+	
+
+	@Override
+	public int add(ProductEntity productEntity) {
+		StringBuilder sql = new StringBuilder("INSERT INTO product ");
+		sql.append(" (name, price, total)");
+		sql.append(" VALUES(?, ?, ?)");
+		return insert(sql.toString(), productEntity.getName(), productEntity.getPrice(), productEntity.getTotal());
+	}
+
+	@Override
+	public void update(ProductEntity productEntity) {
+		StringBuilder sql = new StringBuilder("UPDATE product ");
+		sql.append(" SET name = ?, price = ?, total = ?");
+		sql.append(" WHERE id = ?");
+		update(sql.toString(), productEntity.getName(), productEntity.getPrice(), productEntity.getTotal());
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		String sql = "UPDATE product SET status = 0 WHERE id = ?";
+		update(sql, id);	
+	}
+
+	
+
+}

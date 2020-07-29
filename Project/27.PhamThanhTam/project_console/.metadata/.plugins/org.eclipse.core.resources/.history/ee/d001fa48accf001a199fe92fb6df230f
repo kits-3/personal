@@ -1,0 +1,9 @@
+package project.management.mapdto;
+
+import java.sql.PreparedStatement;
+
+public interface GenericDTO<T> {
+	T mapValueAdd(T dto, PreparedStatement statement);
+	T mapValueUpdate(T dto, PreparedStatement statement);
+	T mapValueDelete(T dto, PreparedStatement statement);
+}
