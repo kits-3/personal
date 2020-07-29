@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+<<<<<<< HEAD:vending master/src/MACHINE/.project
+	<name>MACHINE</name>
+=======
+	<name>BaiTapJava</name>
+>>>>>>> b23f3e78affd3fd0db766a67dd316b55e231bb8d:Vending machine -list,method/09.PhungDinhHuy/Vending machine/09.PhungDinhHuy/BaiTapJava/.project
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>

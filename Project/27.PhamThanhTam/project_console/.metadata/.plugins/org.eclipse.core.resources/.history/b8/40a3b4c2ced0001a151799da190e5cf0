@@ -1,0 +1,33 @@
+package project.management.service.impl;
+
+import java.util.List;
+
+import project.management.entity.StoreMachineEntity;
+import project.management.repository.IStoreMachineRepository;
+import project.management.repository.impl.StoreMachineRepository;
+import project.management.service.IStoreMachineService;
+
+public class StoreMachineService implements IStoreMachineService{
+	IStoreMachineRepository storeMachineRepository = new StoreMachineRepository();
+	@Override
+	public void deleteStoreMachine(int id) {
+		storeMachineRepository.deleteStoreMachine(id);
+		System.out.println("delete successfull");
+	}
+
+	@Override
+	public List<StoreMachineEntity> findAll() {
+		return storeMachineRepository.findAll();
+	}
+
+	@Override
+	public StoreMachineEntity findOneById(int id) {
+		return storeMachineRepository.findOne(id);
+	}
+
+	@Override
+	public StoreMachineEntity addStoreMachine(StoreMachineEntity storeMachineEntity) {
+		return storeMachineRepository.findOne(storeMachineRepository.addStoreMachine(storeMachineEntity));
+	}
+
+}

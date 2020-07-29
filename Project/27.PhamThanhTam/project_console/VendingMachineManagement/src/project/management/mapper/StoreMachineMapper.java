@@ -1,0 +1,24 @@
+package project.management.mapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import project.management.entity.StoreMachineEntity;
+
+public class StoreMachineMapper implements RowMapper<StoreMachineEntity> {
+
+	@Override
+	public StoreMachineEntity mapRow(ResultSet rs) {
+		try {
+			StoreMachineEntity storeMachineEntity = new StoreMachineEntity();
+			storeMachineEntity.setId(rs.getInt("id"));
+			storeMachineEntity.setName(rs.getString("name"));
+			storeMachineEntity.setAddress(rs.getString("address"));
+			storeMachineEntity.setUserid(rs.getInt("userid"));
+			return storeMachineEntity;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+
+}

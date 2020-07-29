@@ -1,0 +1,25 @@
+package project.management.mapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import project.management.entity.OrderItemEntity;
+
+public class OrderItemProductMapper implements RowMapper<OrderItemEntity> {
+
+	@Override
+	public OrderItemEntity mapRow(ResultSet rs) {
+		try {
+			OrderItemEntity orderItemEntity = new OrderItemEntity();
+			orderItemEntity.setId(rs.getInt("id"));
+			orderItemEntity.setName(rs.getString("name"));
+			orderItemEntity.setMoneytotal(rs.getInt("moneytotal"));
+			orderItemEntity.setStatus(1);
+			orderItemEntity.setStoremachineid(rs.getInt("storemachineid"));
+			return orderItemEntity;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+
+}

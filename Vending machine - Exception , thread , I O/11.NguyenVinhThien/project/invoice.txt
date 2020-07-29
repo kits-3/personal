@@ -1,0 +1,6 @@
+------------ BILL ------------
+Product			Price
+Orange			100
+Banana			150
+Mango			250
+Total			500

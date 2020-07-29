@@ -1,0 +1,35 @@
+package project.management.repository.impl;
+
+import java.util.List;
+
+import project.management.entity.ProductEntity;
+import project.management.entity.StoreMachineEntity;
+import project.management.repository.IStoreMachineRepository;
+
+public class StoreMachineRepository extends AbstrachRepository<StoreMachineEntity> implements IStoreMachineRepository {
+
+	@Override
+	public List<ProductEntity> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int add(StoreMachineEntity storeMachineEntity) {
+		
+		return 0;
+	}
+
+	@Override
+	public void update(StoreMachineEntity storeMachineEntity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

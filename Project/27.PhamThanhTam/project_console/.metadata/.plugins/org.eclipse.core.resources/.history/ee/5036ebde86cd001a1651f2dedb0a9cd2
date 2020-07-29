@@ -1,0 +1,8 @@
+package project.management.repository;
+
+import project.management.repository.impl.List;
+import project.management.repository.impl.ProductEntity;
+
+public interface ProductRepository {
+	List<ProductEntity> findAll() ;
+}

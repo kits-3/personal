@@ -1,0 +1,101 @@
+package project.management;
+
+import java.util.Scanner;
+
+import project.management.entity.ProductEntity;
+import project.management.service.ILoginService;
+import project.management.service.IProductService;
+import project.management.service.impl.LoginService;
+import project.management.service.impl.ProductService;
+
+public class ControlAndManagement {
+	public ControlAndManagement() {
+		
+		System.out.println("choose: 1.customer  2.staff 3.Out program");
+		System.out.println("input: 1 or 2 or 3");
+
+		Scanner scan = new Scanner(System.in);
+		String key = scan.next();
+		loginChooses(key);
+		
+	}
+	public void loginChooses(String key) {
+		ILoginService loginService = new LoginService();
+		Scanner scan = new Scanner(System.in);
+		switch (key) {
+		case "1": {
+			System.out.println("1");
+
+			break;
+		}
+		case "2": {
+			System.out.println("input username");
+			String username = scan.next();
+			System.out.println("input password");
+			String password = scan.next();
+			String role = loginService.login(username, password);
+			System.out.println("status: login " + role);
+			switch (role) {
+			case "ADMIN": {
+				Product();
+				break;
+			}
+			case "NORMALSTAFF": {
+				
+				break;
+			}
+			default:
+				System.out.println("Please select again");
+				new ControlAndManagement();
+				break;
+			}
+
+			break;
+		}
+		case "3": {
+			break;
+		}
+		default:
+			System.out.println("you choose false please choose again");
+			new ControlAndManagement();
+		}
+	}
+	public void Product() {
+		IProductService productService = new ProductService();
+		ProductEntity productEntity = new ProductEntity();
+		ProductEntity productAlreadyInsertEntity = new ProductEntity();
+		System.out.println("select option:");
+		System.out.println("1.add 2.update 3.delete");
+		Scanner scan = new Scanner(System.in);
+		String option = scan.next();
+		switch (option) {
+		case "1":{
+			System.out.println("please input:");
+			System.out.println("product name: ");
+			String name = scan.next();
+			System.out.println("price product price:");
+			int price = scan.nextInt();
+			System.out.println("product total:");
+			int total = scan.nextInt();
+			System.out.println("id of Store Machine");
+			int storeMachineId = scan.nextInt();
+			productEntity.setName(name);
+			productEntity.setPrice(price);
+			productEntity.setTotal(total);
+			productEntity.setStoreMachineId(storeMachineId);
+			
+			productAlreadyInsertEntity = productService.addProduct(productEntity);
+			System.out.println(productAlreadyInsertEntity);
+			break;
+		}case "2":{
+			
+			break;
+		}case "3":{
+			
+			break;
+		}
+		default:
+			break;
+		}
+	}
+}

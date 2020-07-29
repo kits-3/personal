@@ -1,0 +1,19 @@
+package project.management.mapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import project.management.entity.ProductEntity;
+
+public class ProductMapper implements RowMapper<ProductEntity> {
+
+	@Override
+	public ProductEntity mapRow(ResultSet rs) {
+		try {
+			
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+
+}

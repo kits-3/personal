@@ -1,0 +1,7 @@
+package project.management.mapdto;
+
+import java.sql.PreparedStatement;
+
+public interface GenericDTO<T> {
+	T mapValue(T dto, PreparedStatement statement);
+}
