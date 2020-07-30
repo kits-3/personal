@@ -166,7 +166,7 @@ public class UserDao implements userImpl {
 		// TODO Auto-generated method stub
 		List<User> list = new ArrayList<>();
 		try {
-			FileWriter myWriter = new FileWriter("D:/java/project/testuser.txt");
+			FileWriter myWriter = new FileWriter("testuser.txt");
 			
 			Connection con = getConnection();
 			PreparedStatement ps = con.prepareStatement("select * from users");
