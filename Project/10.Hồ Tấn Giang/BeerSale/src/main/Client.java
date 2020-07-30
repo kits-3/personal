@@ -372,7 +372,6 @@ public class Client {
 				System.out.println("Your money not enough! Do you want to add your money (min = 20000) ? (y or n)");
 				String answer = sc.nextLine();
 				if (answer.equals("y")) {
-					System.out.print("You want to add: ");
 					int moneyAdd = 0;
 					moneyAdd = runMain.handleInputNumberException(moneyAdd, "You want to add: ");
 					if (moneyAdd < SystemConstant.MIN_ADD_MONEY) {
@@ -464,7 +463,7 @@ public class Client {
 		try {
 			StringBuffer buffer = new StringBuffer();
 			List<String> lstBeerName = receiptDetailDAO.findBeerNameByBeerIdAndReceiptId(receipt.getId());
-			String receiptUrl = "D:/Giang/Document/Resource java/git/Beersale/BeerSale/receipt/Receipt.txt";
+			String receiptUrl = "../BeerSale/receipt/Receipt.txt";
 			FileOutputStream fo = new FileOutputStream(receiptUrl);
 			buffer.append("=========================Receipt=========================\n");
 			buffer.append(String.format("%-10s %-10s \n", "User name:", RunMain.userDTO.getName()));

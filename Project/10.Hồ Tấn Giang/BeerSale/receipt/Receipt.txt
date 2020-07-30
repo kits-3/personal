@@ -1,6 +1,6 @@
 =========================Receipt=========================
 User name: Clien A    
-Receipt id: 26         
+Receipt id: 28         
       Name(x Count)        Cost       
-1.    Tiger x2             26000      
-Total money	:	26000
+1.    Tiger Crystal x1     12000      
+Total money	:	12000

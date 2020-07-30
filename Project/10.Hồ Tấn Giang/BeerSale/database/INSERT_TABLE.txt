@@ -1,17 +1,5 @@
 USE beer_sale;
 
------	Beer	-----
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Strongbow vị dâu đỏ","Strongbow Cider","Hà Lan","Việt Nam","Cider (nước ép táo lên men với sucrose), nước, si-rô, màu caramel (E150a), chất điều chỉnh độ acid (E296), khí carbonate, chất bảo quản Kali Metabisulfit (E224), hương táo tự nhiên","330ml / Lon",10,10000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Tiger","Tiger","Hà Lan","Việt Nam","","330 ml / lon",10,13000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Tiger Crystal","Tiger","	Việt Nam","	Việt Nam","Nước, hoa bia, đại mạch","8L",10,12000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Heineken","Heineken","Hà Lan","Singapore","Nước, đại mạch, chiết xuất hoa bia, hương tự nhiên. Nồng độ cồn: 0.0%","330ml/Lon",10,9000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Beck's Ice","Beck's","Đức","Việt Nam","","330ml / lon",10,14000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Budweiser","Budweiser","Mỹ","Việt Nam","Nước, mạch nha, gạo, hoa bia","330 ml / lon",10,15000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("SAGOTA không cồn","SAGOTA","Việt Nam","Việt Nam","Nước, lúa mạch, gạo, hoa bia","330ml",10,7000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Tuborg","Tuborg","Đan Mạch","Việt Nam","","330 ml / lon",10,6000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Larue Special","Larue Special","Việt Nam","","Nước, Đại mạch, Ngũ cốc, Hoa bia, Hương trái cây tổng hợp","",10,10000,16,now(),16,now());
-INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Hoegaarden","Hoegaarden","Bỉ","","","500ml",10,22000,16,now(),16,now());
-
 -----	Role	-----
 INSERT INTO role(role_code,role_name) VALUES ("admin","Administer");
 INSERT INTO role(role_code,role_name) VALUES ("client","Customer");
@@ -27,6 +15,18 @@ INSERT INTO user(user_account_id,name,email,phone_number,money,reg_date,updt_dat
 INSERT INTO user(user_account_id,name,email,phone_number,money,reg_date,updt_date) VALUES ("2","Client A","example@gmail.com","0123456789",0,now(),now());
 INSERT INTO user(user_account_id,name,email,phone_number,money,reg_date,updt_date) VALUES ("3","Client B","example@gmail.com","0123456789",50000,now(),now());
 INSERT INTO user(user_account_id,name,email,phone_number,money,reg_date,updt_date) VALUES ("4","Client C","example@gmail.com","0123456789",100000,now(),now());
+
+-----	Beer	-----
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Strongbow vị dâu đỏ","Strongbow Cider","Hà Lan","Việt Nam","Cider (nước ép táo lên men với sucrose), nước, si-rô, màu caramel (E150a), chất điều chỉnh độ acid (E296), khí carbonate, chất bảo quản Kali Metabisulfit (E224), hương táo tự nhiên","330ml / Lon",10,10000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Tiger","Tiger","Hà Lan","Việt Nam","","330 ml / lon",10,13000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Tiger Crystal","Tiger","	Việt Nam","	Việt Nam","Nước, hoa bia, đại mạch","8L",10,12000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Heineken","Heineken","Hà Lan","Singapore","Nước, đại mạch, chiết xuất hoa bia, hương tự nhiên. Nồng độ cồn: 0.0%","330ml/Lon",10,9000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Beck's Ice","Beck's","Đức","Việt Nam","","330ml / lon",10,14000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Budweiser","Budweiser","Mỹ","Việt Nam","Nước, mạch nha, gạo, hoa bia","330 ml / lon",10,15000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("SAGOTA không cồn","SAGOTA","Việt Nam","Việt Nam","Nước, lúa mạch, gạo, hoa bia","330ml",10,7000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Tuborg","Tuborg","Đan Mạch","Việt Nam","","330 ml / lon",10,6000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Larue Special","Larue Special","Việt Nam","","Nước, Đại mạch, Ngũ cốc, Hoa bia, Hương trái cây tổng hợp","",10,10000,0,now(),0,now());
+INSERT INTO beer(name,brand,origin_brand,origin,ingredient,capacity,count,cost,reg_id,reg_date,updt_id,updt_date) VALUES ("Hoegaarden","Hoegaarden","Bỉ","","","500ml",10,22000,0,now(),0,now());
 
 -----	Receipt		-----
 INSERT INTO receipt (user_id,status,total,reg_id,reg_date,updt_id,updt_date) VALUES (2,0,35000,2,now(),2,now());
