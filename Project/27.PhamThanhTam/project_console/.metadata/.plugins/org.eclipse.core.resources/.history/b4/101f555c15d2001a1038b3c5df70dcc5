@@ -1,0 +1,68 @@
+package project.management.controlandmanagement.impl;
+
+import java.util.Scanner;
+
+import project.management.ControlAndManagement;
+import project.management.Vending_Machine_3_machine.machine_drink_food__computer;
+import project.management.controlandmanagement.IProduct;
+import project.management.controlandmanagement.IStatistics;
+import project.management.service.ILoginService;
+import project.management.service.impl.LoginService;
+
+// is not implemented class 
+// remove package name .impl
+
+public class LoginChoose {
+	// login dont have implement , other class have interface
+
+	private ILoginService loginService;
+	private IProduct product;
+	private Scanner scan;
+
+	public LoginChoose() {
+		this.loginService = new LoginService();
+		this.product = new Product();
+		this.scan = new Scanner(System.in);
+	}
+
+	public boolean loginOption(String key) {
+		switch (key) {
+		case "1": {
+			int money = 0;
+			new machine_drink_food__computer().choiceMachine(money);
+			break;
+		}
+		case "2": {
+			System.out.println("input username");
+			String username = scan.next();
+			System.out.println("input password");
+			String password = scan.next();
+			String role = loginService.login(username, password);
+			System.out.println("status: login " + role);
+			switch (role) {
+			case "ADMIN": {
+				/* get product option */
+				product.product();
+			}
+			case "NORMALSTAFF": {
+				IStatistics statistics = new Statistic();
+				statistics.statistics();
+			}
+			default:
+				System.out.println("Please select again");
+				return true;
+			}
+			break;
+		}
+		case "3": {
+			/* out program */
+			return false;
+		}
+		default:
+			System.out.println("you choose false please choose again");
+			return true;
+		}
+		return false;
+	}
+
+}

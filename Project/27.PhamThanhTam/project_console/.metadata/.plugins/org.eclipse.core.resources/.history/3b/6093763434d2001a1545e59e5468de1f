@@ -1,0 +1,13 @@
+package project.management.controlandmanagement.impl;
+
+import project.management.controlandmanagement.IUser;
+
+public class User implements IUser {
+
+	@Override
+	public void statistics() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

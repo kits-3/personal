@@ -1,0 +1,12 @@
+package project.management;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// start here
+		ControlAndManagement program = new ControlAndManagement(); // ^^%%
+		program.run();
+		program.terminate(); // <-- end here
+	}
+
+}
