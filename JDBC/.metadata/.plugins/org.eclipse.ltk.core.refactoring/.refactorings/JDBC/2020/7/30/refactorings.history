@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename compilation unit &apos;JDBC.Connection.java&apos; to &apos;ConnectionFactory.java&apos;&#x0D;&#x0A;- Original project: &apos;JDBC&apos;&#x0D;&#x0A;- Original element: &apos;JDBC.Connection.java&apos;&#x0D;&#x0A;- Renamed element: &apos;JDBC.ConnectionFactory.java&apos;" description="Rename compilation unit &apos;Connection.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;JDBC{Connection.java" name="ConnectionFactory.java" references="false" stamp="1595390212142" version="1.0"/>
-</session>

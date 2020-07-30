@@ -1,5 +1,0 @@
-package parkingSystem.config;
-
-public class ConnectionFactory {
-
-}

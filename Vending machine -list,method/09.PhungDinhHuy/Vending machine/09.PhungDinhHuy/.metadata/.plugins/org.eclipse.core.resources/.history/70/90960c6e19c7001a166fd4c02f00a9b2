@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class MakeCalculator {
+	
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		String value=sc.next();
+		
+		String[] arr_dau={"+","-","*","/"};
+		
+		for(String dau:arr_dau) {
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}
