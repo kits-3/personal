@@ -1,6 +1,0 @@
-1. Ai có mức lương cao nhất ?
-
-2. Đâu là bộ phận có tổng lương cao nhất trên mỗi bộ phận ?
-
-3. Rank với mức lương cao nhất là gì ?
-4. Mức lương trung bình của rank cao nhất ?
