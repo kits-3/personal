@@ -69,3 +69,6 @@ Select * from rooms where type='king' and id NOT IN (Select idRoom from book whe
 
 
 Select * from rooms where type='king' and id NOT IN (Select idRoom from book where dateIn <= '2020-08-06' AND dateOut >= '2020-08-06');
+
+
+
