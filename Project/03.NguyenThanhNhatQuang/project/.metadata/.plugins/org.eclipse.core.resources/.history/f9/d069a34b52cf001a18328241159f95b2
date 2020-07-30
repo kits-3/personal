@@ -1,0 +1,18 @@
+package home.entity;
+
+public class UserEntity {
+	private int id;
+	private String username;
+	private String password;
+	private String email;
+	private int role_id;
+	private String lname;
+	private String fname;
+	private String birthday;
+	private String create_date;
+	private String update_date;
+	private String delete_date;
+	private int status;
+	private int display;
+	private String description;
+}

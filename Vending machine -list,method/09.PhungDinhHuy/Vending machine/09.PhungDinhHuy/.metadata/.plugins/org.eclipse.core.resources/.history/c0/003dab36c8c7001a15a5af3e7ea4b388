@@ -1,0 +1,161 @@
+package Vending_Machine;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class VendingMachine {
+
+	final static double MIN_COST = 5000;
+
+	ArrayList<Product> listProduct;
+
+	public VendingMachine() {
+		listProduct = new ArrayList<Product>();
+
+		Product product1 = new Product("Coca", 5000);
+		Product product2 = new Product("Pepsi", 6000);
+		Product product3 = new Product("Orange juice", 7000);
+		Product product4 = new Product("7Up", 8000);
+		Product product5 = new Product("Sochu", 9000);
+
+		listProduct.add(product1);
+		listProduct.add(product2);
+		listProduct.add(product3);
+		listProduct.add(product4);
+		listProduct.add(product5);
+	}
+
+	// check Money Min Cost Product
+	public boolean checkMoneyMinCostProduct(double soTien) {
+
+		if (soTien < MIN_COST) {
+			return false;
+		}
+		return true;
+	}
+
+	// User insert money
+	public double insertMoney() {
+		Scanner sc = new Scanner(System.in);
+		System.out.printf("Insert money (Minimun cost is %.2f) : ", MIN_COST);
+		double soTien = sc.nextDouble();
+
+		return soTien;
+	}
+
+	// Choose product
+	public int chooseProduct() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Choose product (plz input from 1->5): ");
+		int indexProduct = sc.nextInt() - 1;
+
+		return indexProduct;
+	}
+
+	// get element from array list
+	public Product getProductList(int index_Product) {
+		return listProduct.get(index_Product);
+	}
+
+	//
+	public boolean isWantContinue(String str) {
+
+		return (str.equalsIgnoreCase("Yes")) ? true : false;
+	}
+
+	// Run machine ...
+	public void run() {
+
+		Scanner sc = new Scanner(System.in);
+
+		double moneyCurrent = 0;
+		boolean isExist;
+		
+		for(Product pro:listProduct ) {
+			System.out.printf("Name: %s, Price: %s",);
+		}
+		
+
+		do {
+
+			isExist = false;
+			double soTien = insertMoney() + moneyCurrent;
+			boolean isEnough = checkMoneyMinCostProduct(soTien);
+
+			// Check is enough monney
+			while (isEnough) {
+
+				boolean isOn = true;
+				// Choose product if money is enough
+				int indexProduct = chooseProduct();
+				Product product = getProductList(indexProduct);
+				double price_Product = product.getPrice();
+
+				if (soTien >= price_Product) {
+
+					// calculate moneyCurrent
+					moneyCurrent = soTien - price_Product;
+					
+					soTien = moneyCurrent;
+					isEnough = checkMoneyMinCostProduct(soTien);
+
+					// continue?
+					System.out.println("Do you want to continue? Plz input Yes/No");
+					String getMessage = sc.nextLine();
+
+					if (!isWantContinue(getMessage)) {
+						System.out.println("Payback Monney : " + moneyCurrent);
+						return;
+					} else {
+						System.out.println("Current Monney : " + moneyCurrent + "\n");
+						//
+						continue;
+					}
+
+				} else {	
+				
+					// If money < price_Product => moneyCurrent = money
+					moneyCurrent=soTien;
+					System.out.println("Product price is higher than money add");
+					// return?
+					System.out.println("Do you want to return money? Plz input Yes/No");
+					String getMessage = sc.nextLine();
+
+					if (isWantContinue(getMessage)) {
+						System.out.println("Payback Monney : " + moneyCurrent);
+						return;
+					} else {
+						System.out.println("Current Monney : " + moneyCurrent + "\n");
+						//
+						continue;
+						
+					}
+				}
+
+			}
+
+			System.out.println("Not enough minimum money! Do you like to insert more money? Yes/No");
+			String str2 = sc.nextLine();
+			if (isWantContinue(str2)) {
+				// Insert more money ...
+				continue;
+
+			} else {
+
+				// payback
+				System.out.printf("Mininum monney should be %.2f . \nMoney payback: %.2f", MIN_COST, soTien);
+				isExist = true;
+			}
+
+		} while (!isExist);
+
+	}
+
+	public static void main(String[] args) {
+
+		VendingMachine vendingMachine = new VendingMachine();
+		vendingMachine.run();
+
+	}
+
+}

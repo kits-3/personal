@@ -1,0 +1,20 @@
+
+public class printStar {
+
+	public static void printStar1(int n) {
+		
+		
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		printStar1(n);
+	}
+	
+	
+	
+	
+	
+}

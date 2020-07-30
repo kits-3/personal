@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="home.service.run.impl.RunImpl"/>
+<fullyQualifiedTypeName name="home.service.run.IRun"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="home.config.ConnectionFactory"/>
+<fullyQualifiedTypeName name="home.repository.IUserRepository"/>
+<fullyQualifiedTypeName name="home.service.user.impl.UserFeatureImpl"/>
+<fullyQualifiedTypeName name="home.service.user.IUserFeature"/>
+<fullyQualifiedTypeName name="home.entity.RoleEntity"/>
+<fullyQualifiedTypeName name="home.repository.IRoleRepository"/>
+<fullyQualifiedTypeName name="home.repository.ITaskRepository"/>
+<fullyQualifiedTypeName name="home.repository.ITaskDetailRepository"/>
+<fullyQualifiedTypeName name="home.service.input.IInput"/>
+<fullyQualifiedTypeName name="home.service.handingcase.IHandingCase"/>
+<fullyQualifiedTypeName name="home.entity.UserEntity"/>
+<fullyQualifiedTypeName name="java.lang.Error"/>
+<fullyQualifiedTypeName name="home.repository.impl.RoleRepositoryImpl"/>
+<fullyQualifiedTypeName name="home.service.menu.impl.MenuImpl"/>
+<fullyQualifiedTypeName name="home.service.input.impl.InputImpl"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="home.entity.TaskEntity"/>
+<fullyQualifiedTypeName name="home.entity.TaskDetailEntity"/>
+<fullyQualifiedTypeName name="home.repository.impl.UserRepositoryImpl"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="home.repository.impl.TaskDetailRepositoryImpl"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="home.repository.impl.TaskReopsitoryImpl"/>
+</qualifiedTypeNameHistroy>

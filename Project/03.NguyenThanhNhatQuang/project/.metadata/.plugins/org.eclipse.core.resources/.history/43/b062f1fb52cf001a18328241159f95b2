@@ -1,0 +1,13 @@
+package home.entity;
+
+public class TaskDetailEntity {
+	private int id;
+	private String content;
+	private int task_id;
+	private String create_date;
+	private String update_date;
+	private String delete_date;
+	private int status;
+	private int display;
+	private String description;
+}
