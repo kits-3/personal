@@ -1,7 +1,0 @@
-package OOP;
-
-public class Recipt {
-	public static void addReceipt (List<Products>) {
-		
-	}
-}
