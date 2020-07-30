@@ -179,7 +179,7 @@ public class ATMmachine {
 							System.out.println("Total Withdrawal: " + soTienRut);
 							transaction.execute();
 
-							cashDispenser.dispenserWithMinimumCoin(soTienRut, machineID);
+//							cashDispenser.dispenserWithMinimumCoin(soTienRut, machineID);
 							flag = 2;
 							addTrans(transaction, flag);
 							isContinue = true;
