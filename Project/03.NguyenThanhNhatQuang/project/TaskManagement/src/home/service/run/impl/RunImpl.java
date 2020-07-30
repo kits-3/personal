@@ -375,16 +375,19 @@ public class RunImpl implements IRun {
 																	+ ". Procced Edit And Update Task"
 																	+ ". Status: Procced. Detail: Input Id Task.\n";
 															buffer.append(exportFile);
+
 															task = getTaskByIdUserAndIdTask(user.getId(), userChoose);
 															exportFile = date + ": Id: " + user.getId() + ". Username: "
 																	+ user.getUsername() + ". Role: " + role.getName()
 																	+ " " + ". User Input Id Task: " + userChoose
-																	+ ". Task User Choose: " + task.getHeader()
+																	+ ". Task User Choose: "
+																	+ (task == null ? null : task.getHeader())
 																	+ ". Procced Edit And Update Task"
 																	+ ". Status: Procced. Detail: Choose Task Success.\n";
 															buffer.append(exportFile);
 															taskcurrent: while (status) {
 																if (task != null) {
+
 																	exportFile = date + ": Id: " + user.getId()
 																			+ ". Username: " + user.getUsername()
 																			+ ". Role: " + role.getName() + " "
@@ -1000,6 +1003,9 @@ public class RunImpl implements IRun {
 																		buffer.append(exportFile);
 																		System.out.println("Please input 1 2 3 4 5");
 																	}
+																} else {
+																	System.out.println("Task is not exist");
+																	break;
 																}
 															}
 														} else {
@@ -1187,159 +1193,117 @@ public class RunImpl implements IRun {
 																				(task.getDisplay() == 1 ? "display"
 																						: "hidden"),
 																				task.getDescription());
-																	}
-
-																	exportFile = date + " : " + user.getId() + " "
-																			+ user.getUsername()
-																			+ ". View Task Detail Success\n";
-																	buffer.append(exportFile);
-																	bytes = buffer.toString().getBytes();
-
-																	ArrayList<TaskDetailEntity> listTaskDetailEntity = new ArrayList<TaskDetailEntity>();
-																	listTaskDetailEntity = lsTaskDetail(task.getId());
-																	currenttaskdetail: while (status) {
-																		if (listTaskDetailEntity != null) {
-																			listTaskDetailEntity = lsTaskDetail(
-																					task.getId());
-																			System.out.println("Task detail of :"
-																					+ task.getHeader() + "(id: "
-																					+ task.getId() + ")");
-																			System.out.println(
-																					"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
-																			for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
-																				System.out.printf(
-																						"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
-																						taskDetail.getId(),
-																						taskDetail.getContent(),
-																						taskDetail.getTask_id(),
-																						task.getHeader(),
-																						taskDetail.getCreate_date(),
-																						taskDetail.getUpdate_date(),
-																						taskDetail.getDelete_date(),
-																						(taskDetail.getStatus() == 0
-																								? "incomplete"
-																								: "complete"),
-																						(taskDetail.getDisplay() == 1
-																								? "display"
-																								: "hidden"),
-																						taskDetail.getDescription());
-																			}
-																			new MenuImpl().menuEditTaskDetail();
-																			new MenuImpl().menuChoose();
-																			userChoose = new InputImpl().userChoose();
-
-																			if (userChoose == 1) {
-																				new MenuImpl().menuCreateTaskDetail();
+																		exportFile = date + " : " + user.getId() + " "
+																				+ user.getUsername()
+																				+ ". View Task Detail Success\n";
+																		buffer.append(exportFile);
+																		ArrayList<TaskDetailEntity> listTaskDetailEntity = new ArrayList<TaskDetailEntity>();
+																		listTaskDetailEntity = lsTaskDetail(task.getId());
+																		currenttaskdetail: while (status) {
+																			if (listTaskDetailEntity != null) {
+																				listTaskDetailEntity = lsTaskDetail(
+																						task.getId());
+																				System.out.println("Task detail of :"
+																						+ task.getHeader() + "(id: "
+																						+ task.getId() + ")");
+																				System.out.println(
+																						"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
+																				for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
+																					System.out.printf(
+																							"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
+																							taskDetail.getId(),
+																							taskDetail.getContent(),
+																							taskDetail.getTask_id(),
+																							task.getHeader(),
+																							taskDetail.getCreate_date(),
+																							taskDetail.getUpdate_date(),
+																							taskDetail.getDelete_date(),
+																							(taskDetail.getStatus() == 0
+																									? "incomplete"
+																									: "complete"),
+																							(taskDetail.getDisplay() == 1
+																									? "display"
+																									: "hidden"),
+																							taskDetail.getDescription());
+																				}
+																				new MenuImpl().menuEditTaskDetail();
 																				new MenuImpl().menuChoose();
-																				userChoose = new InputImpl()
-																						.userChoose();
+																				userChoose = new InputImpl().userChoose();
+
 																				if (userChoose == 1) {
-																					String contentTaskDetail = contentTaskDetail();
-																					boolean isSuccess = isCreateTaskDetailByIdTask(
-																							task.getId(),
-																							contentTaskDetail);
-																					if (isSuccess) {
-																						System.out.println(
-																								"Create Task Detail Success. What do you want to do (1: Current taskdetail / 2: List taskdetail / 3: go back)");
+																					new MenuImpl().menuCreateTaskDetail();
+																					new MenuImpl().menuChoose();
+																					userChoose = new InputImpl()
+																							.userChoose();
+																					if (userChoose == 1) {
+																						String contentTaskDetail = contentTaskDetail();
+																						boolean isSuccess = isCreateTaskDetailByIdTask(
+																								task.getId(),
+																								contentTaskDetail);
+																						if (isSuccess) {
+																							System.out.println(
+																									"Create Task Detail Success. What do you want to do (1: Current taskdetail / 2: List taskdetail / 3: go back)");
 
-																						exportFile = date + " : "
-																								+ user.getId() + " "
-																								+ user.getUsername()
-																								+ ". Create Task Detail Success\n";
-																						buffer.append(exportFile);
-																						bytes = buffer.toString()
-																								.getBytes();
+																							exportFile = date + " : "
+																									+ user.getId() + " "
+																									+ user.getUsername()
+																									+ ". Create Task Detail Success\n";
+																							buffer.append(exportFile);
+																							bytes = buffer.toString()
+																									.getBytes();
 
-																						userChoose = new InputImpl()
-																								.userChoose();
-																						if (userChoose == 1) {
-																							continue currenttaskdetail;
-																						} else if (userChoose == 2) {
-																							continue viewdetailtask;
+																							userChoose = new InputImpl()
+																									.userChoose();
+																							if (userChoose == 1) {
+																								continue currenttaskdetail;
+																							} else if (userChoose == 2) {
+																								continue viewdetailtask;
+																							} else {
+																								continue viewmenuonetask;
+																							}
 																						} else {
-																							continue viewmenuonetask;
+																							System.out.println(
+																									"Create Task Detail Fail. Try again (1: Current taskdetail / 2: List taskdetail / 3: go back)");
+
+																							exportFile = date + " : "
+																									+ user.getId() + " "
+																									+ user.getUsername()
+																									+ ". Create Task Detail Fail\n";
+																							buffer.append(exportFile);
+																							bytes = buffer.toString()
+																									.getBytes();
+
+																							userChoose = new InputImpl()
+																									.userChoose();
+																							if (userChoose == 1) {
+																								continue currenttaskdetail;
+																							} else if (userChoose == 2) {
+																								continue viewdetailtask;
+																							} else {
+																								continue viewmenuonetask;
+																							}
 																						}
 																					} else {
-																						System.out.println(
-																								"Create Task Detail Fail. Try again (1: Current taskdetail / 2: List taskdetail / 3: go back)");
-
-																						exportFile = date + " : "
-																								+ user.getId() + " "
-																								+ user.getUsername()
-																								+ ". Create Task Detail Fail\n";
-																						buffer.append(exportFile);
-																						bytes = buffer.toString()
-																								.getBytes();
-
-																						userChoose = new InputImpl()
-																								.userChoose();
-																						if (userChoose == 1) {
-																							continue currenttaskdetail;
-																						} else if (userChoose == 2) {
-																							continue viewdetailtask;
-																						} else {
-																							continue viewmenuonetask;
-																						}
+																						continue taskdetailcurrent;
 																					}
-																				} else {
-																					continue taskdetailcurrent;
-																				}
-																			} else if (userChoose == 2) {
-																				listtaskdetailonetask: while (status) {
-																					listTaskDetailEntity = lsTaskDetail(
-																							task.getId());
-																					System.out
-																							.println("Task detail of :"
-																									+ task.getHeader()
-																									+ "(id: "
-																									+ task.getId()
-																									+ ")");
-																					System.out.println(
-																							"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
-																					for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
-																						System.out.printf(
-																								"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
-																								taskDetail.getId(),
-																								taskDetail.getContent(),
-																								taskDetail.getTask_id(),
-																								task.getHeader(),
-																								taskDetail
-																										.getCreate_date(),
-																								taskDetail
-																										.getUpdate_date(),
-																								taskDetail
-																										.getDelete_date(),
-																								(taskDetail
-																										.getStatus() == 0
-																												? "incomplete"
-																												: "complete"),
-																								(taskDetail
-																										.getDisplay() == 1
-																												? "display"
-																												: "hidden"),
-																								taskDetail
-																										.getDescription());
-																					}
-																					System.out.println(
-																							"Input id task detail you want to edit: ");
-																					new MenuImpl().menuChoose();
-																					int userChooseTaskIDDetail = new InputImpl()
-																							.userChoose();
-																					taskdetailcurrentchoose: while (status) {
-																						taskOneDetail = getTaskDetailByIdTaskDetail(
-																								userChooseTaskIDDetail);
-																						System.out.println(
-																								"Task Detail:");
+																				} else if (userChoose == 2) {
+																					listtaskdetailonetask: while (status) {
+																						listTaskDetailEntity = lsTaskDetail(
+																								task.getId());
+																						System.out
+																								.println("Task detail of :"
+																										+ task.getHeader()
+																										+ "(id: "
+																										+ task.getId()
+																										+ ")");
 																						System.out.println(
 																								"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
 																						for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
 																							System.out.printf(
 																									"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
 																									taskDetail.getId(),
-																									taskDetail
-																											.getContent(),
-																									taskDetail
-																											.getTask_id(),
+																									taskDetail.getContent(),
+																									taskDetail.getTask_id(),
 																									task.getHeader(),
 																									taskDetail
 																											.getCreate_date(),
@@ -1357,388 +1321,497 @@ public class RunImpl implements IRun {
 																													: "hidden"),
 																									taskDetail
 																											.getDescription());
+																						}
+																						System.out.println(
+																								"Input id task detail you want to edit: ");
+																						new MenuImpl().menuChoose();
+																						int userChooseTaskIDDetail = new InputImpl()
+																								.userChoose();
+																						taskdetailcurrentchoose: while (status) {
+																							taskOneDetail = getTaskDetailByIdTaskDetail(
+																									userChooseTaskIDDetail);
+																							System.out.println(
+																									"Task Detail:");
+																							System.out.println(
+																									"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
+																							for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
+																								System.out.printf(
+																										"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
+																										taskDetail.getId(),
+																										taskDetail
+																												.getContent(),
+																										taskDetail
+																												.getTask_id(),
+																										task.getHeader(),
+																										taskDetail
+																												.getCreate_date(),
+																										taskDetail
+																												.getUpdate_date(),
+																										taskDetail
+																												.getDelete_date(),
+																										(taskDetail
+																												.getStatus() == 0
+																														? "incomplete"
+																														: "complete"),
+																										(taskDetail
+																												.getDisplay() == 1
+																														? "display"
+																														: "hidden"),
+																										taskDetail
+																												.getDescription());
 
-																							new MenuImpl()
-																									.menuEditFieldTaskDetail();
-																							new MenuImpl().menuChoose();
-																							userChoose = new InputImpl()
-																									.userChoose();
-																							if (userChoose == 1) {
 																								new MenuImpl()
-																										.menuChangeContentTaskDetail();
-																								new MenuImpl()
-																										.menuChoose();
+																										.menuEditFieldTaskDetail();
+																								new MenuImpl().menuChoose();
 																								userChoose = new InputImpl()
 																										.userChoose();
 																								if (userChoose == 1) {
-																									String content = contentTaskDetail();
-																									boolean isSuccess = isUpdateTaskDetail(
-																											taskOneDetail
-																													.getId(),
-																											content,
-																											taskOneDetail
-																													.getStatus(),
-																											taskOneDetail
-																													.getDisplay(),
-																											taskOneDetail
-																													.getDescription());
-																									if (isSuccess) {
-																										System.out
-																												.println(
-																														"Update Content Task Detail Success. Input 1 to continue");
+																									new MenuImpl()
+																											.menuChangeContentTaskDetail();
+																									new MenuImpl()
+																											.menuChoose();
+																									userChoose = new InputImpl()
+																											.userChoose();
+																									if (userChoose == 1) {
+																										String content = contentTaskDetail();
+																										boolean isSuccess = isUpdateTaskDetail(
+																												taskOneDetail
+																														.getId(),
+																												content,
+																												taskOneDetail
+																														.getStatus(),
+																												taskOneDetail
+																														.getDisplay(),
+																												taskOneDetail
+																														.getDescription());
+																										if (isSuccess) {
+																											System.out
+																													.println(
+																															"Update Content Task Detail Success. Input 1 to continue");
 
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Update Content Task Detail Success\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Update Content Task Detail Success\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
 
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
+																										} else {
+																											System.out
+																													.print("Update Content Task Detail Fail. Input 1 to continue ");
+
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Update Content Task Detail Fail\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
+
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
 																										}
 																									} else {
-																										System.out
-																												.print("Update Content Task Detail Fail. Input 1 to continue ");
-
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Update Content Task Detail Fail\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
-
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
-																										}
+																										continue taskdetailcurrentchoose;
 																									}
-																								} else {
-																									continue taskdetailcurrentchoose;
-																								}
 
-																							} else if (userChoose == 2) {
-																								new MenuImpl()
-																										.menuChangeStatusTaskDetail();
-																								new MenuImpl()
-																										.menuChoose();
-																								userChoose = new InputImpl()
-																										.userChoose();
-																								if (userChoose == 1) {
-																									int changeStatusTaskDetail = status();
-																									boolean isSuccess = isUpdateTaskDetail(
-																											taskOneDetail
-																													.getId(),
-																											taskOneDetail
-																													.getContent(),
-																											changeStatusTaskDetail,
-																											taskOneDetail
-																													.getDisplay(),
-																											taskOneDetail
-																													.getDescription());
-																									if (isSuccess) {
-																										System.out
-																												.println(
-																														"Update Status Task Detail Success. Input 1 to continue");
+																								} else if (userChoose == 2) {
+																									new MenuImpl()
+																											.menuChangeStatusTaskDetail();
+																									new MenuImpl()
+																											.menuChoose();
+																									userChoose = new InputImpl()
+																											.userChoose();
+																									if (userChoose == 1) {
+																										int changeStatusTaskDetail = status();
+																										boolean isSuccess = isUpdateTaskDetail(
+																												taskOneDetail
+																														.getId(),
+																												taskOneDetail
+																														.getContent(),
+																												changeStatusTaskDetail,
+																												taskOneDetail
+																														.getDisplay(),
+																												taskOneDetail
+																														.getDescription());
+																										if (isSuccess) {
+																											System.out
+																													.println(
+																															"Update Status Task Detail Success. Input 1 to continue");
 
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Update Status Task Success\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Update Status Task Success\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
 
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
+																										} else {
+																											System.out
+																													.print("Update Status Task Detail Fail. Input 1 to continue ");
+
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Update Status Task Fail\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
+
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
 																										}
 																									} else {
-																										System.out
-																												.print("Update Status Task Detail Fail. Input 1 to continue ");
-
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Update Status Task Fail\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
-
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
-																										}
+																										continue taskdetailcurrentchoose;
 																									}
-																								} else {
-																									continue taskdetailcurrentchoose;
-																								}
-																							} else if (userChoose == 3) {
-																								new MenuImpl()
-																										.menuChangeDisplayTaskDetail();
-																								new MenuImpl()
-																										.menuChoose();
-																								userChoose = new InputImpl()
-																										.userChoose();
-																								if (userChoose == 1) {
-																									int changeDisplayTaskDetail = display();
-																									boolean isSuccess = isUpdateTaskDetail(
-																											taskOneDetail
-																													.getId(),
-																											taskOneDetail
-																													.getContent(),
-																											taskOneDetail
-																													.getStatus(),
-																											changeDisplayTaskDetail,
-																											taskOneDetail
-																													.getDescription());
-																									if (isSuccess) {
-																										System.out
-																												.println(
-																														"Hidden Task Detail Success. Input 1 to continue");
+																								} else if (userChoose == 3) {
+																									new MenuImpl()
+																											.menuChangeDisplayTaskDetail();
+																									new MenuImpl()
+																											.menuChoose();
+																									userChoose = new InputImpl()
+																											.userChoose();
+																									if (userChoose == 1) {
+																										int changeDisplayTaskDetail = display();
+																										boolean isSuccess = isUpdateTaskDetail(
+																												taskOneDetail
+																														.getId(),
+																												taskOneDetail
+																														.getContent(),
+																												taskOneDetail
+																														.getStatus(),
+																												changeDisplayTaskDetail,
+																												taskOneDetail
+																														.getDescription());
+																										if (isSuccess) {
+																											System.out
+																													.println(
+																															"Hidden Task Detail Success. Input 1 to continue");
 
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Delete Task Detail Success\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Delete Task Detail Success\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
 
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue currenttaskdetail;
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue currenttaskdetail;
+																											}
+																										} else {
+																											System.out
+																													.print("Update Status Task Detail Fail. Input 1 to continue ");
+
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Delete Task Detail Fail\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
+
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
 																										}
 																									} else {
-																										System.out
-																												.print("Update Status Task Detail Fail. Input 1 to continue ");
-
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Delete Task Detail Fail\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
-
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
-																										}
+																										continue taskdetailcurrentchoose;
 																									}
-																								} else {
-																									continue taskdetailcurrentchoose;
-																								}
-																							} else if (userChoose == 4) {
-																								new MenuImpl()
-																										.menuChangeDescriptionTaskDetail();
-																								new MenuImpl()
-																										.menuChoose();
-																								userChoose = new InputImpl()
-																										.userChoose();
-																								if (userChoose == 1) {
-																									String changeDescriptionTaskDetail = description();
-																									boolean isSuccess = isUpdateTaskDetail(
-																											taskOneDetail
-																													.getId(),
-																											taskOneDetail
-																													.getContent(),
-																											taskOneDetail
-																													.getStatus(),
-																											taskOneDetail
-																													.getDisplay(),
-																											changeDescriptionTaskDetail);
-																									if (isSuccess) {
-																										System.out
-																												.println(
-																														"Update Description Task Detail Success. Input 1 to continue");
+																								} else if (userChoose == 4) {
+																									new MenuImpl()
+																											.menuChangeDescriptionTaskDetail();
+																									new MenuImpl()
+																											.menuChoose();
+																									userChoose = new InputImpl()
+																											.userChoose();
+																									if (userChoose == 1) {
+																										String changeDescriptionTaskDetail = description();
+																										boolean isSuccess = isUpdateTaskDetail(
+																												taskOneDetail
+																														.getId(),
+																												taskOneDetail
+																														.getContent(),
+																												taskOneDetail
+																														.getStatus(),
+																												taskOneDetail
+																														.getDisplay(),
+																												changeDescriptionTaskDetail);
+																										if (isSuccess) {
+																											System.out
+																													.println(
+																															"Update Description Task Detail Success. Input 1 to continue");
 
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Update Description Task Detail Success\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Update Description Task Detail Success\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
 
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
+																										} else {
+																											System.out
+																													.print("Update Description Task Detail Fail. Input 1 to continue ");
+
+																											exportFile = date
+																													+ " : "
+																													+ user.getId()
+																													+ " "
+																													+ user.getUsername()
+																													+ ". Update Description Task Detail Fail\n";
+																											buffer.append(
+																													exportFile);
+																											bytes = buffer
+																													.toString()
+																													.getBytes();
+
+																											new MenuImpl()
+																													.menuChoose();
+																											userChoose = new InputImpl()
+																													.userChoose();
+																											if (userChoose == 1) {
+																												continue taskdetailcurrentchoose;
+																											}
 																										}
 																									} else {
-																										System.out
-																												.print("Update Description Task Detail Fail. Input 1 to continue ");
-
-																										exportFile = date
-																												+ " : "
-																												+ user.getId()
-																												+ " "
-																												+ user.getUsername()
-																												+ ". Update Description Task Detail Fail\n";
-																										buffer.append(
-																												exportFile);
-																										bytes = buffer
-																												.toString()
-																												.getBytes();
-
-																										new MenuImpl()
-																												.menuChoose();
-																										userChoose = new InputImpl()
-																												.userChoose();
-																										if (userChoose == 1) {
-																											continue taskdetailcurrentchoose;
-																										}
+																										continue taskdetailcurrentchoose;
 																									}
 																								} else {
-																									continue taskdetailcurrentchoose;
+																									continue currenttaskdetail;
 																								}
-																							} else {
-																								continue currenttaskdetail;
 																							}
 																						}
 																					}
-																				}
-																			} else if (userChoose == 3) {
-																				new MenuImpl().menuDeleteTaskDetail();
-																				new MenuImpl().menuChoose();
-																				userChoose = new InputImpl()
-																						.userChoose();
-
-																				if (userChoose == 1) {
-
-																					System.out
-																							.println("Task detail of :"
-																									+ task.getHeader()
-																									+ "(id: "
-																									+ task.getId()
-																									+ ")");
-																					System.out.println(
-																							"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
-																					for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
-																						System.out.printf(
-																								"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
-																								taskDetail.getId(),
-																								taskDetail.getContent(),
-																								taskDetail.getTask_id(),
-																								task.getHeader(),
-																								taskDetail
-																										.getCreate_date(),
-																								taskDetail
-																										.getUpdate_date(),
-																								taskDetail
-																										.getDelete_date(),
-																								(taskDetail
-																										.getStatus() == 0
-																												? "incomplete"
-																												: "complete"),
-																								(taskDetail
-																										.getDisplay() == 1
-																												? "display"
-																												: "hidden"),
-																								taskDetail
-																										.getDescription());
-																					}
-																					System.out.println(
-																							"Input id task detail you want to edit: ");
+																				} else if (userChoose == 3) {
+																					new MenuImpl().menuDeleteTaskDetail();
 																					new MenuImpl().menuChoose();
-																					int userChooseTaskIDDetail = new InputImpl()
+																					userChoose = new InputImpl()
 																							.userChoose();
-																					taskdetailcurrentchoose: while (status) {
-																						taskOneDetail = getTaskDetailByIdTaskDetail(
-																								userChooseTaskIDDetail);
 
-																						// int changeDisplayTaskDetail =
-																						// display();
-																						boolean isSuccess = isUpdateTaskDetail(
-																								taskOneDetail.getId(),
-																								taskOneDetail
-																										.getContent(),
-																								taskOneDetail
-																										.getStatus(),
-																								0, taskOneDetail
-																										.getDescription());
+																					if (userChoose == 1) {
+
+																						System.out
+																								.println("Task detail of :"
+																										+ task.getHeader()
+																										+ "(id: "
+																										+ task.getId()
+																										+ ")");
+																						System.out.println(
+																								"Id\tContent\t\tTask_id\t\tTask\t\tCreate_date\t\tUpdate_date\t\tDelete_date\t\tStatus\t\tDisplay\t\tDescription");
+																						for (TaskDetailEntity taskDetail : listTaskDetailEntity) {
+																							System.out.printf(
+																									"%-8s%-17s%-15s%-16s%-24s%-25s%-23s%-16s%-16s%-17s\n",
+																									taskDetail.getId(),
+																									taskDetail.getContent(),
+																									taskDetail.getTask_id(),
+																									task.getHeader(),
+																									taskDetail
+																											.getCreate_date(),
+																									taskDetail
+																											.getUpdate_date(),
+																									taskDetail
+																											.getDelete_date(),
+																									(taskDetail
+																											.getStatus() == 0
+																													? "incomplete"
+																													: "complete"),
+																									(taskDetail
+																											.getDisplay() == 1
+																													? "display"
+																													: "hidden"),
+																									taskDetail
+																											.getDescription());
+																						}
+																						System.out.println(
+																								"Input id task detail you want to edit: ");
+																						new MenuImpl().menuChoose();
+																						int userChooseTaskIDDetail = new InputImpl()
+																								.userChoose();
+																						taskdetailcurrentchoose: while (status) {
+																							taskOneDetail = getTaskDetailByIdTaskDetail(
+																									userChooseTaskIDDetail);
+
+																							// int changeDisplayTaskDetail =
+																							// display();
+																							boolean isSuccess = isUpdateTaskDetail(
+																									taskOneDetail.getId(),
+																									taskOneDetail
+																											.getContent(),
+																									taskOneDetail
+																											.getStatus(),
+																									0, taskOneDetail
+																											.getDescription());
+																							if (isSuccess) {
+																								System.out.println(
+																										"Delete Task Detail Success. Input 1 to continue");
+
+																								exportFile = date + " : "
+																										+ user.getId() + " "
+																										+ user.getUsername()
+																										+ ". Delete Task Detail Success\n";
+																								buffer.append(exportFile);
+																								bytes = buffer.toString()
+																										.getBytes();
+
+																								new MenuImpl().menuChoose();
+																								userChoose = new InputImpl()
+																										.userChoose();
+																								if (userChoose == 1) {
+																									continue currenttaskdetail;
+																								}
+																							} else {
+																								System.out.print(
+																										"Update Status Task Detail Fail. Input 1 to continue ");
+
+																								exportFile = date + " : "
+																										+ user.getId() + " "
+																										+ user.getUsername()
+																										+ ". Delete Task Detail Fail\n";
+																								buffer.append(exportFile);
+																								bytes = buffer.toString()
+																										.getBytes();
+
+																								new MenuImpl().menuChoose();
+																								userChoose = new InputImpl()
+																										.userChoose();
+																								if (userChoose == 1) {
+																									continue viewdetailtask;
+																								}
+																							}
+																						}
+																					} else {
+																						continue viewmenuonetask;
+																					}
+																				} else {
+																					continue viewmenuonetask;
+																				}
+
+																			} else {
+																				System.out.println(
+																						"Task is not detail. You want to input again (1: Create Task Detail / 2: current task / 3: list task / 4: go back)");
+																				exportFile = date + " : " + user.getId()
+																						+ " " + user.getUsername()
+																						+ ". Not Task Success\n";
+
+																				buffer.append(exportFile);
+																				bytes = buffer.toString().getBytes();
+
+																				new MenuImpl().menuChoose();
+																				userChoose = new InputImpl().userChoose();
+																				if (userChoose == 1) {
+																					new MenuImpl().menuCreateTaskDetail();
+																					new MenuImpl().menuChoose();
+																					userChoose = new InputImpl()
+																							.userChoose();
+																					if (userChoose == 1) {
+																						String contentTaskDetail = contentTaskDetail();
+																						boolean isSuccess = isCreateTaskDetailByIdTask(
+																								task.getId(),
+																								contentTaskDetail);
 																						if (isSuccess) {
 																							System.out.println(
-																									"Delete Task Detail Success. Input 1 to continue");
-
+																									"Create Task Detail Success");
 																							exportFile = date + " : "
 																									+ user.getId() + " "
 																									+ user.getUsername()
-																									+ ". Delete Task Detail Success\n";
+																									+ ". Create Task Success\n";
+
 																							buffer.append(exportFile);
 																							bytes = buffer.toString()
 																									.getBytes();
-
+																							System.out.println(
+																									"Input 1 continue: ");
 																							new MenuImpl().menuChoose();
 																							userChoose = new InputImpl()
 																									.userChoose();
 																							if (userChoose == 1) {
-																								continue currenttaskdetail;
+																								continue viewdetailtask;
 																							}
 																						} else {
-																							System.out.print(
-																									"Update Status Task Detail Fail. Input 1 to continue ");
-
+																							System.out.println(
+																									"Create Task Detail Fail");
 																							exportFile = date + " : "
 																									+ user.getId() + " "
 																									+ user.getUsername()
-																									+ ". Delete Task Detail Fail\n";
+																									+ ". Create Task Fail\n";
+
 																							buffer.append(exportFile);
 																							bytes = buffer.toString()
 																									.getBytes();
-
+																							userChoose = new InputImpl()
+																									.userChoose();
+																							System.out.println(
+																									"Input 1 continue: ");
 																							new MenuImpl().menuChoose();
 																							userChoose = new InputImpl()
 																									.userChoose();
@@ -1746,88 +1819,21 @@ public class RunImpl implements IRun {
 																								continue viewdetailtask;
 																							}
 																						}
+																					} else {
+																						continue taskdetailcurrent;
 																					}
+																				} else if (userChoose == 2) {
+																					continue taskdetailcurrent;
+																				} else if (userChoose == 3) {
+																					continue viewdetailtask;
 																				} else {
 																					continue viewmenuonetask;
 																				}
-																			} else {
-																				continue viewmenuonetask;
-																			}
-
-																		} else {
-																			System.out.println(
-																					"Task is not detail. You want to input again (1: Create Task Detail / 2: current task / 3: list task / 4: go back)");
-																			exportFile = date + " : " + user.getId()
-																					+ " " + user.getUsername()
-																					+ ". Not Task Success\n";
-
-																			buffer.append(exportFile);
-																			bytes = buffer.toString().getBytes();
-
-																			new MenuImpl().menuChoose();
-																			userChoose = new InputImpl().userChoose();
-																			if (userChoose == 1) {
-																				new MenuImpl().menuCreateTaskDetail();
-																				new MenuImpl().menuChoose();
-																				userChoose = new InputImpl()
-																						.userChoose();
-																				if (userChoose == 1) {
-																					String contentTaskDetail = contentTaskDetail();
-																					boolean isSuccess = isCreateTaskDetailByIdTask(
-																							task.getId(),
-																							contentTaskDetail);
-																					if (isSuccess) {
-																						System.out.println(
-																								"Create Task Detail Success");
-																						exportFile = date + " : "
-																								+ user.getId() + " "
-																								+ user.getUsername()
-																								+ ". Create Task Success\n";
-
-																						buffer.append(exportFile);
-																						bytes = buffer.toString()
-																								.getBytes();
-																						System.out.println(
-																								"Input 1 continue: ");
-																						new MenuImpl().menuChoose();
-																						userChoose = new InputImpl()
-																								.userChoose();
-																						if (userChoose == 1) {
-																							continue viewdetailtask;
-																						}
-																					} else {
-																						System.out.println(
-																								"Create Task Detail Fail");
-																						exportFile = date + " : "
-																								+ user.getId() + " "
-																								+ user.getUsername()
-																								+ ". Create Task Fail\n";
-
-																						buffer.append(exportFile);
-																						bytes = buffer.toString()
-																								.getBytes();
-																						userChoose = new InputImpl()
-																								.userChoose();
-																						System.out.println(
-																								"Input 1 continue: ");
-																						new MenuImpl().menuChoose();
-																						userChoose = new InputImpl()
-																								.userChoose();
-																						if (userChoose == 1) {
-																							continue viewdetailtask;
-																						}
-																					}
-																				} else {
-																					continue taskdetailcurrent;
-																				}
-																			} else if (userChoose == 2) {
-																				continue taskdetailcurrent;
-																			} else if (userChoose == 3) {
-																				continue viewdetailtask;
-																			} else {
-																				continue viewmenuonetask;
 																			}
 																		}
+																	} else {
+																		System.out.println("Task does not exist");
+																		break;
 																	}
 																}
 															} else {
