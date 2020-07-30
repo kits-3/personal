@@ -1,0 +1,47 @@
+package edu.examination.config;
+
+public enum Error {
+	
+	EMAIL_BLANK(0, "EMAIL CAN NOT BLANK"),
+	EMAIL_NOT_VALID(1, "THE EMAIL IS NOT VALID. PLEASE ENTER AGAIN!"),
+	EMAIL_EXISTED(2, "THE EMAIL HAVE EXISTED IN THE SYSTEM. PLEASE ENTER OTHER."),
+	
+	PASSWORD_BLANK(3, "PASSWORD CAN NOT BLANK"),
+	PASSWORD_NOT_VALID(4, "THE PASSWORD IS NOT VALID. PASSWORD MUST BE AT LEAST 6 CHARACTERS LONG, ONE UPPERCASE, ONE LOWERCASE AND ONE NUMERIC CHARACTER."),
+	
+	INCORRECT_AUTHENICATION(5, "USER NAME OR PASSWORD IS INCORRECT."),
+	
+	INCORRECT_OPTION(6,"INCORRECT OPTION. PLEASE ENTER AGAIN!"),
+	
+	EXAM_TITLE_BLANK(7, "EXAM TITLE CAN NOT BLANK"),
+	EXAM_TITLE_DUPLICATED(7, "EXAM TITLE IS DUPLICATED"),
+	
+	INVALID_EXAM_DURATION(8, "EXAM DURATION MUST BE > 0"),
+	QUESTION_TEXT_BLANK(9, "QUESTIOIN TEXT CAN NOT BLANK"),
+	INVALID_QUESTION_MARK(10, "QUESTION MARK MUST BE > 0 AND <= 100"),
+	OPTION_TEXT_BLANK(11, "OPTION TEXT CAN NOT BLANK"),
+	
+	NOT_A_NUMBER (9, "THIS IS NOT A NUMBER. PLEASE ENTER AGAIN");
+	
+	
+	private final int code;
+	private final String description;
+
+	private Error(int code, String description) {
+		this.code = code;
+		this.description = ConsoleColors.RED + description + ConsoleColors.RESET;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	@Override
+	public String toString() {
+		return code + ": " + description;
+	}
+}
