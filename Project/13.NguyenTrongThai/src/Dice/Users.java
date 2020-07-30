@@ -2,6 +2,7 @@ package Dice;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 public class Users implements IFunction {
 
@@ -189,6 +190,14 @@ public class Users implements IFunction {
 	public int selectIdNewGame(Dao dao) {
 		// TODO Auto-generated method stub
 		return dao.selectIdNewGame();
+	}
+
+
+
+	@Override
+	public List<Integer> allIDgame(Dao dao) {
+		// TODO Auto-generated method stub
+		return dao.allIDGame();
 	}
  
 	
