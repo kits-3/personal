@@ -281,6 +281,7 @@ public class UserServiceImpl implements UserService {
 			}
 
 		}
+		bookRepository.setAvailability(1, bookId);
 		System.out.println("Success!!!!!!!!");
 	}
 
