@@ -1,0 +1,18 @@
+package pj.tour.repository.payment;
+
+import pj.tour.repository.UserRepository;
+import pj.tour.repository.UserRepositoryImpl;
+import pj.tour.repository.booking.BookingRepositoryImpl;
+import pj.tour.repository.booking.BookingTour;
+
+public class PaymentTourImpl implements PaymentTour{
+
+	@Override
+	public void payTour() {
+		// TODO Auto-generated method stub
+		BookingTour bookingtour = new BookingRepositoryImpl();
+		UserRepository userrepository = new UserRepositoryImpl();
+		String booking = bookingtour.bookingTour();
+	}
+	
+}

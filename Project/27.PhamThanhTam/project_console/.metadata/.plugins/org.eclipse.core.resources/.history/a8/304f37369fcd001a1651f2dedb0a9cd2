@@ -1,0 +1,25 @@
+package project.management.service.impl;
+
+import project.management.service.IProductService;
+
+public class ProductService implements IProductService{
+
+	@Override
+	public boolean addProduct() {
+		
+		return false;
+	}
+
+	@Override
+	public boolean updateProduct() {
+
+		return false;
+	}
+
+	@Override
+	public boolean deleteProduct() {
+
+		return false;
+	}
+
+}

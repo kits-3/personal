@@ -1,0 +1,9 @@
+package project.management.repository;
+
+import project.management.entity.ProductEntity;
+
+public interface IProductRepository extends GenericRepository<ProductEntity> {
+	int add(ProductEntity productEntity);
+	void update(ProductEntity productEntity);
+	void delete(int id);
+}

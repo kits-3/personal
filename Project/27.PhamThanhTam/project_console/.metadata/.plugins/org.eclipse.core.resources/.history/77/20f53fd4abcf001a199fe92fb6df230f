@@ -1,0 +1,5 @@
+package project.management.mapdto;
+
+public interface GenericDTO<T> {
+	T mapValue(T dto);
+}

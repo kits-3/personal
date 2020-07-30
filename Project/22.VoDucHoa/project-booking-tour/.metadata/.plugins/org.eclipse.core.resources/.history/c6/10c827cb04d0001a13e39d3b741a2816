@@ -1,0 +1,6 @@
+package pj.tour.repository.account;
+
+public class CheckAccess {
+	boolean checkinput = true;
+	
+}

@@ -1,0 +1,8 @@
+package pj.tour.repository.account;
+
+import pj.tour.entity.AccountEntity;
+
+public interface SignInAccount {
+	void signInAccount(AccountEntity acc);
+	
+}

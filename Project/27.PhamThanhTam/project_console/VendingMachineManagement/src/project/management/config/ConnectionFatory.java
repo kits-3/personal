@@ -1,0 +1,33 @@
+package project.management.config;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionFatory {
+	String driverClassName = "org.mariadb.jdbc.Driver";
+	String connectionUrl = "jdbc:mariadb://localhost:3306/vending_machine_management";
+	String dbUser = "root";
+	String dbPwd = "lemlan";
+	
+	private static ConnectionFatory connectionFatory = null;
+	private ConnectionFatory() {
+		try {
+			Class.forName(driverClassName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public Connection getConnection() throws SQLException{
+		Connection conn = null;
+		conn = DriverManager.getConnection(connectionUrl,dbUser,dbPwd);
+		return conn;
+	}
+	public static ConnectionFatory getInstance() {
+		if(connectionFatory == null) {
+			connectionFatory = new ConnectionFatory();
+			
+		}
+		return connectionFatory;
+	}
+}

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD:JDBC/JDBC/.project
+	<name>JDBC</name>
+=======
 	<name>VendingMachine2</name>
+>>>>>>> 1205a1b0c5431dd154abc869641b1e9a673a597b:Vending machine - Exception , thread , I O/06.HoVanHoaiTri/.project
 	<comment></comment>
 	<projects>
 	</projects>

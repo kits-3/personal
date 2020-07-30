@@ -1,0 +1,52 @@
+1595814512109	Rename package 'project.management.dto'
+1595814551950	Copy compilation unit
+1595814558569	Delete element
+1595814561884	Delete element
+1595814595336	Copy compilation unit
+1595814607706	Rename type 'ProductEntity'
+1595814941260	Delete element
+1595814945393	Delete element
+1595814950473	Delete element
+1595817027889	Rename type 'OrderItemRepository'
+1595817036434	Rename type 'ProductRepository'
+1595817046105	Rename type 'StoreMachineRepository'
+1595817053291	Rename type 'UserRepository'
+1595817255283	Rename type 'StoreMachineRepositoryImpl'
+1595817262899	Rename type 'ProductRepositoryImpl'
+1595817277822	Rename type 'OrderItemRepositoryImpl'
+1595834690174	Rename type 'UserRepositoryImpl'
+1595838915757	Copy compilation unit
+1595842419056	Copy compilation unit
+1595853101805	Delete element
+1595901917237	Rename type 'IOrderItem'
+1595902315903	Copy compilation unit
+1595902624233	Copy compilation unit
+1595902918944	Rename type 'OrderItemProductRepository'
+1595902933210	Copy compilation unit
+1595903329274	Copy compilation unit
+1595936841092	Copy compilation unit
+1595992370889	Copy compilation unit
+1595992425386	Copy compilation unit
+1595997786607	Delete element
+1595997792205	Delete element
+1595997833544	Delete element
+1596082973942	Rename type 'IProduct'
+1596082989246	Rename compilation unit 'Product.java'
+1596090921577	Copy compilation unit
+1596090937245	Copy compilation unit
+1596090942180	Delete element
+1596090946018	Delete element
+1596091021725	Copy compilation unit
+1596091029676	Copy compilation unit
+1596091033362	Delete element
+1596091035393	Delete element
+1596094371540	Rename package 'project.management.Vending_Machine_3_machine'
+1596094423406	Copy package
+1596094453698	Copy package
+1596094477707	Copy package
+1596094484020	Delete element
+1596094486484	Delete element
+1596094514024	Copy compilation unit
+1596094574800	Delete element
+1596094580663	Delete element
+1596094660135	Rename type 'machine_drink_food__computer'

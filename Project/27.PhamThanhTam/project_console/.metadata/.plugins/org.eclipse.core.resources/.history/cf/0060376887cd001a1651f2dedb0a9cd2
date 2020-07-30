@@ -1,0 +1,7 @@
+package project.management.repository.impl;
+
+import project.management.repository.ProductRepository;
+
+public class ProductRepositoryImpl implements ProductRepository {
+	
+}

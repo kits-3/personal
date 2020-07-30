@@ -1,0 +1,12 @@
+package pj.tour.repository.account;
+
+import java.util.List;
+
+import pj.tour.entity.AccountEntity;
+
+public interface accountRepository {
+	void registerAccount(AccountEntity acc);
+	int addAccount();
+	int updatAccount();
+	int deleteAccount();
+}

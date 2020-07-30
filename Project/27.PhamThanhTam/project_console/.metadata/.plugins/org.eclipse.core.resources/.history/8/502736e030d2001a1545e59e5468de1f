@@ -1,0 +1,5 @@
+package project.management.task.impl;
+
+public class StoreMachine {
+
+}

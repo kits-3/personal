@@ -1,0 +1,193 @@
+package pj.tour.repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import pj.tour.entity.AccountEntity;
+import pj.tour.entity.TourEntity;
+import pj.tour.entity.UserEntity;
+import pj.tour.repository.account.AccountRepository;
+import pj.tour.config.ConnectionFactory;
+
+public class AdminRepositoryImpl implements AdminRepository, InputData{
+
+	TourEntity tour = new TourEntity();
+	private Connection connection = null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
+	
+	private Connection getConnection() throws SQLException {
+		Connection conn = null;
+		conn = ConnectionFactory.getInstance().getConnection();
+		return conn;
+	}
+	
+	@Override
+	public List<UserEntity> findAll() {
+		// TODO Auto-generated method stub
+		List<UserEntity> lsUser = new ArrayList<UserEntity>();
+		String queryString = "SELECT * FROM user";
+		
+		try {
+			connection = getConnection();
+			
+			stmt = connection.prepareStatement(queryString);
+			rs = stmt.executeQuery(); //Select
+			
+			while(rs.next()) {
+				UserEntity user = new UserEntity();
+				
+				user.setId(rs.getInt(1));
+				user.setName(rs.getString("name"));
+				user.setAddress(rs.getString("address"));
+				//cus.setTeam(rs.getString("team"));
+				
+				lsUser.add(user);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			}
+			catch (SQLException e) {
+				System.out.println(e);
+			}
+			
+		}
+		return lsUser;
+}
+
+	@Override
+	public UserEntity findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	@Override
+	public void updateTour(TourEntity ad) {
+		// TODO Auto-generated method stub
+		try {
+			String queryString = "update user set name = ? "
+		+"dprtmt_id" 
+		+"rank_id=? where id =?";
+			connection = getConnection();
+			stmt = connection.prepareStatement(queryString);
+//			stmt.setString(1, ad.getName());
+//			stmt.setString(2, ad.getGmail());
+//			stmt.setString(3, ad.getRank_id());
+//			stmt.setString(4, ad.getId());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+	@Override
+	public void addTour(TourEntity tour) {
+		// TODO Auto-generated method stub
+		try {
+			String queryString = "INSERT INTO "
+		+"tour(name_tour, location_start, time_start, date_start, mem_number)" 
+		+"VALUES(?,?,now(),now(),?)";
+			connection = getConnection();
+			stmt = connection.prepareStatement(queryString);
+			stmt.setString(1, tour.getName_tour());
+			stmt.setString(2, tour.getLocation_start());
+			stmt.setString(3, tour.getTime_start());
+			stmt.setString(4, tour.getDate_start());
+			stmt.setInt(5, tour.getMem_number());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void deleteTour() {
+		// TODO Auto-generated method stub
+		try {
+			String queryString = "delete from user where id = ? ";
+			connection = getConnection();
+			stmt = connection.prepareStatement(queryString);;
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void deleteUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<TourEntity> inputDate() {
+		// TODO Auto-generated method stub
+		List<TourEntity> list new ArrayList<TourEntity>();
+		return null;
+	}
+
+	
+}

@@ -1,0 +1,6 @@
+package pj.tour.repository.payment;
+
+public interface PaymentTour {
+	void getInfoUser();
+	
+}
