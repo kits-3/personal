@@ -1,8 +1,0 @@
-package OOP;
-
-public class Products {
-	private Integer id ;
-	private String name;
-	private Integer quantity;
-
-}
