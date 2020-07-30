@@ -375,6 +375,10 @@ public class RunImpl implements IRun {
 																	+ ". Procced Edit And Update Task"
 																	+ ". Status: Procced. Detail: Input Id Task.\n";
 															buffer.append(exportFile);
+															
+															
+															
+															
 															task = getTaskByIdUserAndIdTask(user.getId(), userChoose);
 															exportFile = date + ": Id: " + user.getId() + ". Username: "
 																	+ user.getUsername() + ". Role: " + role.getName()
@@ -385,6 +389,7 @@ public class RunImpl implements IRun {
 															buffer.append(exportFile);
 															taskcurrent: while (status) {
 																if (task != null) {
+																	
 																	exportFile = date + ": Id: " + user.getId()
 																			+ ". Username: " + user.getUsername()
 																			+ ". Role: " + role.getName() + " "
@@ -1000,6 +1005,12 @@ public class RunImpl implements IRun {
 																		buffer.append(exportFile);
 																		System.out.println("Please input 1 2 3 4 5");
 																	}
+																} else {
+																	
+																	
+																	System.out.println("Task is not exist");
+																	userChoose = new InputImpl()
+																			.userChoose();
 																}
 															}
 														} else {
@@ -2572,12 +2583,12 @@ public class RunImpl implements IRun {
 	public void getListTask() {
 		ArrayList<TaskEntity> list = new TaskReopsitoryImpl().getAllTask();
 		System.out.println(
-				"ID\tTitle\t\tOwner\t\t\tCreate_date\t\t\tUpdate_create\t\t\tDelete_date\t\t\tDeadline\t\t\tStatus\t\t\tDisplay\t\t\tDescription");
+				"ID\tTitle\t\tOwner\t\t\tCreate_date\t\t\tUpdate_create\t\t\tDealine_date\t\t\tDelete_date\t\t\tStatus\t\tDisplay\t\tDescription");
 		for (TaskEntity task : list) {
 			String username = getUserName(task.getOwner());
-			System.out.printf(String.format("%-8s%-20s%-15s%-38s%-20s%-20s%-19s%-22s%-22s%-17s%-5s\n", task.getId(),
+			System.out.printf(String.format("%-8s%-16s%-24s%-32s%-32s%-32s%-32s%-32s%-16s%-16s\n", task.getId(),
 					task.getHeader(), username, task.getCreate_date(), task.getUpdate_date(), task.getDeadline_date(),
-					task.getDelete_date(), task.getDeadline_date(), (task.getStatus() == 0 ? "incomplete" : "complete"),
+					task.getDelete_date(), (task.getStatus() == 0 ? "incomplete" : "complete"),
 					(task.getDisplay() == 1 ? "display" : "hidden"), task.getDescription()));
 		}
 	}
@@ -2605,15 +2616,15 @@ public class RunImpl implements IRun {
 	public void getListTaskDetail(int idUser, String username) {
 		ArrayList<TaskDetailEntity> list = new TaskDetailRepositoryImpl().getAllTaskDetail();
 		System.out.println(
-				"Id\t\t\tContent\t\t\tTask_id\t\t\tOwner\t\t\tCreate_date\t\t\tUpdate_date\t\t\tDelete_date\t\t\tStatus\t\t\tDisplay\t\t\tDescription");
+				"Id\tContent\t\tTaskName\tOwner\t\tCreate_date\t\t\tUpdate_date\t\t\tDelete_date\t\t\tStatus\t\t\tDisplay\t\t\tDescription");
 		for (TaskDetailEntity taskDetail : list) {
 			String taskName = getTaskName(taskDetail.getTask_id());
 			String userName = getUserNameByIdTaskDetail(taskDetail.getTask_id());
-			System.out.println(taskDetail.getId() + "\t\t\t" + taskDetail.getContent() + "\t\t\t" + taskName + "\t\t\t"
-					+ userName + "\t\t\t" + taskDetail.getCreate_date() + "\t\t\t" + taskDetail.getUpdate_date()
-					+ "\t\t\t" + taskDetail.getDelete_date() + "\t\t\t"
-					+ (taskDetail.getStatus() == 0 ? "incomplete" : "complete") + "\t\t\t"
-					+ (taskDetail.getDisplay() == 1 ? "display" : "hidden") + "\t\t\t" + taskDetail.getDescription());
+			System.out.printf(String.format("%-8s%-16s%-16s%-16s%-32s%-32s%-32s%-24s%-24s%-32s\n", taskDetail.getId(),
+					taskDetail.getContent(), taskName, userName, taskDetail.getCreate_date(),
+					taskDetail.getUpdate_date(), taskDetail.getDelete_date(),
+					(taskDetail.getStatus() == 0 ? "incomplete" : "complete"),
+					(taskDetail.getDisplay() == 1 ? "display" : "hidden"), taskDetail.getDescription()));
 		}
 		String exportFile = date + " : " + idUser + " " + username + ". Read All Task Detail Success\n";
 		buffer.append(exportFile);
