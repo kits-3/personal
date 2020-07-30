@@ -101,7 +101,6 @@ public class Admin {
 					case 4: {// change pass acc---------------
 						dao.changePass(user);
 						System.out.println("_____________________________________________________________________________________________\n");
-						actionUser = YorN();
 						break;
 					}
 					default:
