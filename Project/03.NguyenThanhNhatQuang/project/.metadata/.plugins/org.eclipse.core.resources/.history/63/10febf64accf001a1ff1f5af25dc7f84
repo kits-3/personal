@@ -1,0 +1,66 @@
+package home.repository.impl;
+
+import java.sql.SQLException;
+
+import home.entity.RoleEntity;
+import home.entity.UserEntity;
+import home.repository.IRoleRepository;
+
+public class RoleRepositoryImpl implements IRoleRepository{
+
+	@Override
+	public RoleEntity getRole(int idRole) {
+		RoleEntity role = new UserEntity();
+		try {
+			String queryString = "select * from user where username = ? and password = ?";
+			connection = getConnection();
+			stmt = connection.prepareStatement(queryString);
+			stmt.setString(1, userName);
+			stmt.setString(2, passWord);
+			rs = stmt.executeQuery();
+			int index = 0;
+			while(rs.next()) {
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+				user.setEmail(rs.getString("email"));
+				user.setRole_id(rs.getInt("role_id"));
+				user.setLname(rs.getString("lname"));
+				user.setFname(rs.getString("fname"));
+				user.setBirthday(rs.getString("birthday"));
+				user.setCreate_date(rs.getString("create_date"));
+				user.setUpdate_date(rs.getString("update_date"));
+				user.setDelete_date(rs.getString("delete_date"));
+				user.setStatus(rs.getInt("status"));
+				user.setDisplay(rs.getInt("display"));
+				user.setDescription(rs.getString("description"));
+				user.setPhone(rs.getString("phone"));
+				index++;
+			}
+			if (index == 0) {
+				user = null;
+			}
+		} catch (SQLException e) {
+			user = null;
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			}
+			catch (SQLException e) {
+				System.out.println(e);
+			}
+		}
+		return user;
+	}
+
+}

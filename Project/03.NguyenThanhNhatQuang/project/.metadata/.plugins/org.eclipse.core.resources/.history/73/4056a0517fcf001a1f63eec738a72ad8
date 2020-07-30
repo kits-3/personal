@@ -1,0 +1,5 @@
+package home.service.menu;
+
+public interface IMenu {
+	void menuStart();
+}

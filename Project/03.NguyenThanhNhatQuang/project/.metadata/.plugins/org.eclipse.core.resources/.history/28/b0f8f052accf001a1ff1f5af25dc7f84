@@ -1,0 +1,13 @@
+package home.repository.impl;
+
+import home.repository.IRoleRepository;
+
+public class RoleRepositoryImpl implements IRoleRepository{
+
+	@Override
+	public RoleEntity getNameRole(int idRole) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
