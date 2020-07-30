@@ -1,0 +1,28 @@
+package home.service.menu;
+
+public interface IMenu {
+	void menuStart();
+	
+	void menuChoose();
+	
+	void menuLoginAccount();
+	void menuRegisterAccount();
+	
+	void menuInputUserName();
+	void menuInputPassword();
+	void menuInputEmail();
+	void menuInputLName();
+	void menuInputFname();
+	void menuInputPhone();
+	
+	void menuInputHeader();
+	
+	void menuAdmin();
+	void menuUser();
+	
+	void menuCreateTask();
+	void menuReadTask();
+	void editAndUpdateTask();
+	void deleteTask();
+	void viewDetailOneTask();
+}

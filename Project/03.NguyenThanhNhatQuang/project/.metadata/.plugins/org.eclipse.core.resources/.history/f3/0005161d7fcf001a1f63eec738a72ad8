@@ -1,0 +1,5 @@
+package home.service.input;
+
+public interface IInput {
+
+}

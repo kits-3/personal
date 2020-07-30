@@ -1,0 +1,7 @@
+package home.repository;
+
+import home.entity.UserEntity;
+
+public interface IUserRepository {
+	UserEntity user();
+}

@@ -1,0 +1,9 @@
+package home.repository;
+
+import java.util.ArrayList;
+
+import home.entity.TaskDetailEntity;
+
+public interface ITaskDetailRepository {
+	ArrayList<TaskDetailEntity> getListTaskDetailByIdTask(int idTask);
+}
