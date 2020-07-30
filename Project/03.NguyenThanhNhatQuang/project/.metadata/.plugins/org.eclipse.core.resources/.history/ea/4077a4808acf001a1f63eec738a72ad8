@@ -1,0 +1,9 @@
+package home.service.menu;
+
+public interface IMenu {
+	void menuStart();
+	void menuChoose();
+	void menuLoginAccount();
+	void menuInputUserName();
+	void menuInputPassword();
+}

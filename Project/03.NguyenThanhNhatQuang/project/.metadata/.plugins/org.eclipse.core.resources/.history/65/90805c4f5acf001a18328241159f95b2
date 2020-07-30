@@ -1,0 +1,15 @@
+package home.service.user.impl;
+
+import home.repository.IUserRepository;
+import home.repository.impl.UserRepositoryImpl;
+import home.service.user.IUserFeature;
+
+public class UserFeatureImpl implements IUserFeature{
+
+	@Override
+	public void getListUser() {
+		IUserRepository userRepository = new UserRepositoryImpl();
+		System.out.println(userRepository.getListUser());
+	}
+
+}
