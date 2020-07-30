@@ -100,7 +100,7 @@ public class StudentDao implements studentImpl {
 		// TODO Auto-generated method stub
 		List<Student> list = new ArrayList<>();
 		try {
-			FileWriter myWriter = new FileWriter("D:/java/project/teststudent.txt");
+			FileWriter myWriter = new FileWriter("teststudent.txt");
 			
 			Connection con = getConnection();
 			PreparedStatement ps = con.prepareStatement("select * from studentacc");
