@@ -8,4 +8,5 @@ public interface AdminService {
 	int block();
 	int setRole();
 	int setUnRole();
+	int setATM();
 }

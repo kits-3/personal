@@ -1,5 +1,6 @@
 package atm.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -490,6 +491,84 @@ public class AdminServiceImpl implements AdminService{
 			
 			
 			//MENU
+			boolean cstatus = true;
+			while(cstatus) {
+				System.out.println("------------------------------");
+				System.out.println("1. Continue");
+				System.out.println("2. Back");
+				System.out.println("3. Home");
+				System.out.println("4. Exit");
+				String ncheck = scanner.nextLine();
+				if(ncheck.equals("1")) {
+					status = 1;
+					cstatus = false;
+				}else if(ncheck.equals("2")) {
+					status = 2;
+					break;
+				}else if(ncheck.equals("3")) {
+					status = 3;
+					break;
+				}else if(ncheck.equals("4")) {
+					status = 4;
+					break;
+				}
+			}
+		}
+		return status;
+	}
+
+
+	@Override
+	public int setATM() {
+		
+		int status = 1;
+		while(status == 1) {
+			UserImpl us = new UserImpl();
+			
+			List<Double> list = us.getATM();
+			
+			System.out.println("Bank withdraw ($" + list.get(0) +") (Press 00 to cancel)");
+			Double withdraw = Double.valueOf(scanner.nextLine());
+			System.out.println("Bank transfer ($" + list.get(1) +") (Press 00 to cancel)");
+			Double transfer = Double.valueOf(scanner.nextLine());
+			System.out.println("Bank invoice ($" + list.get(2) +") (Press 00 to cancel)");
+			Double invoice = Double.valueOf(scanner.nextLine());
+			System.out.println("Bank min ($" + list.get(3) +") (Press 00 to cancel)");
+			Double min = Double.valueOf(scanner.nextLine());
+			System.out.println("Min withdraw ($" + list.get(4) +") (Press 00 to cancel)");
+			Double min_withdraw = Double.valueOf(scanner.nextLine());
+			
+			if(withdraw != 00) {
+				list.set(0, withdraw);
+			}
+			if(transfer != 00) {
+				list.set(1, transfer);
+			}
+			if(invoice != 00) {
+				list.set(2, invoice);
+			}
+			if(min != 00) {
+				list.set(3, min);
+			}
+			if(min_withdraw != 00) {
+				list.set(4, min_withdraw);
+			}
+			
+			boolean check = true;
+			while(check) {
+				System.out.println("Update bank? (y or n)");
+				String kq = scanner.nextLine();
+				if(kq.equals("y")) {
+					if(us.setATM(list) != 0) {
+						System.out.println("Update bank success!");
+						check = false;
+					}
+				} else if(kq.equals("n")) {
+					check = false;
+				}
+			}
+			
+			
 			boolean cstatus = true;
 			while(cstatus) {
 				System.out.println("------------------------------");
