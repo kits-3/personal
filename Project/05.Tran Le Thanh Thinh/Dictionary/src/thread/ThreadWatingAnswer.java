@@ -1,21 +1,13 @@
 package thread;
 
-public class ThreadDictionary implements Runnable {
-	
+public class ThreadWatingAnswer implements Runnable {
 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
 		try {
-//			Thread.sleep(11000);
-			System.out.println("You have 10s to memorize this words");
-			System.out.print("10...");
-			Thread.sleep(1000);
-			System.out.print("9...");
-			Thread.sleep(1000);
-			System.out.print("8...");
-			Thread.sleep(1000);
+			Thread.sleep(11000);
+			System.out.println("You have 7s to complete mission !");
 			System.out.print("7...");
 			Thread.sleep(1000);
 			System.out.print("6...");
@@ -30,7 +22,8 @@ public class ThreadDictionary implements Runnable {
 			Thread.sleep(1000);
 			System.out.print("1...");
 			Thread.sleep(1000);
-			System.out.println("0...");
+			System.out.print("0...");
+			System.out.println("time out!");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

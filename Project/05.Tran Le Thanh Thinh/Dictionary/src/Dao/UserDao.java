@@ -17,7 +17,11 @@ import Entity.dictionary_clientDto;
 import Entity.languageDto;
 import Entity.userDto;
 import Entity.wordsDto;
+import thread.ThreadBackMenu;
 import thread.ThreadDictionary;
+import thread.ThreadWatingAnswer;
+import thread.ThreadWatingLoginAdmin;
+import thread.ThreadWatingLoginClient;
 
 public class UserDao {
 	static userDto account = new userDto();
@@ -193,7 +197,6 @@ public class UserDao {
 				if (resultSet.getString("username").equals(userName)) {
 					flag = true;
 					if (resultSet.getString("password").equals(password)) {
-						System.out.println("Login success");
 						dto.setUserName(resultSet.getString("username"));
 						dto.setPassWord(resultSet.getString("password"));
 						dto.setRoleId(resultSet.getInt("roleId"));
@@ -232,12 +235,17 @@ public class UserDao {
 	}
 
 	public void checkRole(Integer roleId, String username) {
+		ThreadWatingLoginAdmin threadWatingLogin = new ThreadWatingLoginAdmin();
+		ThreadWatingLoginClient threadWatingLoginClient = new ThreadWatingLoginClient();
 		if (roleId == 1) {
 			System.out.println("Hello" + " " + username + " admin ");
+			threadWatingLogin.run();
 			showAdminArea();
+			
 
 		} else {
 			System.out.println("Hello" + " " + username);
+			threadWatingLoginClient.run();
 			showClientArea();
 		}
 	}
@@ -255,42 +263,42 @@ public class UserDao {
 			case "1":
 				System.out.println("choose Add new user");
 				register();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "2":
 				System.out.println("choose Find user");
 				findUser();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "3":
 				System.out.println("Update user");
 				editAdmin();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "4":
 				System.out.println("show all words of system");
 				showAllWords();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "5": 
 				System.out.println("choose Add new word");
 				addWords();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "6":
 				System.out.println("choose Edit word");
 				updateWord();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "7":
 				System.out.println("choose Delete word");
 				removeWord();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "8":
 				System.out.println("choose Find one word");
 				findWord();
-				showConfirm();
+				showConfirmAdmin();
 				break;
 			case "0":
 				System.out.println("exited!");
@@ -502,42 +510,42 @@ public class UserDao {
 			case "1":
 				System.out.println("choose translate");
 				findWord();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "2":
 				System.out.println("choose Find word by language");
 				findWordByClient();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "3":
 				System.out.println("choose go to your dictionary");
 				showDictionaryClient();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "4":
 				System.out.println("Add word into your dictionary");
 				addDictionary();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "5":
 				System.out.println("Edit word in your dictionary");
 				editDictionary();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "6":
 				System.out.println("Remove words in your dictionary");
 				Memorize();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "7":
 				System.out.println("Memorize vocabulary");
 				Memorize();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "8":
 				System.out.println("Print dictionary");
 				writeReceipt();
-				showConfirm();
+				showConfirmClient();
 				break;
 			case "0":
 				System.out.println("exited!");
@@ -709,7 +717,8 @@ public class UserDao {
 		System.out.print("Please choose: ");
 	}
 
-	public void showConfirm() {
+	public void showConfirmAdmin() {
+		ThreadBackMenu thread = new ThreadBackMenu();
 		String confirm = null;
 		System.out.println("You want to exist system or back menu admin ?");
 		System.out.println("1. Back");
@@ -718,7 +727,28 @@ public class UserDao {
 		confirm = scan.nextLine();
 		switch (confirm) {
 		case "1":
-			System.out.println("Wating... back to menu admin");
+			thread.run();
+			break;
+		case "2":
+			System.out.println("Close system");
+			break;
+		default:
+			System.out.println("invalid! please choose action in below menu:");
+			break;
+		}
+	}
+	
+	public void showConfirmClient() {
+		ThreadBackMenu thread = new ThreadBackMenu();
+		String confirm = null;
+		System.out.println("You want to exist system or back menu client ?");
+		System.out.println("1. Back");
+		System.out.println("2. Exist");
+		Scanner scan = new Scanner(System.in);
+		confirm = scan.nextLine();
+		switch (confirm) {
+		case "1":
+			thread.run();
 			break;
 		case "2":
 			System.out.println("Close system");
@@ -1009,6 +1039,8 @@ public class UserDao {
 
 	public void Memorize() {
 		ThreadDictionary thread = new ThreadDictionary();
+		ThreadWatingAnswer tAwser = new ThreadWatingAnswer();
+		Thread threadAwser = new Thread(tAwser);
 		dictionaryClientDao dicDao = new dictionaryClientDao();
 		Scanner scan = new Scanner(System.in);
 		languageDto langDto = new languageDto();
@@ -1028,14 +1060,20 @@ public class UserDao {
 				System.out.println("| Example : " + dicList.get(i).getExample());
 				System.out.println("| CreateBy : " + dicList.get(i).getCreateBy());
 				System.out.println("-----------------------------");
+//				try {
+//					
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
+//				threadAwser.start();
 				thread.run();
 				System.out.println("Please enter words");
-				String answer = scan.nextLine();
+				String answer = scan.nextLine();		
 				if(answer.equals(dicList.get(i).getContent())) {
 					
 				}else {
 					System.out.println("Wrong answer! let start over ^_^!");
-					i -=1;
+					i = -1;
 				}
 				
 			}
