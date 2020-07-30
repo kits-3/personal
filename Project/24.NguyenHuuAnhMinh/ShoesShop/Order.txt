@@ -1,0 +1,8 @@
+ID   Customer login name           Product name                  Quantity 
+1    Nghia                         Adidas Falcon                 5   
+1    Nghia                         UltraBoost Summer             8   
+1    Nghia                         CBC Shoes                     3   
+2    logintest                     Adidas Falcon                 5   
+2    logintest                     Bitits                        7   
+2    logintest                     Nike React Infinity           5   
+Total Income: 13956$
