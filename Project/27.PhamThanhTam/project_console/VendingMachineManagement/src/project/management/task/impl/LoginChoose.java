@@ -12,11 +12,6 @@ import project.management.service.ILoginService;
 import project.management.service.impl.LoginService;
 import project.management.task.ILoginChoose;
 
-/**
- * 이 클래스가 당신의 프로그램에서 어떤 역할을 담당하는가? - 역할이 다른 것을 섞어서 표현하지 마라............... 1. 로그인
- * 시도 ( id 와 pw 를 입력받아서 사용자를 인증한다.) 2. 인증된 사용자의 권한을 부여 또는 확인한다. 3. 인증된 사용자를
- * 반환하거나 다음에 해야할 일을 결정한다. 위 내용이 아닌 것은 다른 클래스에 작성하고 연결시키는 방법을 정한다.
- */
 public class LoginChoose implements ILoginChoose {
 	private IUser user;
 	private ILoginService loginService;
