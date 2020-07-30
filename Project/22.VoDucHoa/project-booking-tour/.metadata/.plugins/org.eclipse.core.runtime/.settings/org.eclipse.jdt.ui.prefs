@@ -1,0 +1,12 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="pj.tour.entity.UserEntity"><rhs name\="pj.tour.entity.UserEntity"/></lhs><lhs name\="pj.tour.repository.UserRepository"><rhs name\="pj.tour.repository.UserRepositoryImpl"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="pj.tour.entity.AccountEntity"><rhs name\="pj.tour.entity.AccountEntity"/></lhs><lhs name\="pj.tour.repository.account.LoginAccount"><rhs name\="pj.tour.repository.account.AccountRepositoryImpl"/></lhs><lhs name\="pj.tour.entity.TourEntity"><rhs name\="pj.tour.entity.TourEntity"/></lhs><lhs name\="pj.tour.repository.AdminRepository"><rhs name\="pj.tour.repository.AdminRepositoryImpl"/></lhs><lhs name\="pj.tour.repository.booking.BookingTour"><rhs name\="pj.tour.repository.booking.BookingRepositoryImpl"/></lhs><lhs name\="pj.tour.repository.payment.PaymentTour"><rhs name\="pj.tour.repository.payment.PaymentTourImpl"/></lhs><lhs name\="pj.tour.entity.PaymentTourEntity"><rhs name\="pj.tour.entity.PaymentTourEntity"/></lhs><lhs name\="pj.tour.repository.account.RegisterAccount"><rhs name\="pj.tour.repository.account.AccountRepositoryImpl"/></lhs></history>
+content_assist_number_of_computers=22
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=17
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true
