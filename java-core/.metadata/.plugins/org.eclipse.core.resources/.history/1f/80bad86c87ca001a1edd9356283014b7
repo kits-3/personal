@@ -1,0 +1,27 @@
+package OOP;
+
+import java.util.List;
+
+public class RawMilkVendingMachine extends Machine {
+	private List<Products> listProducts;
+
+	public RawMilkVendingMachine(Integer id, String name) {
+
+	}
+
+	public RawMilkVendingMachine() {
+		this.setId(1);
+		this.setName("Raw milk");
+	}
+
+	@Override
+	public void showMenu() {
+		for (int i = 0; i < listProducts.size(); i++) {
+			System.out.println(listProducts.get(i).getName());
+		}
+
+	}
+	
+	
+
+}

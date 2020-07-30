@@ -1,0 +1,11 @@
+package OOP;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Receipt {
+	public static List<Products> addReceipt (String name , Integer price) {
+		list = new ArrayList<Products>();
+		return list;
+	}
+}

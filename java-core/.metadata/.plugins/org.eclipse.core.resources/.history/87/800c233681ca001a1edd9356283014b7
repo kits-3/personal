@@ -1,0 +1,19 @@
+package OOP;
+
+public class Products {
+	private Integer id;
+	private String name;
+	private Integer quantity;
+
+	public Products(Integer id, String name, Integer quantity) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.quantity = quantity;
+	}
+
+	public Products() {
+		super();
+	}
+
+}

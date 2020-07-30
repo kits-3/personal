@@ -1,0 +1,62 @@
+package OOP;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Machine implements IFunctionMachine {
+
+	private Integer id;
+	private String name;
+	private List<Products> listProducts;
+
+	public Machine(Integer id, String name, List<Products> listProducts) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.listProducts = new ArrayList<Products>();
+		Products products1 = new Products(1, "Water 1", 5);
+		Products products2 = new Products(1, "Water 2", 5);
+		Products products3 = new Products(1, "Water 3", 5);
+		listProducts.add(products1);
+		listProducts.add(products2);
+		listProducts.add(products3);
+		
+	}
+	
+	
+
+
+	public Machine() {
+
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public void selectMachine() {
+		System.out.println("You selectting parent machine");
+
+	}
+
+
+	@Override
+	public void showMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package OOP;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Recipt {
+	public static void addReceipt (List<Products> list) {
+		list = new ArrayList<Products>();
+	}
+}

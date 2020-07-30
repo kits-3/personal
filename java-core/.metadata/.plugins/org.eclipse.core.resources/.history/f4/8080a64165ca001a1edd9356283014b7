@@ -1,0 +1,76 @@
+package OOP;
+
+public class CandyVendingMachine extends Machine {
+
+	public CandyVendingMachine() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CandyVendingMachine(Integer id, String name) {
+		super(id, name);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return super.getId();
+	}
+
+	@Override
+	public void setId(Integer id) {
+		// TODO Auto-generated method stub
+		super.setId(id);
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return super.getName();
+	}
+
+	@Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		super.setName(name);
+	}
+
+	@Override
+	public void selectMachine() {
+		// TODO Auto-generated method stub
+		super.selectMachine();
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+
+}

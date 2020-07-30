@@ -1,0 +1,17 @@
+package model;
+
+public class roleDto {
+	private Integer id;
+	private String name;
+
+	public roleDto(Integer id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public roleDto() {
+		super();
+	}
+
+}

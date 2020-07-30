@@ -1,0 +1,16 @@
+package JDBC;
+
+import java.io.Serializable;
+
+public class DTO implements Serializable {
+	private String id;
+	private String name;
+	private String dprtmt_id;
+	private String rank_id;
+	private String reg_id;
+	private String reg_date;
+	private String updt_id;
+	private String updt_date;
+	
+	
+}
