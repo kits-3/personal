@@ -161,7 +161,7 @@ public class customer extends User {
 				} else {
 					System.out.print("Quit");
 				}
-				receiptDetail();
+				receiptDetail(room2.getNumber());
 
 			} catch (Exception e) {
 				System.out.println("Update failure");
@@ -173,7 +173,7 @@ public class customer extends User {
 		}
 	}
 
-	public void receiptDetail() {
+	public void receiptDetail(String nummber) {
 		try {
 
 			StringBuffer buffer = new StringBuffer();
@@ -186,7 +186,7 @@ public class customer extends User {
 			buffer.append(String.format("%-10s %-10s \n", "Phone number:", input3));
 			buffer.append(String.format("%-10s %-10s \n", "Check-in Date:", inDate));
 			buffer.append(String.format("%-10s %-10s \n", "Check-out Date:", outDate));
-			buffer.append(String.format("%-10s %-10s \n", "Room number:", room2.getId()));
+			buffer.append(String.format("%-10s %-10s \n", "Room number:", room2.getNumber()));
 			byte[] bytes = buffer.toString().getBytes();
 			fo.write(bytes);
 
