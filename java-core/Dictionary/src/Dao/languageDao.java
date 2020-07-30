@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Connection.ConnectionFactory;
-import Entity.roleDto;
+import Entity.languageDto;
 
-public class roleDao {
+public class languageDao {
 
 	Connection connection = null;
 	PreparedStatement ptmt = null;
 	ResultSet resultSet = null;
 
-	public roleDao() {
+	public languageDao() {
 
 	}
 
@@ -26,9 +26,9 @@ public class roleDao {
 		return conn;
 	}
 
-	public void add(roleDto dto) {
+	public void add(languageDto dto) {
 		try {
-			String queryString = "INSERT INTO " + "roles(id,name)" + "VALUES(?,?)";
+			String queryString = "INSERT INTO " + "language(id,name)" + "VALUES(?,?)";
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
 			ptmt.setInt(1, dto.getId());
@@ -53,9 +53,9 @@ public class roleDao {
 		}
 	}
 
-	public void update(roleDto dto) {
+	public void update(languageDto dto) {
 		try {
-			String queryString = "update roles set name=? where id = ?";
+			String queryString = "update language set name=? where id = ?";
 
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
@@ -83,7 +83,7 @@ public class roleDao {
 
 	public void delete(String id) {
 		try {
-			String queryString = "delete from user where username =?";
+			String queryString = "delete from language where id =?";
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
 			ptmt.setString(1, id);
@@ -107,19 +107,19 @@ public class roleDao {
 		}
 	}
 
-	public roleDto findOne(int id) {
+	public languageDto findOne(int id) {
 		try {
-			String queryString = "Select * from roles where id=?";
+			String queryString = "Select * from language where id=?";
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
 			ptmt.setInt(1, id);
 			resultSet = ptmt.executeQuery();
-			roleDto dto = new roleDto();
+			languageDto dto = new languageDto();
 			int i = 0;
 			while (resultSet.next()) {
 				dto.setId(resultSet.getInt("id"));
 				dto.setName(resultSet.getString("name"));
-				System.out.println("Id : " + resultSet.getInt("id") + " Name : " + resultSet.getString("name"));
+				
 			}
 
 			return dto;
@@ -145,16 +145,16 @@ public class roleDao {
 		return null;
 	}
 
-	public List<roleDto> findAll() {
+	public List<languageDto> findAll() {
 		try {
-			String queryString = "Select * from roles";
+			String queryString = "Select * from language";
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
 			resultSet = ptmt.executeQuery();
-			List<roleDto> dtoList = new ArrayList<roleDto>();
+			List<languageDto> dtoList = new ArrayList<languageDto>();
 			int i = 0;
 			while (resultSet.next()) {
-				roleDto dto = new roleDto();
+				languageDto dto = new languageDto();
 				dto.setId(resultSet.getInt("id"));
 				dto.setName(resultSet.getString("name"));
 				dtoList.add(dto);
