@@ -72,7 +72,7 @@ public class Machine implements IMachine {
 						if (productEntities.get(i).getTotal() > 0) {
 							System.out.print("please select product: " + i + ". " + productEntities.get(i).getName()
 									+ " (" + productEntities.get(i).getPrice() + " )");
-							System.out.print(" || " + productEntities.get(i).getTotal());
+							System.out.print(" || "+"quantity: " + productEntities.get(i).getTotal());
 							System.out.println(" || input " + i);
 						}
 					}
