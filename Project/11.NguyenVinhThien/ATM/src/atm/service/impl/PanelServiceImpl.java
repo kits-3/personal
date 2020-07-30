@@ -151,8 +151,9 @@ public int getMenu() {
 				System.out.println("4. Block / Unlock user");
 				System.out.println("5. Set role user");
 				System.out.println("6. Delete role user");
-				System.out.println("7. Cancel");
-				System.out.println("8. Exit");
+				System.out.println("7. Set banking");
+				System.out.println("8. Cancel");
+				System.out.println("9. Exit");
 				System.out.println("Select: ");
 				n = Integer.valueOf(scanner.nextLine());
 				
@@ -217,9 +218,19 @@ public int getMenu() {
 					}
 					status = true;
 				}else if(n == 7) {
+					check = ad.setATM();
+					if(check == 3) {
+						status = true;
+						break;
+					}else if(check == 4) {
+						status = false;
+						break;
+					}
+					status = true;
+				}else if(n == 8) {
 					status = true;
 					return status;
-				}else if(n == 8) {
+				}else if(n == 9) {
 					status = false;
 					return status;
 				}

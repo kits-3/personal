@@ -328,5 +328,68 @@ public class UserImpl implements UserRepository{
 		}
 		return list;
 	}
+
+	@Override
+	public List<Double> getATM() {
+		List<Double> list = new ArrayList<Double>();
+		try {
+			conn = getConnection();
+			String sql = "SELECT bank_withdraw, bank_transfer, bank_invoice, bank_min, min_withdraw FROM setting";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet result = statement.executeQuery();
+			while(result.next()) {
+				list.add(result.getDouble("bank_withdraw"));
+				list.add(result.getDouble("bank_transfer"));
+				list.add(result.getDouble("bank_invoice"));
+				list.add(result.getDouble("bank_min"));
+				list.add(result.getDouble("min_withdraw"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(statement != null) {
+					statement.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+	}
+
+	@Override
+	public int setATM(List<Double> list) {
+		int status = 0;
+		try {
+			conn = getConnection();
+			String sql = "UPDATE setting SET bank_withdraw = ?, bank_transfer = ?, bank_invoice = ?, bank_min = ?, min_withdraw = ? WHERE id = 1";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setDouble(1, list.get(0));
+			statement.setDouble(2, list.get(1));
+			statement.setDouble(3, list.get(2));
+			statement.setDouble(4, list.get(3));
+			statement.setDouble(5, list.get(4));
+			status = statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(statement != null) {
+					statement.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return status;
+	}
 	
 }

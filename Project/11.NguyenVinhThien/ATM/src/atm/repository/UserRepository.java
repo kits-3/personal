@@ -27,5 +27,8 @@ public interface UserRepository {
 	User findById(int id);
 	
 	User findByUser(String username);
+
+	List<Double> getATM();
 	
+	int setATM(List<Double> list);
 }
