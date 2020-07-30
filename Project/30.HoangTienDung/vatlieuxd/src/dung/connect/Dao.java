@@ -190,12 +190,13 @@ public class Dao implements DaoPerson, DaoClient, DaoAdmin, DaoCheck {
 			String queryString = "delete from users where id =?";
 			String queryString1 = "delete from vatlieu.`info` where users_id=?";
 			connection = getConnection();
-			ptmt = connection.prepareStatement(queryString);
-			ptmt.setInt(1, id);
-			ptmt.executeUpdate();
 			ptmt = connection.prepareStatement(queryString1);
 			ptmt.setInt(1, id);
 			ptmt.executeUpdate();
+			ptmt = connection.prepareStatement(queryString);
+			ptmt.setInt(1, id);
+			ptmt.executeUpdate();
+			
 			System.out.println("Delete complete!");
 		} catch (SQLException e) {
 			e.printStackTrace();
