@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Dto dto = new Dto();
+		List<Dto> ls = new ArrayList<Dto>();
+		
+		
+		dto.setName("aaaaaa");
+		dto.setRank_id("2");
+		
+		Dao dao = new Dao();
+		dao.add(dto);
+//		ls = dao.findAll();
+		dao.findAll();
+//		for (int i = 0; i < ls.size(); i++) {
+//			System.out.println(ls.get(i).getName());
+//		}
+	}
+
+}
