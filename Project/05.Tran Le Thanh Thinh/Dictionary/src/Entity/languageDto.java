@@ -1,16 +1,16 @@
-package model;
+package Entity;
 
-public class roleDto {
+public class languageDto {
 	private Integer id;
 	private String name;
 
-	public roleDto(Integer id, String name) {
+	public languageDto(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 
-	public roleDto() {
+	public languageDto() {
 		super();
 	}
 
@@ -29,6 +29,5 @@ public class roleDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 
 }

@@ -21,27 +21,7 @@ public class Main {
 	static UserDao userDao = new UserDao();
 
 	public static void main(String[] args) throws EmailException {
-
-////		role.setId();
-////		role.setName("admin");
-////		dto.setUserName("Thanh Thinh");
-////		dto.setPassWord("123456");
-////		dto.setRoleId(1);
-//
-
-////		roleDao.add(role);
-////		roleDao.findAll();
-//		int id ;
-////		dao.findAll();
-//		for (int i = 0; i < dao.findAll().size(); i++) {
-//			System.out.println(dao.findAll().get(i).getRoleId());
-//			id = dao.findAll().get(i).getRoleId();
-//			roleDao.findOne(id);
-//		}
-////		dao.add(dto);
-////		dao.delete("Thanh Thinh");
 		String choose = null;
-		
 		boolean exitHome = false;
 		boolean backHome = false;
 		while (true) {
@@ -50,7 +30,7 @@ public class Main {
 			switch (choose) {
 			case "1":
 				System.out.println("choose login");
-				showLogin();
+				userDao.showLogin();
 				break;
 			case "2":
 				System.out.println("choose Rigister");
@@ -63,14 +43,13 @@ public class Main {
 			case "0":
 				System.out.println("exited!");
 				exitHome = true;
-				exitHome = true;
 				break;
 
 			default:
 				System.out.println("invalid! please choose action in below menu:");
 				break;
 			}
-			if (exitHome && backHome ) {
+			if (exitHome && backHome) {
 				break;
 			}
 		}
@@ -90,20 +69,7 @@ public class Main {
 
 	}
 
-	public static void showLogin() {
-		System.out.println("Plese enter your username");
-		String userName = scanner.nextLine();
-		System.out.println("Plese enter your password");
-		String password = scanner.nextLine();
-		userDto dto = userDao.checkLogin(userName, password);
-
-		if (dto.getUserName() != null) {
-			userDao.checkRole(dto.getRoleId(), dto.getUserName());
-		}
-
-	}
-	
-	public static void sendMail () throws EmailException {
+	public static void sendMail() throws EmailException {
 		System.out.println("Plese enter your email to we check!");
 		Email email = new SimpleEmail();
 		userDto dto = userDao.findEmail();
@@ -114,7 +80,7 @@ public class Main {
 			email.setSmtpPort(MailConfig.SSL_PORT);
 			email.setAuthenticator(new DefaultAuthenticator(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD));
 			email.setSSLOnConnect(true);
-			
+
 			email.setFrom(MailConfig.APP_EMAIL);
 			email.addTo(sendTo);
 			email.setSubject("Send password from Dictionary");
@@ -122,24 +88,25 @@ public class Main {
 			email.send();
 			System.out.println("Send mail success");
 			System.out.println("Your password was send to your box email of you ! please check your email !");
-		}else {
+		} else {
 			System.out.println("username not exist!");
 		}
 
 	}
-	public static void register () {
+
+	public static void register() {
 		boolean exist = false;
-		while(true) {
+		while (true) {
 			System.out.println("-------------Register User------------");
 			System.out.println("Please enter your username");
 			String userName = scanner.nextLine();
-			if(userDao.checkUserExist(userName)) {
+			if (userDao.checkUserExist(userName)) {
 				exist = true;
 			}
-			if(exist) {
+			if (exist) {
 				break;
 			}
-			
+
 			System.out.println("-------------End Register User------------");
 			System.out.println("Please choose another username ");
 		}
