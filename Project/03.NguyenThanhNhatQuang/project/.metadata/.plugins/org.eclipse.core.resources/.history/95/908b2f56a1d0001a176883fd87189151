@@ -1,0 +1,11 @@
+package home.repository;
+
+import java.util.ArrayList;
+
+import home.entity.TaskDetailEntity;
+
+public interface ITaskDetailRepository {
+	ArrayList<TaskDetailEntity> getListTaskDetailByIdTask(int idTask);
+	boolean isInsertTaskDetailSuccess(int idTask, String content);
+	boolean updateTaskDetailSuccess(int idTaskDetail, String content, int status, int display, String description)
+}
