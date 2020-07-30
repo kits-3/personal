@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+<<<<<<< HEAD:Vending machine - Exception , thread , I O/16.LeNguyenTrucPhuong/.project
+	<name>project</name>
+=======
+	<name>JavaBase</name>
+>>>>>>> origin/team_3:Vending machine - Exception , thread , I O/05.Tran Le Thanh Thinh/.project
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>
