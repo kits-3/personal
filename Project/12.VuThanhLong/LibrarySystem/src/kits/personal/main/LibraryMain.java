@@ -25,7 +25,7 @@ public class LibraryMain {
 		while (true) {
 			// Check login and sign up
 			while (user == null) {
-
+				loginChoose = 0;
 				try {
 					System.out.println(
 							"Please login to continue\n1.Sign in\n2.Sign up\n3.Leave\n----------------------------------");
@@ -68,8 +68,11 @@ public class LibraryMain {
 				while (user != null && user.getRoleId() == 1) {
 
 					// Check reg_date
-					if (!userService.checkRegDate(user))
+					if (!userService.checkRegDate(user)){
+						user = null;
 						break;
+					}
+						
 
 					// Choose service
 					userService.showUserMenu();
