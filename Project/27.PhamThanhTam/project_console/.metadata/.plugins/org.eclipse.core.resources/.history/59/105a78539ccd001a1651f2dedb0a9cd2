@@ -1,0 +1,7 @@
+package project.management.service;
+
+public interface IProductService {
+	void addProduct();
+	void updateProduct();
+	void deleteProduct();
+}

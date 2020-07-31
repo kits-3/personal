@@ -1,0 +1,13 @@
+package project.management.controlandmanagement;
+
+import java.util.Scanner;
+
+import project.management.entity.ProductEntity;
+
+public interface IProduct {
+	void product();
+	void delete();
+	void insert(Scanner scan, ProductEntity productEntity, ProductEntity productAlreadyInsertEntity);
+	void update(Scanner scan, ProductEntity productEntity);
+	void productOption(String option, Scanner scan);
+}

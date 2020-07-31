@@ -1,0 +1,13 @@
+package project.management.repository.impl;
+
+import project.management.entity.OrderItemEntity;
+import project.management.repository.IOrderItemProductRepository;
+
+public class OrderItemProductRepository extends AbstrachRepository<OrderItemEntity> implements IOrderItemProductRepository{
+
+	@Override
+	public int addOrderItemProduct() {
+		// TODO Auto-generated method stub
+		return 0;
+	}	
+}

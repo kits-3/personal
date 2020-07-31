@@ -1,0 +1,9 @@
+package home.repository;
+
+import java.util.ArrayList;
+
+import home.entity.UserEntity;
+
+public interface IUserRepository {
+	ArrayList<UserEntity> listUser();
+}

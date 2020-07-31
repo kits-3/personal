@@ -1,0 +1,5 @@
+package pj.tour.config;
+
+public class ConnectionFactory {
+
+}

@@ -1,0 +1,21 @@
+package pj.tour.repository.account;
+import java.util.Scanner;
+
+import pj.tour.entity.AccountEntity;
+
+public class  SignInAccount {
+	Scanner input = new Scanner(System.in);
+	AccountEntity account = new AccountEntity();
+	
+	System.out.print("userName: ");
+	String userNamesigin = input.next();
+	account.setUsername_ac(userNamesigin);
+	
+	System.out.print("passWord: ");
+	String passWordSignin = input.next();
+	account.setPassword_ac(passWordSignin);
+	
+	System.out.print("NameAccount: ");
+	String nameAccountSignin = input.next();
+	account.setNameaccount(nameAccountSignin);
+}

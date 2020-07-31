@@ -1,0 +1,7 @@
+package project.management.task.impl;
+
+import project.management.task.IProduct;
+
+public class Product implements IProduct{
+
+}

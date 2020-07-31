@@ -1,0 +1,5 @@
+package project.management.service;
+
+public interface IOrderItem {
+
+}

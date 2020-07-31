@@ -1,0 +1,5 @@
+package home.repository.impl;
+
+public class RoleRepositoryImpl {
+
+}

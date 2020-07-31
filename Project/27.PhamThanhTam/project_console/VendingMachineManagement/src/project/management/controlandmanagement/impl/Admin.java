@@ -1,0 +1,145 @@
+package project.management.controlandmanagement.impl;
+
+import java.util.Scanner;
+
+import project.management.ControlAndManagement;
+import project.management.controlandmanagement.IAdmin;
+import project.management.entity.ProductEntity;
+import project.management.entity.StoreMachineEntity;
+import project.management.task.IProduct;
+import project.management.task.IStatistics;
+import project.management.task.IStoreMachine;
+import project.management.task.impl.Product;
+import project.management.task.impl.Statistic;
+import project.management.task.impl.StoreMachine;
+
+public class Admin implements IAdmin {
+	private IStatistics statistics;
+	private Scanner scan;
+	private IProduct product;
+	private IStoreMachine storeMachine;
+	private ControlAndManagement controlAndManagement;
+	public Admin() {
+		this.scan = new Scanner(System.in);
+		this.statistics = new Statistic();
+		this.product = new Product();
+		this.storeMachine = new StoreMachine();
+		this.controlAndManagement = new ControlAndManagement();
+	}
+
+	@Override
+	public void admin() {
+		
+		System.out.println("select option:");
+		System.out.println("1.add 2.update 3.delete 4.Statistics 5.out to login");
+		String option = scan.next();
+		adminOption(option);
+		
+	}
+
+	@Override
+	public void adminOption(String option) {
+		ProductEntity productEntity = new ProductEntity();
+		ProductEntity productAlreadyInsertEntity = new ProductEntity();
+		StoreMachineEntity storeMachineEntity = new StoreMachineEntity();
+		StoreMachineEntity storeMachineAlreadyInserEntity = new StoreMachineEntity();
+		switch (option) {
+		
+		//insert
+		case "1": {
+			System.out.println("insert 1.Product 2.StoreMachine 3.out to select option");
+			System.out.println("input 1 or 2 or 3");
+			String key = scan.next();
+			switch (key) {
+			case "1": {
+				product.insertProduct(productEntity, productAlreadyInsertEntity);
+			
+			}
+			case "2": {
+				storeMachine.insertStoreMachine(storeMachineEntity, storeMachineAlreadyInserEntity);
+			}
+			case "3": {
+				/* 3.out to select option */
+				admin();
+			}
+			default:
+				/* select wrong */
+				System.out.println("you select wrong return to option");
+				admin();
+				break;
+			}
+
+			break;
+		}
+		//update
+		case "2": {
+			System.out.println("update 1.Product 2.StoreMachine 3.out to select option");
+			System.out.println("input 1 or 2 or 3");
+			String key = scan.next();
+			switch (key) {
+			case "1": {
+				product.updateProduct(productEntity);
+				break;
+			}
+			case "2": {
+				product.updateProduct(productEntity);
+				break;
+			}
+			case "3": {
+				/* return select option in admin */
+				admin();
+
+			}
+			default:
+				/* select wrong retunr select option */
+				admin();
+
+			}
+
+			break;
+		}
+		//delete
+		case "3": {
+			System.out.println("delete 1.Product 2.StoreMachine 3.out to select option");
+			System.out.println("input 1 or 2 or 3");
+			String key = scan.next();
+			switch (key) {
+			case "1": {
+				product.deleteProduct();
+				break;
+			}
+			case "2": {
+				storeMachine.deleteStoreMachine();
+				break;
+			}
+			case "3": {
+				/* return select option in admin */
+				admin();
+				break;
+			}
+			default:
+				/* select wrong retunr select option */
+				System.out.println("you choose wrong out to select");
+				admin();
+				break;
+			}
+			break;
+		}
+		//statistics
+		case "4": {
+			statistics.statistics();
+			break;
+		}
+		//return select option
+		case "5": {
+			controlAndManagement.run();
+			break;
+		}
+		default:
+			/* select wrong */
+			System.out.println("select wrong!!! please select again");
+			adminOption(option);
+			break;
+		}
+	}
+}
