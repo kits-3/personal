@@ -1,7 +1,0 @@
-package project.management.repository;
-
-import project.management.entity.UserEntity;
-
-public interface OrderItemProductRepository {
-	UserEntity findbyuserNameAndPassword(String user);
-}

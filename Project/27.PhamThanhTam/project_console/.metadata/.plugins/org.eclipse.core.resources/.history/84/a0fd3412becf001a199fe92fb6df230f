@@ -1,9 +1,0 @@
-package project.management.service;
-
-import project.management.entity.ProductEntity;
-
-public interface IProductService {
-	int addProduct(ProductEntity productEntity);
-	void updateProduct(ProductEntity productEntity);
-	void deleteProduct(int id);
-}

@@ -1,6 +1,0 @@
-
-Name:loiphung Password:loi123 Email:saonau200796@gmail.com Contactno:0386150546 Rollname:admin
-
-Name:trangphung Password:trang123 Email:abc@gmail.com Contactno:2654643 Rollname:user
-
-Name:vietnguyen Password:viet123 Email:viet@gmail.com Contactno:26467476 Rollname:user

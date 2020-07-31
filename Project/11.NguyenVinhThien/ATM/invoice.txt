@@ -1,5 +1,0 @@
-Name: 		Maritza Schiller
-Withdraw: 	-$500.0
-Charge: 	-$0.5
-Money: 		$70665.8
-Date: 		30-07-2020 16:47:55

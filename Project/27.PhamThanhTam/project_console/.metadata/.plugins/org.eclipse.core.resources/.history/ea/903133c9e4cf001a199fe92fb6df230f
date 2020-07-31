@@ -1,9 +1,0 @@
-package project.management.service;
-
-import java.util.List;
-
-import project.management.entity.ProductEntity;
-
-public interface IStatisticsService {
-	List<ProductEntity> findByMachine(int machineID);
-}

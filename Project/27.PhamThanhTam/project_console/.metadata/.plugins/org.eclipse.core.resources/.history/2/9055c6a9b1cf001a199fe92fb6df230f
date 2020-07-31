@@ -1,7 +1,0 @@
-package project.management.repository.impl;
-
-import project.management.repository.IStoreMachineRepository;
-
-public class StoreMachineRepositoryImpl implements IStoreMachineRepository {
-	
-}

@@ -1,6 +1,0 @@
-package home.service.user;
-
-public interface IUserFeature {
-	void getListUser();
-	UserEntity setUserLogin();
-}

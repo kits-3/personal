@@ -1,7 +1,0 @@
-package project.management.repository.impl;
-
-import project.management.repository.UserRepository;
-
-public class UserRepositoryImpl implements UserRepository {
-	
-}

@@ -1,7 +1,0 @@
-package home.service.user;
-
-import home.entity.UserEntity;
-
-public interface IUserFeature {
-	void getListUser();
-}

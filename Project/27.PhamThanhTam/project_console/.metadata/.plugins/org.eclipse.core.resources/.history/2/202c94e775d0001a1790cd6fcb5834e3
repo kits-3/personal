@@ -1,7 +1,0 @@
-package project.management.repository;
-
-import project.management.entity.OrderItemEntity;
-
-public interface IOrderItemRepository {
-	OrderItemEntity insert(int storeMachine, OrderItemEntity orderItemEntity);
-}

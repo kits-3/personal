@@ -1,5 +1,0 @@
-package project.management.controlandmanagement;
-
-public interface IStatistics {
-	void findByMachine(int machineID);
-}

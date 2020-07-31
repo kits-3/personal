@@ -1,7 +1,0 @@
-package project.management.service;
-
-public interface IProductService {
-	int addProduct();
-	void updateProduct();
-	delete deleteProduct();
-}

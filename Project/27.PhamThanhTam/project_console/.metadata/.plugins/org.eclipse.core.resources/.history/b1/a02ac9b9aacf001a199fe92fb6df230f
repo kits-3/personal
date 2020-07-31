@@ -1,5 +1,0 @@
-package project.management.dto;
-
-public interface GenericDTO {
-
-}

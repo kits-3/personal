@@ -1,5 +1,0 @@
-package home.service.user;
-
-public interface IUserFeature {
-
-}

@@ -1,7 +1,0 @@
-package home.service.user.impl;
-
-import home.service.user.IUserFeature;
-
-public class UserFeatureImpl implements IUserFeature{
-
-}

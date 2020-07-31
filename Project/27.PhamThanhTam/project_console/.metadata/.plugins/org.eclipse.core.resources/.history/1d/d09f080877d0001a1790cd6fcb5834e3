@@ -1,7 +1,0 @@
-package project.management.service;
-
-import project.management.entity.OrderItemEntity;
-
-public interface IOrderItemService {
-	OrderItemEntity insert();
-}

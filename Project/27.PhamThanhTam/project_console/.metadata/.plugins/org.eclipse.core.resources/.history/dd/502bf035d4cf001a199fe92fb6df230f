@@ -1,8 +1,0 @@
-package project.management.controlandmanagement;
-
-public interface IProduct {
-	void productOption(String option);
-	void insert ();
-	void update();
-	void delete();
-}
