@@ -2,11 +2,19 @@ package Dice;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 public class Users implements IFunction {
 
 	Dto dto = new Dto();
- 
+	
+	private String[] functionAdmin = {"Update info user","Delete game","Get money","Change password","input money","Exit"};
+	
+	private String[] functionUser = {"Play game","Show profile","Change password","Get money","input money","History game","Exit"};
+	
+	private int[] left = {1,2,3,4,5};
+	
+	
 	Scanner sc = new Scanner(System.in);
 	@Override
 	public Dto login(String Name, String Password, Dao dao) {
@@ -189,6 +197,14 @@ public class Users implements IFunction {
 	public int selectIdNewGame(Dao dao) {
 		// TODO Auto-generated method stub
 		return dao.selectIdNewGame();
+	}
+
+
+
+	@Override
+	public List<Integer> allIDgame(Dao dao) {
+		// TODO Auto-generated method stub
+		return dao.allIDGame();
 	}
  
 	

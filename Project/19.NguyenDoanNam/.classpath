@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="BookS/src"/>
+	<classpathentry kind="lib" path="C:/Users/phaml/Downloads/mariadb-java-client-2.6.1.jar"/>
+	<classpathentry kind="output" path="BookS/bin"/>
+</classpath>
