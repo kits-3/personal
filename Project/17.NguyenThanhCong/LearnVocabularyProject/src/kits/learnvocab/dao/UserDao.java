@@ -71,38 +71,18 @@ public class UserDao {
 		return dtoList;
 	}
 
-	public boolean checkAddUser() {
-		List<UserDto> ls = new ArrayList();
-		UserDao usdao = new UserDao();
-		ls = usdao.findAll();	
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Input user name you want to add");
-		username = sc.next();
-		
-		for (int i =0; i < ls.size(); i++) {
-			if(username.equals(ls.get(i).getUsername())) {	
-				
-				return false;
-			}
-			
-		}		
-		return true;
-}
+
 	public void add(UserDto dto){
-		while(checkAddUser()==false) {
-			System.out.println("The username you have entered is duplicated, "
-					+ "please enter another username");
-		}try {
+	try {
 			String queryString ="INSERT INTO user(id, username, password, role) VALUES (?,?,?,?)";
 			
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
 			ptmt.setInt(1,dto.getId());
-			ptmt.setString(2,username);
+			ptmt.setString(2,dto.getUsername());
 			Scanner sc = new Scanner(System.in);
-			System.out.println("input password");
-			String password = sc.next();
-			ptmt.setString(3,password);
+		
+			ptmt.setString(3,dto.getPassword());
 			
 			ptmt.setInt(4, dto.getRole());
 			
@@ -123,7 +103,7 @@ public class UserDao {
 				e.printStackTrace();
 			}	
 		}
-		System.out.println("add language success");
+	
 	}
 
 	
