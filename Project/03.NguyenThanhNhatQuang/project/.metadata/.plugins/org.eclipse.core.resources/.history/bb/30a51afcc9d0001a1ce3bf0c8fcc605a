@@ -1,5 +1,0 @@
-package home.service.handingcase;
-
-public interface IHandingCase {
-	void case1();
-}

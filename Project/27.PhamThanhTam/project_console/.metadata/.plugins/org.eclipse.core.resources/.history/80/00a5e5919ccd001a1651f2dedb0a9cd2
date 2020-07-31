@@ -1,7 +1,0 @@
-package project.management.service.impl;
-
-import project.management.service.IProductService;
-
-public class ProductService implements IProductService{
-
-}

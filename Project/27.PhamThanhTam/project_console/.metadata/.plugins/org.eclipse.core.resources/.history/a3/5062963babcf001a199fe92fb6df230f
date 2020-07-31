@@ -1,5 +1,0 @@
-package project.management.dto.impl;
-
-public class AbstractDTO extends gene{
-
-}

@@ -1,5 +1,0 @@
-package home.config;
-
-public interface IConnectionFactory {
-
-}

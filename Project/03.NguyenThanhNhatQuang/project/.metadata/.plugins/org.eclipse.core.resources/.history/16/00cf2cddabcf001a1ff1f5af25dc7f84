@@ -1,7 +1,0 @@
-package home.repository.impl;
-
-import home.repository.IRoleRepositoryUserEntity;
-
-public class RoleRepositoryImpl implements IRoleRepository{
-
-}

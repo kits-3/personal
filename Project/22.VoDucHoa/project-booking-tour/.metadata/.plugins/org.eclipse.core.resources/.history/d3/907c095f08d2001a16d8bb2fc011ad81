@@ -1,5 +1,0 @@
-package pj.tour.repository;
-
-public interface Payment {
-	void paymentTour();
-}

@@ -1,8 +1,0 @@
-package project.management.repository;
-
-import project.management.entity.OrderItemProductEntity;
-
-public interface IOrderItemProductRepository {
-	int addOrderItemProduct(OrderItemProductEntity orderItemProductEntity);
-	OrderItemProductEntity findOne(int newId);
-}

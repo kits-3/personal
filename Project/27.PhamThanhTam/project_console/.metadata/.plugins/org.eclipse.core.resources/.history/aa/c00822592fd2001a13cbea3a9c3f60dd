@@ -1,5 +1,0 @@
-package project.management.task;
-
-public interface ILoginChoose {
-
-}

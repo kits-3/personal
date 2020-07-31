@@ -1,9 +1,0 @@
-package project.management.controlandmanagement;
-
-import java.util.List;
-
-import project.management.entity.ProductEntity;
-
-public interface IStatistics {
-	List<ProductEntity> findByMachine(int machineID);
-}

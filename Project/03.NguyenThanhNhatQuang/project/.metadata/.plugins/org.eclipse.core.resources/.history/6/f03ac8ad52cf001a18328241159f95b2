@@ -1,8 +1,0 @@
-package home.entity;
-
-public class TaskEntity {
-	private int id;
-	private String header;
-	private int owner;
-	private String 
-}

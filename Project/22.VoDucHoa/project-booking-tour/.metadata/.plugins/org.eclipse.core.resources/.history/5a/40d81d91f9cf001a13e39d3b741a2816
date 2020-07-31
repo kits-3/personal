@@ -1,5 +1,0 @@
-package pj.tour.repository.account;
-
-public class SignInAccount {
-
-}

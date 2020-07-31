@@ -1,8 +1,0 @@
-package project.management;
-
-import java.util.Scanner;
-
-public class ControlAndManagement {
-	Scanner scan = new Scanner(System.in);
-	System.out.println("please input money");
-}

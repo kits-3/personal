@@ -1,7 +1,0 @@
-package project.management.task.impl;
-
-import project.management.task.IStoreMachine;
-
-public class StoreMachine implements IStoreMachine{
-
-}

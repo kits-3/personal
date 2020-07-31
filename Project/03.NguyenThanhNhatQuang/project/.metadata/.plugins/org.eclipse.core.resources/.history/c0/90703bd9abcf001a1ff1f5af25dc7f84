@@ -1,7 +1,0 @@
-package home.repository.impl;
-
-import 
-
-public class RoleRepositoryImpl implements IRoleRepository{
-
-}
