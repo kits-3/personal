@@ -43,7 +43,7 @@ public class ATMmachine {
 
 	Scanner sc = new Scanner(System.in);
 
-	static double soTienRut = 0;
+	double soTienRut = 0;
 
 	public ATMmachine() {
 		authenticated = false;
@@ -320,7 +320,7 @@ public class ATMmachine {
 	boolean check(String value) {
 		boolean isOK = true;
 		if (value.equalsIgnoreCase("Y")) {
-			isOK = true;
+			isOK = true;  
 		} else if (value.equalsIgnoreCase("N")) {
 			isOK = false;
 		}
