@@ -1,0 +1,11 @@
+package home.repository;
+
+import java.util.ArrayList;
+
+import home.entity.TaskEntity;
+
+public interface ITaskRepository {
+	ArrayList<TaskEntity> getAllTaskByIdUser(int idUser);
+	
+	boolean isCheckTaskExistByUserId(String header, int idUser);
+}

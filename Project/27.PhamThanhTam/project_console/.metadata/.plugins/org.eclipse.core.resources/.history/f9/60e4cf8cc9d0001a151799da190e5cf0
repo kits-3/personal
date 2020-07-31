@@ -1,0 +1,14 @@
+package project.management.service;
+
+import java.util.List;
+
+import project.management.entity.ProductEntity;
+import project.management.entity.StoreMachineEntity;
+
+public interface IStoreMachineService {
+	ProductEntity addStoreMachine(StoreMachineEntity storeMachineEntity);
+	ProductEntity updateStoreMachine(StoreMachineEntity storeMachineEntity);
+	void deleteStoreMachine(int id);
+	List<StoreMachineEntity> findAll();
+	StoreMachineEntity findOneById(int id);
+}

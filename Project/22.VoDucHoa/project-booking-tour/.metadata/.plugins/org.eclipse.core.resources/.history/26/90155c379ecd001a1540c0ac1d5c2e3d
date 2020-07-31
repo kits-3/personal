@@ -1,0 +1,11 @@
+package pj.tour.repository;
+
+import java.util.List;
+import pj.tour.entity.UserEntity;
+
+public interface UserRepository {
+	List<UserEntity> findAll();
+	UserEntity findById(int id);
+	int update();
+	int delete();
+}

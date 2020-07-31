@@ -1,0 +1,9 @@
+package project.management.repository;
+
+import project.management.entity.OrderItemEntity;
+
+public interface IOrderItemRepository extends GenericRepository<OrderItemEntity> {
+	int add(int storeMachine, OrderItemEntity orderItemEntity);
+
+	OrderItemEntity findOne(int newId);
+}

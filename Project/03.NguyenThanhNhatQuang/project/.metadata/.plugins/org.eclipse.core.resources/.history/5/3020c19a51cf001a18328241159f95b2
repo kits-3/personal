@@ -1,0 +1,5 @@
+package home.entity;
+
+public class RoleEntity {
+
+}

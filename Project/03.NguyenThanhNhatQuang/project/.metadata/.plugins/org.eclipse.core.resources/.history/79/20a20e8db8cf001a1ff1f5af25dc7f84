@@ -1,0 +1,5 @@
+package home.repository;
+
+public interface ITaskRepository {
+	ArrayList<TaskEntity> getAllTaskByIdUser(int idUser); 
+}

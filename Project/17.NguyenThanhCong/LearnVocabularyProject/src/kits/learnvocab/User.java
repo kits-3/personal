@@ -108,7 +108,7 @@ static int b;
 				if (sc.next().equals("1")) {
 					otherLanguage();
 				}
-				else if(sc.next().equals("2")) {
+				else if(sc.next().equals("1")) {
 					otherTopic(b);
 				}
 			}else {
@@ -165,13 +165,10 @@ static int b;
 			}else {
 				System.out.println("Return choose language or topic");
 				System.out.println("Press 1 to return choose language, press 2 to return choose topic");
-				Scanner sc1 = new Scanner(System.in);
-				int ss = sc1.nextInt();
-				if (ss==1) {
+				if (sc.next().equals("1")) {
 					otherLanguage();
 				}
-				else if(ss==2) {
-					
+				else if(sc.next().equals("1")) {
 					otherTopic(b);
 				}
 			}
@@ -189,7 +186,6 @@ static int b;
 					int j = i+1;
 					System.out.println(  ls.get(i).getId()+"\t"+ ls.get(i).getName());
 				}
-				
 				int choose = sc.nextInt();
 				return choose;
 				

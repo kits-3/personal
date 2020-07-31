@@ -1,0 +1,16 @@
+package home.service.user.impl;
+
+import java.util.ArrayList;
+
+import home.entity.UserEntity;
+import home.service.user.IUserFeature;
+
+public class UserFeatureImpl implements IUserFeature{
+
+	@Override
+	public void getListUser() {
+		ArrayList<UserEntity> listUser = new ArrayList<UserEntity>();
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package home.service.user.impl;
+
+import home.entity.UserEntity;
+import home.repository.IUserRepository;
+import home.repository.impl.UserRepositoryImpl;
+import home.service.user.IUserFeature;
+
+public class UserFeatureImpl implements IUserFeature{
+
+	@Override
+	public void getListUser() {
+		IUserRepository userRepository = new UserRepositoryImpl();
+		for (UserEntity user : userRepository.getListUser()) {
+			System.out.println(user.getUsername());
+		}
+	}
+
+	@Override
+	public UserEntity setUserLogin(String userName, String passWord) {
+		
+	}
+
+}

@@ -1,0 +1,1 @@
+package home;import home.service.run.IRun;import home.service.run.impl.RunImpl;public class Main {public static void main(String[] args) {IRun start = new RunImpl();start.run();}}

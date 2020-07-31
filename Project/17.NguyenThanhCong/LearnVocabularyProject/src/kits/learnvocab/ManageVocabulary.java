@@ -127,7 +127,6 @@ public class ManageVocabulary implements FunctionAdmin{
 			wannaContinue();
 		}else if (choose.equals("3")) {
 			cwdao.update(cwdto);
-			wannaContinue();
 		}
 		
 	}

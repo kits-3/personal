@@ -1,0 +1,250 @@
+package home.service.menu.impl;
+
+import home.service.menu.IMenu;
+
+public class MenuImpl implements IMenu{
+
+	@Override
+	public void menuStart() {
+		System.out.println("============================");
+		System.out.println("==========Welcome===========");
+		System.out.println("1. Login Account");
+		System.out.println("2. Register Account");
+		System.out.println("3. End");
+	}
+
+	@Override
+	public void menuChoose() {
+		System.out.println("============================");
+		System.out.print("Select: ");
+	}
+
+	@Override
+	public void menuLoginAccount() {
+		System.out.println("============================");
+		System.out.println("1. Login Account ");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuInputUserName() {
+		System.out.print("Input username: ");
+	}
+
+	@Override
+	public void menuInputPassword() {
+		System.out.print("Input password: ");
+	}
+
+	@Override
+	public void menuRegisterAccount() {
+		System.out.println("============================");
+		System.out.println("1. Register Account ");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuInputEmail() {
+		System.out.print("Input email: ");
+	}
+
+	@Override
+	public void menuInputLName() {
+		System.out.print("Input last name: ");
+	}
+
+	@Override
+	public void menuInputFname() {
+		System.out.print("Input first name: ");
+	}
+
+	@Override
+	public void menuInputPhone() {
+		System.out.print("Input phone number: ");
+	}
+
+	@Override
+	public void menuAdmin() {
+		System.out.println("============================");
+		System.out.println("Feature Task: ");
+		System.out.println("1. Create Task");
+		System.out.println("2. Read Task");
+		System.out.println("3. Edit and Update Task");
+		System.out.println("4. Delete Task");
+		System.out.println("5. View Detail One Task");
+		System.out.println("============================");
+		System.out.println("User Feature: ");
+		System.out.println("6. Show Info");
+		System.out.println("7. Edit Info");
+		System.out.println("8. Logout");
+		System.out.println("============================");
+		System.out.println("Admin Feature: ");
+		System.out.println("9. Show All User");
+		System.out.println("10. Edit Any User");
+		System.out.println("11. Show All Task User");
+		System.out.println("12. Edit Any Task");
+	}
+
+	@Override
+	public void menuUser() {
+		System.out.println("============================");
+		System.out.println("1. Create Task");
+		System.out.println("2. Read Task");
+		System.out.println("3. Edit and Update Task");
+		System.out.println("4. Delete Task");
+		System.out.println("5. View Detail One Task");
+		System.out.println("============================");
+		System.out.println("User Feature: ");
+		System.out.println("6. Show Info");
+		System.out.println("7. Edit Info");
+		System.out.println("8. Logout");
+	}
+
+	@Override
+	public void menuCreateTask() {
+		System.out.println("============================");
+		System.out.println("1. Create Task");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuReadTask() {
+		System.out.println("============================");
+		System.out.println("1. Read Task");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuEditAndUpdateTask() {
+		System.out.println("============================");
+		System.out.println("1. Edit and Update Task");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuDeleteTask() {
+		System.out.println("============================");
+		System.out.println("1. Delete Task");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuViewDetailOneTask() {
+		System.out.println("============================");
+		System.out.println("1. View Detail Task");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuInputHeader() {
+		System.out.println("============================");
+		System.out.print("Input Header Task: ");
+	}
+
+	@Override
+	public void menuEditOneTask() {
+		System.out.println("============================");
+		System.out.println("1. Change title task");
+		System.out.println("2. Change status task");
+		System.out.println("3. Change display task");
+		System.out.println("4. Change description task");
+		System.out.println("5. End");
+	}
+
+	@Override
+	public void menuInputStatus() {
+		System.out.println("============================");
+		System.out.println("Input Status Task (1 : complete / 0 : incomplete): ");
+		System.out.print("Select: ");
+	}
+
+	@Override
+	public void menuInputDisplay() {
+		System.out.println("============================");
+		System.out.print("Input Display Task (1 :  display / 0 : hidden):) ");
+		System.out.print("Select: ");
+	}
+
+	@Override
+	public void menuInputDescription() {
+		System.out.println("============================");
+		System.out.print("Input Description Task: ");
+	}
+
+	@Override
+	public void menuEditTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Create Content Task Detail");
+		System.out.println("2. Update Fields Task Detail");
+		System.out.println("3. Delete Task Detail");
+		System.out.println("4. End");
+	}
+
+	@Override
+	public void menuCreateTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Create Content Task Detail");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuInputContentTaskDeTail() {
+		System.out.println("============================");
+		System.out.print("Input Content Task Detail: ");
+	}
+
+	@Override
+	public void menuEditFieldTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Change content task detail");
+		System.out.println("2. Change status task detail");
+		System.out.println("3. Change display task detail");
+		System.out.println("4. Change description task detail");
+		System.out.println("5. End");
+	}
+
+	@Override
+	public void menuChangeContentTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Change Content Task Detail");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuChangeStatusTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Change Status Task Detail");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuChangeDisplayTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Change Display Task Detail");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuChangeDescriptionTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Change Description Task Detail");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuDeleteTaskDetail() {
+		System.out.println("============================");
+		System.out.println("1. Delete Task Detail");
+		System.out.println("2. Go back");
+	}
+
+	@Override
+	public void menuChangeInfomationUser() {
+		System.out.println("============================");
+		System.out.println("1. Change password");
+		System.out.println("2. Change email");
+		System.out.println("3. Change last name");
+		System.out.println("4. Change fname name");
+	}
+
+}

@@ -1,0 +1,7 @@
+package home.service.handingcase.impl;
+
+import home.service.handingcase.IHandingCase;
+
+public class HandingCaseImpl implements IHandingCase{
+
+}

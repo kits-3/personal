@@ -1,0 +1,199 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Dao {
+	Connection Connection = null;
+	PreparedStatement ptmt = null; //chưa các câu lệnh có thể chưa biến (PreparedStatement) - (statement)
+	ResultSet resultSet = null;
+	
+	public Dao() {
+		
+	}
+	
+	private Connection getConnection() throws SQLException { // Hàm khởi tạo kết nối
+		Connection conn;
+		conn = ConnectionFactory.getInstance().getConnection();
+		return conn;
+	}
+	
+	public void add(Dto dto) {
+		try {
+			String queryString = "INSERT INTO "
+		+"user(name, dprtmt_id, rank_id, reg_id, reg_date, updt_id, updt_date)" 
+		+"VALUES(?,?,?,?,now(),?,now())";
+			Connection = getConnection();
+			ptmt = Connection.prepareStatement(queryString);
+			ptmt.setString(1, dto.getName());
+			ptmt.setString(2, dto.getDprtmt_id());
+			ptmt.setString(3, dto.getRank_id());
+			ptmt.setString(4, "1");
+			ptmt.setString(5, "1");
+			ptmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (ptmt != null) {
+					ptmt.close();
+				}
+				if (Connection != null) {
+					Connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void update (Dto dto) {
+		try {
+			String queryString = "update user  set name = ? "
+		+"dprtmt_id" 
+		+"rank_id=? where id =?";
+			Connection = getConnection();
+			ptmt = Connection.prepareStatement(queryString);
+			ptmt.setString(1, dto.getName());
+			ptmt.setString(2, dto.getDprtmt_id());
+			ptmt.setString(3, dto.getRank_id());
+			ptmt.setString(4, dto.getId());
+			ptmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (ptmt != null) {
+					ptmt.close();
+				}
+				if (Connection != null) {
+					Connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void delete(String id) {
+		try {
+			String queryString = "delete from user where id = ? ";
+			Connection = getConnection();
+			ptmt = Connection.prepareStatement(queryString);;
+			ptmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (ptmt != null) {
+					ptmt.close();
+				}
+				if (Connection != null) {
+					Connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	public List<Dto> findAll() {
+		try {
+			String quertString = "Select * from user";					//Khai báo truy vấn (lấy tất cả từ bảng user)
+			//String quertString = "Select * from user where id= ?";
+			Connection = getConnection(); 										// tạo kết nối
+			ptmt = Connection.prepareStatement(quertString);					// Truy vấn SQL
+			resultSet = ptmt.executeQuery();	//Select						// Thực thi lệnh
+		//  			ptmt.executeUpdate();   //update, insert   
+			
+			List<Dto> dtoList = new ArrayList<Dto>();
+			int i = 0;
+			
+			while (resultSet.next()) {							       //resultSet.next() tới hàng cuối cùng tự động out	
+				
+				dtoList.get(i).setId(resultSet.getString("id")); 		//resultSet.getString("id") lấy theo id(số côt)
+				
+				dtoList.get(i).setName(resultSet.getString("Name"));
+				dtoList.get(i).setRank_id(resultSet.getString("rank_id"));
+				
+				System.out.println("id : "
+			+resultSet.getString("id")
+			+"name : "
+			+resultSet.getString("name"));
+			i++;
+			}
+			
+			return dtoList;
+			
+		}catch (SQLException e2) {
+			e2.printStackTrace();
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {							
+			try {
+				if (resultSet != null) { 	//đóng lại resultSet
+					resultSet.close();
+				}
+				if (ptmt != null) { 		//đóng lại statement
+					ptmt.close();
+				}
+				if (Connection != null) { 	//đóng kết nối
+					Connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+/*	public void findAll() {
+		try {
+			String quertString = "Select * from user";
+			Connection = getConnection();
+			ptmt = Connection.prepareStatement(quertString);
+			resultSet = ptmt.executeQuery();
+			while (resultSet.next()) {
+				System.out.println("id : "
+			+resultSet.getString("id")
+			+"name : "
+			+resultSet.getString("name"));
+			}
+		}catch (SQLException e2) {
+			e2.printStackTrace();
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (ptmt != null) {
+					ptmt.close();
+				}
+				if (Connection != null) {
+					Connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}*/
+}

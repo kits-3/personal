@@ -1,0 +1,14 @@
+package pj.tour.repository;
+
+import java.util.List;
+
+import pj.tour.entity.TourEntity;
+import pj.tour.entity.UserEntity;
+
+public interface AdminRepository {
+	List<UserEntity> findAll();
+	UserEntity findById(int id);
+	int addTour();
+	void updateTour(TourEntity add);
+	int deleteTour();
+}

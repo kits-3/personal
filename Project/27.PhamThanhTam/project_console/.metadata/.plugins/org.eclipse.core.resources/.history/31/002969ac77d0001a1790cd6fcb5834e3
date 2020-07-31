@@ -1,0 +1,16 @@
+package project.management.repository.impl;
+
+import project.management.entity.OrderItemEntity;
+import project.management.repository.IOrderItemRepository;
+
+public class OrderItemRepository extends AbstrachRepository<OrderItemEntity> implements IOrderItemRepository {
+
+	@Override
+	public int add(int storeMachine, OrderItemEntity orderItemEntity) {
+		StringBuilder sql = new StringBuilder("INSERT INTO orderitem ");
+		sql.append(" ( moneytotal, storemachineid)");
+		sql.append(" VALUES(?, ?)");
+		return insert(sql.toString(), orderItemEntity.getMoneytotal(),storeMachine);
+	}
+	
+}
